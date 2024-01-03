@@ -1,0 +1,49 @@
+.stations-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  display: none;
+  height: -moz-max-content;
+  height: max-content;
+}
+.stations-popup.active-card {
+  display: block !important;
+}
+.stations-popup__inner {
+  border: 1px solid #000;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+.stations-popup__inner div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.stations-popup__inner .buy-or-auction {
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.stations-popup__inner .buy-or-auction button {
+  padding: 8px 20px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.stations-popup__inner .buy-or-auction .buy button {
+  background-color: #900;
+}
+.stations-popup__inner .buy-or-auction .auction button {
+  color: #000;
+}
+.stations-popup__inner h2 {
+  text-align: center;
+}/*# sourceMappingURL=popup-stations.css.map */

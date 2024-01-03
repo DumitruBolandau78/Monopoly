@@ -1,0 +1,82 @@
+.buy-card-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    display: none;
+
+    &.active-card {
+        display: block !important;
+    }
+
+    &__inner {
+        border: 1px solid #000;
+        height: 100%;
+        padding: 10px;
+
+        .card-color {
+            background-color: #900;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .purchase-price, .mortage-value {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .about-prices {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        .houses-hotel-cost {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        .buy-or-auction {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+
+            button {
+                padding: 8px 20px;
+                border: none;
+                color: #fff;
+                font-size: 20px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+            .buy button{
+                background-color: #900;
+            }
+
+            .auction button {
+                color: #000;
+            }
+        }
+    }
+}

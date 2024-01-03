@@ -1,0 +1,132 @@
+.auction-popup {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    color: #fff;
+    display: none;
+    z-index: 10000;
+
+    &.active-auction {
+        display: block;
+    }
+
+    .auction-card-info {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        min-height: 300px;
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 30px;
+            background-color: #fff;
+            color: #000;
+
+            .show-money {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                font-size: 30px;
+
+                img {
+                    width: 100%;
+                    max-width: 300px;
+                }
+            }
+
+            .stations150, .normal-card-stations, .families-stations {
+                width: 220px;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                padding: 15px 20px;
+                display: none;
+
+                &.active-card-auction {
+                    display: block !important;
+                }
+
+                .price, .rent, .mortage-value, .purchase-price, .rent-price, .rent-price-full-color, .rent-with-1-house,
+                .rent-with-2-house, .rent-with-3-house, .rent-with-4-house, .rent-with-1-hotel, .houses-cost, .hotel-cost {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .two-stations, .three-stations, .four-stations {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    justify-content: space-between;
+                    margin-top: 10px;
+                }
+
+                h4 {
+                    font-size: 18px;
+                    text-align: center;
+                    margin: 0;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    .auction-players {
+        min-height: 300px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        box-shadow: 3px 3px 3px 4px #fff;
+        background-color: rgba($color: #000, $alpha: .96);
+    }
+
+    .player {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+        pointer-events: none;
+        visibility: hidden;
+
+        &.active-player {
+            pointer-events: all;
+            visibility: visible;
+        }
+    }
+
+    .name {
+        font-weight: bold;
+        font-size: 40px;
+    }
+
+    .offer-more {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+
+        .plus100 {
+            grid-column: 1 / 3;
+        }
+
+        button {
+            width: 100%;
+            background-color: #fff;
+            padding: 8px 0;
+            font-size: 20px;
+            border: 2px solid #fff;
+        }
+    }
+
+    .offered {
+        font-size: 24px;
+    }
+
+    .max-money {
+        display: flex;
+        justify-content: space-around;
+    }
+}

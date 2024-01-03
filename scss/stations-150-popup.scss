@@ -1,0 +1,61 @@
+.stations-150-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    display: none;
+    height: max-content;
+
+    &.active-card {
+        display: block !important;
+    }
+
+    &__inner {
+        border: 1px solid #000;
+        height: 100%;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+
+        h2 {
+            text-align: center;
+        }
+
+        .price, .mortage-value {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        .first, .second {
+            margin: 20px 0;
+        }
+
+        .buy-or-auction {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+
+            button {
+                padding: 8px 20px;
+                border: none;
+                color: #fff;
+                font-size: 20px;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+            .buy button{
+                background-color: #900;
+            }
+
+            .auction button {
+                color: #000;
+            }
+        }
+    }
+}

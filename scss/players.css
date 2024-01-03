@@ -1,0 +1,67 @@
+.players-info {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.players-info .player__avatar {
+  max-width: 100px;
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid #900;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.players-info .player__avatar img {
+  max-width: 100px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.players-info .player__name {
+  background-color: #900;
+  padding: 5px 10px;
+  font-size: 18px;
+  position: relative;
+  top: -35px;
+}
+.players-info .player__money {
+  position: relative;
+  top: -35px;
+  font-size: 18px;
+  background-color: white;
+  color: #900;
+}
+.players-info .player.player-1 .player__avatar {
+  border: 2px solid blue;
+}
+.players-info .player.player-1 .player__name {
+  background-color: blue;
+}
+.players-info .player.player-1 .player__money {
+  color: blue;
+}
+.players-info .player.player-2 .player__avatar {
+  border: 2px solid green;
+}
+.players-info .player.player-2 .player__name {
+  background-color: green;
+}
+.players-info .player.player-2 .player__money {
+  color: green;
+}
+.players-info .player.player-3 .player__avatar {
+  border: 2px solid rgb(138, 3, 138);
+}
+.players-info .player.player-3 .player__name {
+  background-color: rgb(138, 3, 138);
+}
+.players-info .player.player-3 .player__money {
+  color: rgb(138, 3, 138);
+}/*# sourceMappingURL=players.css.map */

@@ -1,0 +1,62 @@
+.active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-top: 2px solid red;
+    border-left: 2px solid red;
+    border-right: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+    width: 400px;
+    height: 300px;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.popup-roll {
+    display: none;
+}
+
+.dies {
+    display: flex;
+    gap: 30px;
+}
+
+.dice {
+    width: 80px;
+    height: 80px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.active-dice {
+    animation: rotate .3s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+.roll-button {
+
+    button {
+        width: 150px;
+        background-color: #900;
+        padding: 10px 0;
+        font-size: 20px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+}
