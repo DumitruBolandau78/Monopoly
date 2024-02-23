@@ -4,7 +4,7 @@ const yoneInfo = {
   top: 710,
   money: 1500,
   cards: ['lightBlueCard2', 'lightBlueCard1', 'brownCard1', 'brownCard2', 'greenCard1', 'greenCard2', 'greenCard3',
-  'pinkCard1', 'pinkCard2'],
+  'pinkCard1', 'pinkCard2', 'targaryen'],
   color: '#900',
   isHavingSetOfCards: false
 };
@@ -14,7 +14,7 @@ const player1Info = {
   left: 750,
   top: 710,
   money: 1500,
-  cards: [],
+  cards: ['orangeCard1', 'orangeCard2'],
   color: 'blue',
   isHavingSetOfCards: false
 };

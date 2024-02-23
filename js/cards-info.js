@@ -95,7 +95,8 @@ const cardsInfo = {
         stations2: 50,
         stations3: 100,
         stations4: 200,
-        isBought: false
+        isBought: false,
+        color: 'black'
     },
     yellowCard1: {
         el: document.querySelector('.dreadfort'),
@@ -153,8 +154,8 @@ const cardsInfo = {
         price: 150,
         mortage: 75,
         unmortage: 85,
-        isBought: false
-
+        isBought: false,
+        color: 'black'
     },
     yellowCard3: {
         el: document.querySelector('.dragonstone'),
@@ -282,7 +283,8 @@ const cardsInfo = {
         stations2: 50,
         stations3: 100,
         stations4: 200,
-        isBought: false
+        isBought: false,
+        color: 'black'
     },
     pinkCard1: {
         el: document.querySelector('.storm-end'),
@@ -340,7 +342,8 @@ const cardsInfo = {
         rentOneCard: 4,
         rentTwoCard: 10,
         unmortage: 85,
-        isBought: false
+        isBought: false,
+        color: 'black'
     },
     pinkCard3: {
         el: document.querySelector('.dragonstone-soul'),
@@ -458,7 +461,8 @@ const cardsInfo = {
         stations2: 50,
         stations3: 100,
         stations4: 200,
-        isBought: false
+        isBought: false,
+        color: 'black'
     },
     rightValar: {
         el: document.querySelector('.random-card.valar'),
@@ -620,7 +624,8 @@ const cardsInfo = {
         stations2: 50,
         stations3: 100,
         stations4: 200,
-        isBought: false
+        isBought: false,
+        color: 'black'
     },
     pay200: {
         el: document.querySelector('.pay-200'),

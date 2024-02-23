@@ -143,7 +143,7 @@ function moveDice() {
       popupRoll.classList.remove('active');
     });
     getOnCard();
-  }, (firstRandomNr + secondRandomNr) * 500);
+  }, 9 * 500);
   ///(firstRandomNr + secondRandomNr)
 }
 
@@ -245,7 +245,7 @@ function stepOnLeftCards() {
 
     return;
   } else {
-    playerTurn.top -= normalCardWidth + 2;
+    playerTurn.top -= normalCardWidth + 1;
     playerIconTurn.style.top = `${playerTurn.top}px`;
   }
 }
@@ -271,7 +271,7 @@ function stepOnBottomCards() {
     playerIconTurn.style.left = `${playerTurn.left}px`;
     return;
   } else {
-    playerTurn.left -= normalCardWidth + 1.8;
+    playerTurn.left -= normalCardWidth + 1;
     playerIconTurn.style.left = `${playerTurn.left}px`;
   }
 }
@@ -308,7 +308,7 @@ let housesToggle = false;
 document.querySelector('.player-properties .add-build').addEventListener('click', () => {
   document.querySelector('.player-properties .add-build img').classList.add('toggle-build-active');
   document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
-  
+
   housesToggle = false;
 });
 
@@ -333,29 +333,29 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
         const card3 = cardsInfo[name3].el.querySelector('.card-color');
         const arrOfCardsColor = [card1, card2, card3];
 
-        if(card1.classList.contains('row')){
+        if (card1.classList.contains('row')) {
           card1.style.gridTemplateColumns = 'repeat(5, 1fr)';
         }
-  
-        if(card1.classList.contains('column')){
+
+        if (card1.classList.contains('column')) {
           card1.style.gridTemplateColumns = '1fr';
           card1.style.gridTemplateRows = 'repeat(5, 1fr)';
         }
 
-        if(card2.classList.contains('row')){
+        if (card2.classList.contains('row')) {
           card2.style.gridTemplateColumns = 'repeat(5, 1fr)';
         }
-  
-        if(card2.classList.contains('column')){
+
+        if (card2.classList.contains('column')) {
           card2.style.gridTemplateColumns = '1fr';
           card2.style.gridTemplateRows = 'repeat(5, 1fr)';
         }
 
-        if(card3.classList.contains('row')){
+        if (card3.classList.contains('row')) {
           card3.style.gridTemplateColumns = 'repeat(5, 1fr)';
         }
-  
-        if(card3.classList.contains('column')){
+
+        if (card3.classList.contains('column')) {
           card3.style.gridTemplateColumns = '1fr';
           card3.style.gridTemplateRows = 'repeat(5, 1fr)';
         }
@@ -384,12 +384,12 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
             }
           } else {
 
-            for(let i = 0; i < 5; i++){
-              if(card1.children[i] !== undefined && card1.children[i].classList.contains('hotel')){
+            for (let i = 0; i < 5; i++) {
+              if (card1.children[i] !== undefined && card1.children[i].classList.contains('hotel')) {
                 return;
               }
 
-              if(card1.children[i] === undefined){
+              if (card1.children[i] === undefined) {
                 const image = document.createElement('img');
                 image.src = '../images/builds/add-house-plus.webp';
                 image.alt = 'icon';
@@ -398,12 +398,12 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
               }
             }
 
-            for(let i = 0; i < 5; i++){
-              if(card2.children[i] !== undefined && card2.children[i].classList.contains('hotel')){
+            for (let i = 0; i < 5; i++) {
+              if (card2.children[i] !== undefined && card2.children[i].classList.contains('hotel')) {
                 return;
               }
 
-              if(card2.children[i] === undefined){
+              if (card2.children[i] === undefined) {
                 const image = document.createElement('img');
                 image.src = '../images/builds/add-house-plus.webp';
                 image.alt = 'icon';
@@ -412,11 +412,11 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
               }
             }
 
-            for(let i = 0; i < 5; i++){
-              if(card3.children[i] !== undefined && card3.children[i].classList.contains('hotel')){
+            for (let i = 0; i < 5; i++) {
+              if (card3.children[i] !== undefined && card3.children[i].classList.contains('hotel')) {
                 return;
               }
-              if(card3.children[i] === undefined){
+              if (card3.children[i] === undefined) {
                 const image = document.createElement('img');
                 image.src = '../images/builds/add-house-plus.webp';
                 image.alt = 'icon';
@@ -444,8 +444,8 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
             switch (e.target.id) {
               case 'lightBlueCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterLightBlue1 - counterLightBlue2 === 0 || counterLightBlue1 - counterLightBlue2 === 1) &&
-                    (counterLightBlue1 - counterLightBlue3 === 0 || counterLightBlue1 - counterLightBlue3 === 1)){
+                  if ((counterLightBlue1 - counterLightBlue2 === 0 || counterLightBlue1 - counterLightBlue2 === 1) &&
+                    (counterLightBlue1 - counterLightBlue3 === 0 || counterLightBlue1 - counterLightBlue3 === 1)) {
                     counterLightBlue1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['lightBlueCard1'].removeHouse;
@@ -474,8 +474,8 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'lightBlueCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterLightBlue2 - counterLightBlue1 === 0 || counterLightBlue2 - counterLightBlue1 === 1) &&
-                    (counterLightBlue2 - counterLightBlue3 === 0 || counterLightBlue2 - counterLightBlue3 === 1)){
+                  if ((counterLightBlue2 - counterLightBlue1 === 0 || counterLightBlue2 - counterLightBlue1 === 1) &&
+                    (counterLightBlue2 - counterLightBlue3 === 0 || counterLightBlue2 - counterLightBlue3 === 1)) {
                     counterLightBlue2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['lightBlueCard2'].removeHouse;
@@ -504,8 +504,8 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'lightBlueCard3': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterLightBlue3 - counterLightBlue2 === 0 || counterLightBlue3 - counterLightBlue2 === 1) &&
-                    (counterLightBlue3 - counterLightBlue1 === 0 || counterLightBlue3 - counterLightBlue1 === 1)){
+                  if ((counterLightBlue3 - counterLightBlue2 === 0 || counterLightBlue3 - counterLightBlue2 === 1) &&
+                    (counterLightBlue3 - counterLightBlue1 === 0 || counterLightBlue3 - counterLightBlue1 === 1)) {
                     counterLightBlue3--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['lightBlueCard3'].removeHouse;
@@ -534,9 +534,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'pinkCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterPink1 - counterPink2 === 0 || counterPink1 - counterPink2 === 1) &&
-                    (counterPink1 - counterPink3 === 0 || counterPink1 - counterPink3 === 1)){
-                      counterPink1--;
+                  if ((counterPink1 - counterPink2 === 0 || counterPink1 - counterPink2 === 1) &&
+                    (counterPink1 - counterPink3 === 0 || counterPink1 - counterPink3 === 1)) {
+                    counterPink1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['pinkCard1'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -564,9 +564,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'pinkCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterPink2 - counterPink1 === 0 || counterPink2 - counterPink1 === 1) &&
-                    (counterPink2 - counterPink3 === 0 || counterPink2 - counterPink3 === 1)){
-                      counterPink2--;
+                  if ((counterPink2 - counterPink1 === 0 || counterPink2 - counterPink1 === 1) &&
+                    (counterPink2 - counterPink3 === 0 || counterPink2 - counterPink3 === 1)) {
+                    counterPink2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['pinkCard2'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -594,9 +594,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'pinkCard3': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterPink3 - counterPink2 === 0 || counterPink3 - counterPink2 === 1) &&
-                    (counterPink3 - counterPink1 === 0 || counterPink3 - counterPink1 === 1)){
-                      counterPink3--;
+                  if ((counterPink3 - counterPink2 === 0 || counterPink3 - counterPink2 === 1) &&
+                    (counterPink3 - counterPink1 === 0 || counterPink3 - counterPink1 === 1)) {
+                    counterPink3--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['pinkCard3'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -624,9 +624,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'orangeCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterOrange1 - counterOrange2 === 0 || counterOrange1 - counterOrange2 === 1) &&
-                    (counterOrange1 - counterOrange3 === 0 || counterOrange1 - counterOrange3 === 1)){
-                      counterOrange1--;
+                  if ((counterOrange1 - counterOrange2 === 0 || counterOrange1 - counterOrange2 === 1) &&
+                    (counterOrange1 - counterOrange3 === 0 || counterOrange1 - counterOrange3 === 1)) {
+                    counterOrange1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['orangeCard1'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -654,9 +654,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'orangeCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterOrange2 - counterOrange1 === 0 || counterOrange2 - counterOrange1 === 1) &&
-                    (counterOrange2 - counterOrange3 === 0 || counterOrange2 - counterOrange3 === 1)){
-                      counterOrange2--;
+                  if ((counterOrange2 - counterOrange1 === 0 || counterOrange2 - counterOrange1 === 1) &&
+                    (counterOrange2 - counterOrange3 === 0 || counterOrange2 - counterOrange3 === 1)) {
+                    counterOrange2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['orangeCard2'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -684,9 +684,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'orangeCard3': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterOrange3 - counterOrange2 === 0 || counterOrange3 - counterOrange2 === 1) &&
-                    (counterOrange3 - counterOrange1 === 0 || counterOrange3 - counterOrange1 === 1)){
-                      counterOrange3--;
+                  if ((counterOrange3 - counterOrange2 === 0 || counterOrange3 - counterOrange2 === 1) &&
+                    (counterOrange3 - counterOrange1 === 0 || counterOrange3 - counterOrange1 === 1)) {
+                    counterOrange3--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['orangeCard3'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -714,9 +714,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'redCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterRed1 - counterRed2 === 0 || counterRed1 - counterRed2 === 1) &&
-                    (counterRed1 - counterRed3 === 0 || counterRed1 - counterRed3 === 1)){
-                      counterRed1--;
+                  if ((counterRed1 - counterRed2 === 0 || counterRed1 - counterRed2 === 1) &&
+                    (counterRed1 - counterRed3 === 0 || counterRed1 - counterRed3 === 1)) {
+                    counterRed1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['redCard1'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -744,9 +744,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'redCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterRed2 - counterRed1 === 0 || counterRed2 - counterRed1 === 1) &&
-                    (counterRed2 - counterRed3 === 0 || counterRed2 - counterRed3 === 1)){
-                      counterRed2--;
+                  if ((counterRed2 - counterRed1 === 0 || counterRed2 - counterRed1 === 1) &&
+                    (counterRed2 - counterRed3 === 0 || counterRed2 - counterRed3 === 1)) {
+                    counterRed2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['redCard2'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -774,9 +774,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'redCard3': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterRed3 - counterRed2 === 0 || counterRed3 - counterRed2 === 1) &&
-                    (counterRed3 - counterRed1 === 0 || counterRed3 - counterRed1 === 1)){
-                      counterRed3--;
+                  if ((counterRed3 - counterRed2 === 0 || counterRed3 - counterRed2 === 1) &&
+                    (counterRed3 - counterRed1 === 0 || counterRed3 - counterRed1 === 1)) {
+                    counterRed3--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['redCard3'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -804,9 +804,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'yellowCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterYellow1 - counterYellow2 === 0 || counterYellow1 - counterYellow2 === 1) &&
-                    (counterYellow1 - counterYellow3 === 0 || counterYellow1 - counterYellow3 === 1)){
-                      counterYellow1--;
+                  if ((counterYellow1 - counterYellow2 === 0 || counterYellow1 - counterYellow2 === 1) &&
+                    (counterYellow1 - counterYellow3 === 0 || counterYellow1 - counterYellow3 === 1)) {
+                    counterYellow1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['yellowCard1'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -834,9 +834,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'yellowCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterYellow2 - counterYellow1 === 0 || counterYellow2 - counterYellow1 === 1) &&
-                    (counterYellow2 - counterYellow3 === 0 || counterYellow2 - counterYellow3 === 1)){
-                      counterYellow2--;
+                  if ((counterYellow2 - counterYellow1 === 0 || counterYellow2 - counterYellow1 === 1) &&
+                    (counterYellow2 - counterYellow3 === 0 || counterYellow2 - counterYellow3 === 1)) {
+                    counterYellow2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['yellowCard2'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -864,9 +864,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'yellowCard3': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterYellow3 - counterYellow2 === 0 || counterYellow3 - counterYellow2 === 1) &&
-                    (counterYellow3 - counterYellow1 === 0 || counterYellow3 - counterYellow1 === 1)){
-                      counterYellow3--;
+                  if ((counterYellow3 - counterYellow2 === 0 || counterYellow3 - counterYellow2 === 1) &&
+                    (counterYellow3 - counterYellow1 === 0 || counterYellow3 - counterYellow1 === 1)) {
+                    counterYellow3--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['yellowCard3'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -894,9 +894,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'greenCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterGreen1 - counterGreen2 === 0 || counterGreen1 - counterGreen2 === 1) &&
-                    (counterGreen1 - counterGreen3 === 0 || counterGreen1 - counterGreen3 === 1)){
-                      counterGreen1--;
+                  if ((counterGreen1 - counterGreen2 === 0 || counterGreen1 - counterGreen2 === 1) &&
+                    (counterGreen1 - counterGreen3 === 0 || counterGreen1 - counterGreen3 === 1)) {
+                    counterGreen1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['greenCard1'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -924,9 +924,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'greenCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterGreen2 - counterGreen1 === 0 || counterGreen2 - counterGreen1 === 1) &&
-                    (counterGreen2 - counterGreen3 === 0 || counterGreen2 - counterGreen3 === 1)){
-                      counterGreen2--;
+                  if ((counterGreen2 - counterGreen1 === 0 || counterGreen2 - counterGreen1 === 1) &&
+                    (counterGreen2 - counterGreen3 === 0 || counterGreen2 - counterGreen3 === 1)) {
+                    counterGreen2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['greenCard2'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -954,9 +954,9 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'greenCard3': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if((counterGreen3 - counterGreen2 === 0 || counterGreen3 - counterGreen1 === 1) &&
-                    (counterGreen3 - counterGreen1 === 0 || counterGreen3 - counterGreen1 === 1)){
-                      counterGreen3--;
+                  if ((counterGreen3 - counterGreen2 === 0 || counterGreen3 - counterGreen1 === 1) &&
+                    (counterGreen3 - counterGreen1 === 0 || counterGreen3 - counterGreen1 === 1)) {
+                    counterGreen3--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['greenCard3'].removeHouse;
                     playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -998,20 +998,20 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
         const card2 = cardsInfo[name2].el.querySelector('.card-color');
         const arrOfCardsColor = [card1, card2];
 
-        if(card1.classList.contains('row')){
+        if (card1.classList.contains('row')) {
           card1.style.gridTemplateColumns = 'repeat(5, 1fr)';
         }
-  
-        if(card1.classList.contains('column')){
+
+        if (card1.classList.contains('column')) {
           card1.style.gridTemplateColumns = '1fr';
           card1.style.gridTemplateRows = 'repeat(5, 1fr)';
         }
 
-        if(card2.classList.contains('row')){
+        if (card2.classList.contains('row')) {
           card2.style.gridTemplateColumns = 'repeat(5, 1fr)';
         }
-  
-        if(card2.classList.contains('column')){
+
+        if (card2.classList.contains('column')) {
           card2.style.gridTemplateColumns = '1fr';
           card2.style.gridTemplateRows = 'repeat(5, 1fr)';
         }
@@ -1035,12 +1035,12 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
               el.appendChild(image);
             }
           } else {
-            for(let i = 0; i < 5; i++){
-              if(card1.children[i] !== undefined && card1.children[i].classList.contains('hotel')){
+            for (let i = 0; i < 5; i++) {
+              if (card1.children[i] !== undefined && card1.children[i].classList.contains('hotel')) {
                 return;
               }
 
-              if(card1.children[i] === undefined){
+              if (card1.children[i] === undefined) {
                 const image = document.createElement('img');
                 image.src = '../images/builds/add-house-plus.webp';
                 image.alt = 'icon';
@@ -1049,12 +1049,12 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
               }
             }
 
-            for(let i = 0; i < 5; i++){
-              if(card2.children[i] !== undefined && card2.children[i].classList.contains('hotel')){
+            for (let i = 0; i < 5; i++) {
+              if (card2.children[i] !== undefined && card2.children[i].classList.contains('hotel')) {
                 return;
               }
 
-              if(card2.children[i] === undefined){
+              if (card2.children[i] === undefined) {
                 const image = document.createElement('img');
                 image.src = '../images/builds/add-house-plus.webp';
                 image.alt = 'icon';
@@ -1074,7 +1074,7 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
             switch (e.target.id) {
               case 'brownCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if(counterBrown1 - counterBrown2 === 0 || counterBrown1 - counterBrown2 === 1) {
+                  if (counterBrown1 - counterBrown2 === 0 || counterBrown1 - counterBrown2 === 1) {
                     counterBrown1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['brownCard1'].removeHouse;
@@ -1102,7 +1102,7 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
               }
               case 'brownCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if(counterBrown2 - counterBrown1 === 0 || counterBrown2 - counterBrown1 === 1){
+                  if (counterBrown2 - counterBrown1 === 0 || counterBrown2 - counterBrown1 === 1) {
                     counterBrown2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['brownCard2'].removeHouse;
@@ -1110,7 +1110,7 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                   }
                   return;
                 }
-                  
+
                 if (counterBrown2 - counterBrown1 < 1 || counterBrown2 - counterBrown1 > 1) {
                   if (counterBrown2 >= 4) {
                     getHotel(e.target, 'brownCard2', counterBrown2);
@@ -1131,7 +1131,7 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'blueCard1': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if(counterBlue1 - counterBlue2 === 0 || counterBlue1 - counterBlue2 === 1){
+                  if (counterBlue1 - counterBlue2 === 0 || counterBlue1 - counterBlue2 === 1) {
                     counterBlue1--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['blueCard1'].removeHouse;
@@ -1160,7 +1160,7 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
               case 'blueCard2': {
                 if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp' && housesToggle) {
-                  if(counterBlue2 - counterBlue1 === 0 || counterBlue2 - counterBlue1 === 1){
+                  if (counterBlue2 - counterBlue1 === 0 || counterBlue2 - counterBlue1 === 1) {
                     counterBlue2--;
                     el.parentNode.removeChild(el);
                     playerTurn.money += cardsInfo['blueCard2'].removeHouse;
@@ -1203,11 +1203,11 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 }
 
 function getHotel(el, id, counter) {
-  if(el.parentNode.classList.contains('row')){
+  if (el.parentNode.classList.contains('row')) {
     el.parentNode.style.gridTemplateColumns = '1fr';
   }
 
-  if(el.parentNode.classList.contains('column')){
+  if (el.parentNode.classList.contains('column')) {
     el.parentNode.style.gridTemplateColumns = '1fr';
     el.parentNode.style.gridTemplateRows = '1fr';
   }
@@ -1223,20 +1223,20 @@ function getHotel(el, id, counter) {
   parentNode.appendChild(image);
 
   image.onclick = () => {
-    if(housesToggle){
+    if (housesToggle) {
       parentNode.innerHTML = '';
 
-      if(parentNode.classList.contains('row')){
+      if (parentNode.classList.contains('row')) {
         parentNode.style.gridTemplateColumns = 'repeat(5, 1fr)';
       }
 
-      if(parentNode.classList.contains('column')){
+      if (parentNode.classList.contains('column')) {
         parentNode.style.gridTemplateColumns = '1fr';
         parentNode.style.gridTemplateRows = 'repeat(5, 1fr)';
       }
-      
-      
-      for(let i = 0; i < 4; i++){
+
+
+      for (let i = 0; i < 4; i++) {
         const img = document.createElement('img');
         img.src = '../images/builds/house.webp';
         img.alt = 'icon';
@@ -1386,7 +1386,7 @@ function getOnCard() {
           key === 'pay200' || key === 'freeParking' || key === 'goJail') {
           document.querySelector('.player-properties .end-turn').onclick = () => {
             document.querySelector('.player-properties .add-build img').classList.remove('toggle-build-active');
-              document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
+            document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
             deleteAddHousesIcon();
             document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
             playersTurn();
@@ -2370,19 +2370,170 @@ function changeDiceImage(el) {
   }
 }
 
-document.querySelector('.player-properties .deal img').addEventListener('click',  () => {
+function ownedCards(player, parent){
+  parent.innerHTML = '';
+
+  player.cards.forEach(card => {
+    
+    add2Places('brownCard1', 'brownCard2');
+    add2Places('brownCard2', 'brownCard1');
+    add2Places('blueCard1', 'blueCard2');
+    add2Places('blueCard2', 'blueCard1');
+    add3Places('redCard1', 'redCard2', 'redCard3');
+    add3Places('redCard2', 'redCard1', 'redCard3');
+    add3Places('redCard3', 'redCard2', 'redCard1');
+    add3Places('yellowCard1', 'yellowCard2', 'yellowCard3');
+    add3Places('yellowCard2', 'yellowCard1', 'yellowCard3');
+    add3Places('yellowCard3', 'yellowCard2', 'yellowCard1');
+    add3Places('orangeCard1', 'orangeCard2', 'orangeCard3');
+    add3Places('orangeCard2', 'orangeCard1', 'orangeCard3');
+    add3Places('orangeCard3', 'orangeCard2', 'orangeCard1');
+    add3Places('pinkCard1', 'pinkCard2', 'pinkCard3');
+    add3Places('pinkCard2', 'pinkCard1', 'pinkCard3');
+    add3Places('pinkCard3', 'pinkCard2', 'pinkCard1');
+    add3Places('greenCard1', 'greenCard2', 'greenCard3');
+    add3Places('greenCard2', 'greenCard1', 'greenCard3');
+    add3Places('greenCard3', 'greenCard2', 'greenCard1');
+    add3Places('lightBlueCard1', 'lightBlueCard2', 'lightBlueCard3');
+    add3Places('lightBlueCard2', 'lightBlueCard1', 'lightBlueCard3');
+    add3Places('lightBlueCard3', 'lightBlueCard2', 'lightBlueCard1');
+
+    if(card === 'targaryen' || card === 'lannister' || card === 'baratheon' || card === 'stark' || card === 'card150Left' || card === 'card150Top'){
+      add();
+    }
+    
+
+    function add3Places(firstCard, secondCard, thirdCard){
+      if(card === firstCard){
+        if(cardsInfo[firstCard].el.querySelector('.card-color').innerHTML === '' && 
+          cardsInfo[secondCard].el.querySelector('.card-color').innerHTML === '' &&
+          cardsInfo[thirdCard].el.querySelector('.card-color').innerHTML === ''){
+          add();
+        } else {
+          const el1 = cardsInfo[firstCard].el.querySelectorAll('.card-color img');
+          const el2 = cardsInfo[secondCard].el.querySelectorAll('.card-color img');
+          const el3 = cardsInfo[thirdCard].el.querySelectorAll('.card-color img');
+          let isEl1 = false;
+          let isEl2 = false;
+          let isEl3 = false;
+  
+          el1.forEach(img => {
+            if(img.src !== 'http://127.0.0.1:5500/images/builds/add-house-plus.webp'){
+              isEl1 = true;
+              return;
+            }
+          });
+  
+          el2.forEach(img => {
+            if(img.src !== 'http://127.0.0.1:5500/images/builds/add-house-plus.webp'){
+              isEl2 = true;
+              return;
+            }
+          });
+
+          el3.forEach(img => {
+            if(img.src !== 'http://127.0.0.1:5500/images/builds/add-house-plus.webp'){
+              isEl2 = true;
+              return;
+            }
+          });
+  
+          if(isEl1 || isEl2 || isEl3){
+          } else {
+            add();
+          }
+        }
+      }
+    }
+
+    function add2Places(firstCard, secondCard){
+      if(card === firstCard){
+        if(cardsInfo[firstCard].el.querySelector('.card-color').innerHTML === '' && 
+          cardsInfo[secondCard].el.querySelector('.card-color').innerHTML === ''){
+          add();
+        } else {
+          const el1 = cardsInfo[firstCard].el.querySelectorAll('.card-color img');
+          const el2 = cardsInfo[secondCard].el.querySelectorAll('.card-color img');
+          let isEl1 = false;
+          let isEl2 = false;
+  
+          el1.forEach(img => {
+            if(img.src !== 'http://127.0.0.1:5500/images/builds/add-house-plus.webp'){
+              isEl1 = true;
+              return;
+            }
+          });
+  
+          el2.forEach(img => {
+            if(img.src !== 'http://127.0.0.1:5500/images/builds/add-house-plus.webp'){
+              isEl2 = true;
+              return;
+            }
+          });
+  
+          if(isEl1 || isEl2){
+          } else {
+            add();
+          }
+        }
+      }
+    }
+
+    function add(){
+      const option = document.createElement('option');
+      option.value = cardsInfo[card].name;
+      option.innerHTML = cardsInfo[card].name;
+      option.style.backgroundColor = cardsInfo[card].color;
+      parent.appendChild(option);
+    }
+  });
+}
+
+let tradeWith;
+
+document.querySelector('.deal-popup .left-side #range-money').addEventListener('input', () => {
+  const value = document.querySelector('.deal-popup .left-side #range-money').value;
+  const result = Math.round((value * playerTurn.money) / 100);
+  document.querySelector('.deal-popup .left-side .money').innerHTML = `$${result}`;
+});
+
+document.querySelector('.deal-popup .right-side #range-money').addEventListener('input', () => {
+  let result;
+  const value = document.querySelector('.deal-popup .right-side #range-money').value;
+
+  if(tradeWith === 'Yone'){
+    result = Math.round((value * yoneInfo.money) / 100);
+  }
+
+  if(tradeWith === 'Car'){
+    result = Math.round((value * player1Info.money) / 100);
+  }
+
+  if(tradeWith === 'Duck'){
+    result = Math.round((value * player2Info.money) / 100);
+  }
+
+  if(tradeWith === 'T-rex'){
+    result = Math.round((value * player3Info.money) / 100);
+  }
+
+  document.querySelector('.deal-popup .right-side .money').innerHTML = `$${result}`;
+});
+
+document.querySelector('.player-properties .deal img').addEventListener('click', () => {
   document.querySelector('.deal-popup').classList.add('active-deal');
-  document.querySelector('deal-popup .left-side').classList.remove('active-player-for-trade');
-  document.querySelector('deal-popup .right-side').classList.remove('active-player-for-trade');
+  document.querySelector('.deal-popup .left-side').classList.remove('active-player-for-trade');
+  document.querySelector('.deal-popup .right-side').classList.remove('active-player-for-trade');
 
   const playersElement = document.querySelector('.deal-popup #players');
   playersElement.innerHTML = '';
   const players = [yoneInfo, player1Info, player2Info, player3Info];
 
-  switch(playerTurn){
+  switch (playerTurn) {
     case yoneInfo: {
       players.forEach(player => {
-        if(player === yoneInfo){
+        if (player === yoneInfo) {
+          ownedCards(yoneInfo, document.querySelector('.deal-popup #offer-current'));
           return;
         } else {
           const option = document.createElement('option');
@@ -2391,12 +2542,13 @@ document.querySelector('.player-properties .deal img').addEventListener('click',
           playersElement.appendChild(option);
         }
       });
-      document.querySelector('.deal-popup .current-player').innerHTML = 'Yone';
+      document.querySelector('.deal-popup .current-player').innerHTML = yoneInfo.name;
       break;
     }
     case player1Info: {
       players.forEach(player => {
-        if(player === player1Info){
+        if (player === player1Info) {
+          ownedCards(player1Info, document.querySelector('.deal-popup #offer-current'));
           return;
         } else {
           const option = document.createElement('option');
@@ -2405,11 +2557,13 @@ document.querySelector('.player-properties .deal img').addEventListener('click',
           playersElement.appendChild(option);
         }
       });
+      document.querySelector('.deal-popup .current-player').innerHTML = player1Info.name;
       break;
     }
     case player2Info: {
       players.forEach(player => {
-        if(player === player2Info){
+        if (player === player2Info) {
+          ownedCards(player2Info, document.querySelector('.deal-popup #offer-current'));
           return;
         } else {
           const option = document.createElement('option');
@@ -2418,11 +2572,13 @@ document.querySelector('.player-properties .deal img').addEventListener('click',
           playersElement.appendChild(option);
         }
       });
+      document.querySelector('.deal-popup .current-player').innerHTML = player2Info.name;
       break;
     }
     case player3Info: {
       players.forEach(player => {
-        if(player === player3Info){
+        if (player === player3Info) {
+          ownedCards(player3Info, document.querySelector('.deal-popup #offer-current'));
           return;
         } else {
           const option = document.createElement('option');
@@ -2431,30 +2587,132 @@ document.querySelector('.player-properties .deal img').addEventListener('click',
           playersElement.appendChild(option);
         }
       });
+      document.querySelector('.deal-popup .current-player').innerHTML = player3Info.name;
       break;
     }
   }
 });
 
-document.querySelector('.deal-popup .submit button').addEventListener('click',  () => {
-  document.querySelector('deal-popup .left-side').classList.add('active-player-for-trade');
-  document.querySelector('deal-popup .right-side').classList.add('active-player-for-trade');
+document.querySelector('.deal-popup .submit button').addEventListener('click', () => {
+  document.querySelector('.deal-popup .right-side').classList.remove('hidden');
+  tradeWith = document.querySelector('#players').value;
 
-  switch(document.querySelector('#players').value){
-    case 'Yone': {
-      document.querySelector('.deal-popup .offer-to-player').innerHTML = 'Yone';
-      yoneInfo.cards.forEach(card => {
-        
-      });
+  document.querySelector('.deal-popup .right-side .offer-to-player').innerHTML = tradeWith;
+  document.querySelector('.deal-popup .right-side .money').innerHTML = `$0`;
+  document.querySelector('.deal-popup .right-side .range-style').value = `0`;
 
-
-      break;
-    }
+  if (tradeWith === yoneInfo.name) {
+    ownedCards(yoneInfo, document.querySelector('.deal-popup .right-side #offered-to'));
+  }
+  if (tradeWith === player1Info.name) {
+    ownedCards(player1Info, document.querySelector('.deal-popup .right-side #offered-to'));
+  }
+  if (tradeWith === player2Info.name) {
+    ownedCards(player2Info, document.querySelector('.deal-popup .right-side #offered-to'));
+  }
+  if (tradeWith === player3Info.name) {
+    ownedCards(player3Info, document.querySelector('.deal-popup .right-side #offered-to'));
   }
 });
 
-document.querySelector('.deal-popup .close').addEventListener('click',  () => {
+document.querySelector('.deal-popup .offer-btn button').addEventListener('click', () => {
+  if(!document.querySelector('.deal-popup .right-side').classList.contains('hidden')){
+    document.querySelector('.deal-popup .decision').classList.add('active');
+    document.querySelector('.deal-popup .decision .title').innerHTML = `Player ${playerTurn.name} is making an offer to ${tradeWith}`;
+  }
+});
+
+document.querySelector('.deal-popup .decision .decline').addEventListener('click', () => {
+  document.querySelector('.deal-popup .decision').classList.remove('active');
+});
+
+document.querySelector('.deal-popup .decision .accept').addEventListener('click', () => {
+  const selector1 = document.querySelector('.deal-popup #offer-current');
+  const selector2 = document.querySelector('.deal-popup #offered-to');
+
+  document.querySelector('.deal-popup .right-side #range-money').value = 0;
+  document.querySelector('.deal-popup .left-side #range-money').value = 0;
+  document.querySelector('.deal-popup .right-side .money').innerHTML = `$0`;
+  document.querySelector('.deal-popup .left-side .money').innerHTML = `$0`;
+  document.querySelector('.deal-popup .decision').classList.remove('active');
   document.querySelector('.deal-popup').classList.remove('active-deal');
+  document.querySelector('.deal-popup .right-side').classList.add('hidden');
+
+  let selectedValues1 = [];
+  let selectedValues2 = [];
+  
+  for (let i = 0; i < selector1.options.length; i++) {
+    let option = selector1.options[i];
+
+    if (option.selected) {
+      selectedValues1.push(option.value);
+    }
+  }
+
+  for (let i = 0; i < selector2.options.length; i++) {
+    let option = selector2.options[i];
+
+    if (option.selected) {
+      selectedValues2.push(option.value);
+    }
+  }
+
+  const moneyPlayer1 = parseInt((document.querySelector('.deal-popup .left-side .money').innerHTML).slice(1));
+  const moneyPlayer2 = parseInt((document.querySelector('.deal-popup .right-side .money').innerHTML).slice(1));
+
+  if(moneyPlayer1 > moneyPlayer2){
+    const money = moneyPlayer1 - moneyPlayer2;
+    switch(tradeWith){
+      case yoneInfo.name: {
+        yoneInfo.money += money;
+        playerTurn -= money;
+
+        document.querySelector('.player-yone .player__money').innerHTML = `$${yoneInfo.money}`;
+
+        switch(playerTurn.name){
+          case player1Info.name:{
+            document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
+        
+        break;
+      }
+      case player1Info.name: {
+        player1Info.money -= money;
+        playerTurn += money;
+        break;
+      }
+      case player2Info.name: {
+        player2Info.money -= money;
+        playerTurn += money;
+        break;
+      }
+      case player3Info.name: {
+        player3Info.money -= money;
+        playerTurn += money;
+        break;
+      }
+    }
+
+  } else if(moneyPlayer1 < moneyPlayer2){
+
+  } else {
+
+  }
+
+  
+  console.log(moneyPlayer1);
+  console.log(moneyPlayer2);
+});
+
+document.querySelector('.deal-popup .close').addEventListener('click', () => {
+  document.querySelector('.deal-popup').classList.remove('active-deal');
+  document.querySelector('.deal-popup .right-side').classList.add('hidden');
+  document.querySelector('.deal-popup .right-side #range-money').value = 0;
+  document.querySelector('.deal-popup .left-side #range-money').value = 0;
+  document.querySelector('.deal-popup .right-side .money').innerHTML = `$0`;
+  document.querySelector('.deal-popup .left-side .money').innerHTML = `$0`;
 });
 
 function getRandomNumber(min, max) {
