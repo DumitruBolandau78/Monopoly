@@ -421,14 +421,13 @@ body {
     margin: 0;
 }
 
-.end-turn {
+.end-turn, .pay-btn {
     display: none;
     justify-content: center;
     margin-top: 100%;
 
     &.active-btn {
         display: flex !important;
-        
     }
 
     button {

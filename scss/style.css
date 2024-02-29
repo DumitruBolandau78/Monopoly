@@ -368,15 +368,15 @@ body {
   margin: 0;
 }
 
-.end-turn {
+.end-turn, .pay-btn {
   display: none;
   justify-content: center;
   margin-top: 100%;
 }
-.end-turn.active-btn {
+.end-turn.active-btn, .pay-btn.active-btn {
   display: flex !important;
 }
-.end-turn button {
+.end-turn button, .pay-btn button {
   color: #fff;
   background-color: #900;
   font-size: 20px;

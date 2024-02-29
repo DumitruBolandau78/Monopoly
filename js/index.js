@@ -6,6 +6,7 @@ import { randomMissions } from './random-missions.js';
 
 let randomNumber = null;
 let firstRandomNr, secondRandomNr;
+let isHavingEnoughMoney = false;
 
 const yoneMoney = document.querySelector('.player-yone .player__money');
 const player1Money = document.querySelector('.player-1 .player__money');
@@ -143,7 +144,7 @@ function moveDice() {
       popupRoll.classList.remove('active');
     });
     getOnCard();
-  }, 9 * 500);
+  }, 3 * 500);
   ///(firstRandomNr + secondRandomNr)
 }
 
@@ -456,17 +457,25 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterLightBlue1, counterLightBlue2, counterLightBlue3)) {
                   if (counterLightBlue1 >= 4) {
-                    getHotel(e.target, 'lightBlueCard1', counterLightBlue1);
-                    playerTurn.money -= cardsInfo['lightBlueCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['lightBlueCard1'].houseCost >= 0){
+                      getHotel(e.target, 'lightBlueCard1', counterLightBlue1);
+                      playerTurn.money -= cardsInfo['lightBlueCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['lightBlueCard1'].houseCost} to buy one more houses.`);
+                    }
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterLightBlue1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['lightBlueCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['lightBlueCard1'].houseCost >= 0){
+                      counterLightBlue1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['lightBlueCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['lightBlueCard1'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -486,17 +495,28 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterLightBlue2, counterLightBlue1, counterLightBlue3)) {
                   if (counterLightBlue2 >= 4) {
-                    getHotel(e.target, 'lightBlueCard2', counterLightBlue2);
-                    playerTurn.money -= cardsInfo['lightBlueCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['lightBlueCard2'].houseCost >= 0){
+                      getHotel(e.target, 'lightBlueCard2', counterLightBlue2);
+                      playerTurn.money -= cardsInfo['lightBlueCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['lightBlueCard2'].houseCost} to buy one more houses.`);
+                    }
+
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterLightBlue2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['lightBlueCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['lightBlueCard2'].houseCost >= 0){
+                      counterLightBlue2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['lightBlueCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['lightBlueCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -516,17 +536,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterLightBlue3, counterLightBlue2, counterLightBlue1)) {
                   if (counterLightBlue3 >= 4) {
-                    getHotel(e.target, 'lightBlueCard3', counterLightBlue3);
-                    playerTurn.money -= cardsInfo['lightBlueCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['lightBlueCard3'].houseCost >= 0){
+                      getHotel(e.target, 'lightBlueCard3', counterLightBlue3);
+                      playerTurn.money -= cardsInfo['lightBlueCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['lightBlueCard3'].houseCost} to buy one more houses.`);
+                    }
+
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterLightBlue3++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['lightBlueCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['lightBlueCard3'].houseCost >= 0){
+                      counterLightBlue3++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['lightBlueCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['lightBlueCard3'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -546,17 +575,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterPink1, counterPink2, counterPink3)) {
                   if (counterPink1 >= 4) {
-                    getHotel(e.target, 'pinkCard1', counterPink1);
-                    playerTurn.money -= cardsInfo['pinkCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['pinkCard1'].houseCost >= 0){
+                      getHotel(e.target, 'pinkCard1', counterPink1);
+                      playerTurn.money -= cardsInfo['pinkCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['pinkCard1'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterPink1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['pinkCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['pinkCard1'].houseCost >= 0){
+                      counterPink1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['pinkCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['pinkCard1'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -576,17 +615,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterPink2, counterPink1, counterPink3)) {
                   if (counterPink2 >= 4) {
-                    getHotel(e.target, 'pinkCard2', counterPink2);
-                    playerTurn.money -= cardsInfo['pinkCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['pinkCard2'].houseCost >= 0){
+                      getHotel(e.target, 'pinkCard2', counterPink2);
+                      playerTurn.money -= cardsInfo['pinkCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['pinkCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterPink2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['pinkCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['pinkCard2'].houseCost >= 0){
+                      counterPink2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['pinkCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['pinkCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -606,17 +655,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterPink3, counterPink2, counterPink1)) {
                   if (counterPink3 >= 4) {
-                    getHotel(e.target, 'pinkCard3', counterPink3);
-                    playerTurn.money -= cardsInfo['pinkCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['pinkCard3'].houseCost >= 0){
+                      getHotel(e.target, 'pinkCard3', counterPink3);
+                      playerTurn.money -= cardsInfo['pinkCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['pinkCard3'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterPink3++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['pinkCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['pinkCard3'].houseCost >= 0){
+                      counterPink3++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['pinkCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['pinkCard3'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -636,17 +695,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterOrange1, counterOrange2, counterOrange3)) {
                   if (counterOrange1 >= 4) {
-                    getHotel(e.target, 'orangeCard1', counterOrange1);
-                    playerTurn.money -= cardsInfo['orangeCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['orangeCard1'].houseCost >= 0){
+                      getHotel(e.target, 'orangeCard1', counterOrange1);
+                      playerTurn.money -= cardsInfo['orangeCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['orangeCard1'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterOrange1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['orangeCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['orangeCard1'].houseCost >= 0){
+                      counterOrange1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['orangeCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['orangeCard1'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -666,17 +735,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterOrange2, counterOrange1, counterOrange3)) {
                   if (counterOrange2 >= 4) {
-                    getHotel(e.target, 'orangeCard2', counterOrange2);
-                    playerTurn.money -= cardsInfo['orangeCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['orangeCard2'].houseCost >= 0){
+                      getHotel(e.target, 'orangeCard2', counterOrange2);
+                      playerTurn.money -= cardsInfo['orangeCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['orangeCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterOrange2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['orangeCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['orangeCard2'].houseCost >= 0){
+                      counterOrange2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['orangeCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['orangeCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -696,17 +775,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterOrange3, counterOrange2, counterOrange1)) {
                   if (counterOrange3 >= 4) {
-                    getHotel(e.target, 'orangeCard3', counterOrange3);
-                    playerTurn.money -= cardsInfo['orangeCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['orangeCard3'].houseCost >= 0){
+                      getHotel(e.target, 'orangeCard3', counterOrange3);
+                      playerTurn.money -= cardsInfo['orangeCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['orangeCard3'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterOrange3++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['orangeCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['orangeCard3'].houseCost >= 0){
+                      counterOrange3++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['orangeCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['orangeCard3'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -726,17 +815,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterRed1, counterRed2, counterRed3)) {
                   if (counterRed1 >= 4) {
-                    getHotel(e.target, 'redCard1', counterRed1);
-                    playerTurn.money -= cardsInfo['redCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['redCard1'].houseCost >= 0){
+                      getHotel(e.target, 'redCard1', counterRed1);
+                      playerTurn.money -= cardsInfo['redCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['redCard1'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterRed1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['redCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['redCard1'].houseCost >= 0){
+                      counterRed1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['redCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['redCard1'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -756,17 +855,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterRed2, counterRed1, counterRed3)) {
                   if (counterRed2 >= 4) {
-                    getHotel(e.target, 'redCard2', counterRed2);
-                    playerTurn.money -= cardsInfo['redCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['redCard2'].houseCost >= 0){
+                      getHotel(e.target, 'redCard2', counterRed2);
+                      playerTurn.money -= cardsInfo['redCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['redCard2'].houseCost} to buy one more houses.`);
+                    }
+                   
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterRed2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['redCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['redCard2'].houseCost >= 0){
+                      counterRed2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['redCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['redCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -786,17 +895,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterRed3, counterRed2, counterRed1)) {
                   if (counterRed3 >= 4) {
-                    getHotel(e.target, 'redCard3', counterRed3);
-                    playerTurn.money -= cardsInfo['redCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['redCard3'].houseCost >= 0){
+                      getHotel(e.target, 'redCard3', counterRed3);
+                      playerTurn.money -= cardsInfo['redCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['redCard3'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterRed3++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['redCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['redCard3'].houseCost >= 0){
+                      counterRed3++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['redCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['redCard3'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -816,17 +934,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterYellow1, counterYellow2, counterYellow3)) {
                   if (counterYellow1 >= 4) {
-                    getHotel(e.target, 'yellowCard1', counterYellow1);
-                    playerTurn.money -= cardsInfo['yellowCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['yellowCard1'].houseCost >= 0){
+                      getHotel(e.target, 'yellowCard1', counterYellow1);
+                      playerTurn.money -= cardsInfo['yellowCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['yellowCard1'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterYellow1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['yellowCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['yellowCard1'].houseCost >= 0){
+                      counterYellow1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['yellowCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['yellowCard1'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -846,17 +973,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterYellow2, counterYellow1, counterYellow3)) {
                   if (counterYellow2 >= 4) {
-                    getHotel(e.target, 'yellowCard2', counterYellow2);
-                    playerTurn.money -= cardsInfo['yellowCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['yellowCard2'].houseCost >= 0){
+                      getHotel(e.target, 'yellowCard2', counterYellow2);
+                      playerTurn.money -= cardsInfo['yellowCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['yellowCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterYellow2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['yellowCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['yellowCard2'].houseCost >= 0){
+                      counterYellow2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['yellowCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['yellowCard2'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -876,17 +1012,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterYellow3, counterYellow2, counterYellow1)) {
                   if (counterYellow3 >= 4) {
-                    getHotel(e.target, 'yellowCard3', counterYellow3);
-                    playerTurn.money -= cardsInfo['yellowCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['yellowCard3'].houseCost >= 0){
+                      getHotel(e.target, 'yellowCard3', counterYellow3);
+                      playerTurn.money -= cardsInfo['yellowCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['yellowCard3'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterYellow3++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['yellowCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['yellowCard3'].houseCost >= 0){
+                      counterYellow3++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['yellowCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['yellowCard3'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -906,17 +1052,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterGreen1, counterGreen2, counterGreen3)) {
                   if (counterGreen1 >= 4) {
-                    getHotel(e.target, 'greenCard1', counterGreen1);
-                    playerTurn.money -= cardsInfo['greenCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['greenCard1'].houseCost >= 0){
+                      getHotel(e.target, 'greenCard1', counterGreen1);
+                      playerTurn.money -= cardsInfo['greenCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['greenCard1'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterGreen1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['greenCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['greenCard1'].houseCost >= 0){
+                      counterGreen1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['greenCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['greenCard1'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -936,17 +1092,27 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterGreen2, counterGreen1, counterGreen3)) {
                   if (counterGreen2 >= 4) {
-                    getHotel(e.target, 'greenCard2', counterGreen2);
-                    playerTurn.money -= cardsInfo['greenCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['greenCard2'].houseCost >= 0){
+                      getHotel(e.target, 'greenCard2', counterGreen2);
+                      playerTurn.money -= cardsInfo['greenCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['greenCard2'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterGreen2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['greenCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['greenCard2'].houseCost >= 0){
+                      counterGreen2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['greenCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['greenCard2'].houseCost} to buy one more houses.`);
+                    }
+                    
                   }
                 }
                 break;
@@ -966,17 +1132,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (verifyCountersForHouses(counterGreen3, counterGreen2, counterGreen1)) {
                   if (counterGreen3 >= 4) {
-                    getHotel(e.target, 'greenCard3', counterGreen3);
-                    playerTurn.money -= cardsInfo['greenCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['greenCard3'].houseCost >= 0){
+                      getHotel(e.target, 'greenCard3', counterGreen3);
+                      playerTurn.money -= cardsInfo['greenCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['greenCard3'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterGreen3++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['greenCard3'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['greenCard3'].houseCost >= 0){
+                      counterGreen3++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['greenCard3'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['greenCard3'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -1085,17 +1260,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (counterBrown1 - counterBrown2 < 1 || counterBrown1 - counterBrown2 > 1) {
                   if (counterBrown1 >= 4) {
-                    getHotel(e.target, 'brownCard1', counterBrown1);
-                    playerTurn.money -= cardsInfo['brownCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['brownCard1'].houseCost >= 0){
+                      getHotel(e.target, 'brownCard1', counterBrown1);
+                      playerTurn.money -= cardsInfo['brownCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['brownCard1'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterBrown1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['brownCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['brownCard1'].houseCost >= 0){
+                      counterBrown1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['brownCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['brownCard1'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -1113,17 +1297,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (counterBrown2 - counterBrown1 < 1 || counterBrown2 - counterBrown1 > 1) {
                   if (counterBrown2 >= 4) {
-                    getHotel(e.target, 'brownCard2', counterBrown2);
-                    playerTurn.money -= cardsInfo['brownCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['brownCard2'].houseCost >= 0){
+                      getHotel(e.target, 'brownCard2', counterBrown2);
+                      playerTurn.money -= cardsInfo['brownCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['brownCard2'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterBrown2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['brownCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['brownCard2'].houseCost >= 0){
+                      counterBrown2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['brownCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['brownCard2'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -1142,17 +1335,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (counterBlue1 - counterBlue2 < 1 || counterBlue1 - counterBlue2 > 1) {
                   if (counterBlue1 >= 4) {
-                    getHotel(e.target, 'blueCard1', counterBlue1);
-                    playerTurn.money -= cardsInfo['blueCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['blueCard1'].houseCost >= 0){
+                      getHotel(e.target, 'blueCard1', counterBlue1);
+                      playerTurn.money -= cardsInfo['blueCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['blueCard1'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterBlue1++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['blueCard1'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['blueCard1'].houseCost >= 0){
+                      counterBlue1++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['blueCard1'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['blueCard1'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -1171,17 +1373,26 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
 
                 if (counterBlue2 - counterBlue1 < 1 || counterBlue2 - counterBlue1 > 1) {
                   if (counterBlue2 >= 4) {
-                    getHotel(e.target, 'blueCard2', counterBlue2);
-                    playerTurn.money -= cardsInfo['blueCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['blueCard2'].houseCost >= 0){
+                      getHotel(e.target, 'blueCard2', counterBlue2);
+                      playerTurn.money -= cardsInfo['blueCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['blueCard2'].houseCost} to buy one more houses.`);
+                    }
+                  
                     return;
                   } else if (e.target.src === 'http://127.0.0.1:5500/images/builds/house.webp') {
                     return;
                   } else {
-                    counterBlue2++;
-                    e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
-                    playerTurn.money -= cardsInfo['blueCard2'].houseCost;
-                    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    if(playerTurn.money - cardsInfo['blueCard2'].houseCost >= 0){
+                      counterBlue2++;
+                      e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
+                      playerTurn.money -= cardsInfo['blueCard2'].houseCost;
+                      playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                    } else {
+                      alert(`You dont have $${cardsInfo['blueCard2'].houseCost} to buy one more houses.`);
+                    }
                   }
                 }
                 break;
@@ -1302,11 +1513,14 @@ function getOnCard() {
               cardsInfo[key].home2, cardsInfo[key].home3, cardsInfo[key].home4, cardsInfo[key].hotel, cardsInfo[key].houseCost);
 
             cardPopup.querySelector('.buy-card-popup .buy button').onclick = () => {
-              buyCard(playerTurn, key, playerMoneyTurn, cardsInfo);
-              cardPopup.classList.remove('active-card');
-              document.querySelector('.player-properties .end-turn').classList.add('active-btn');
-
-              verifyIfPlayerHaveSetOfCards(key);
+              if(playerTurn.money - cardsInfo[key].price > 0){
+                buyCard(playerTurn, key, playerMoneyTurn, cardsInfo);
+                cardPopup.classList.remove('active-card');
+                document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+                verifyIfPlayerHaveSetOfCards(key);
+              } else {
+                alert(`U dont have $${cardsInfo[key].price} to buy "${cardsInfo[key].name}" card.`)
+              }
             };
 
             cardPopup.querySelector('.buy-card-popup .auction button').onclick = () => {
@@ -1340,12 +1554,12 @@ function getOnCard() {
           }
 
           if (cardsInfo[key].isBought) {
+            console.log('da');
             document.querySelector('.player-properties .end-turn').onclick = () => {
               document.querySelector('.player-properties .add-build img').classList.remove('toggle-build-active');
               document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
               deleteAddHousesIcon();
-              cardPopup.classList.remove('active-card');
-              payRent(key);
+
               document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
               playersTurn();
               rollDiesBtn.addEventListener("click", rollDiceEvent);
@@ -1356,12 +1570,21 @@ function getOnCard() {
               rollDiesBtn.addEventListener('click', () => {
                 popupRoll.classList.add('active');
               });
-
-              verifyIfPlayerHaveSetOfCards(key);
             };
 
             document.querySelector('.buy-card-popup .buy-or-auction').style.display = 'none';
-            document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+            
+            document.querySelector('.player-properties .pay-btn').onclick = () => {
+              verifyIfPlayerHaveSetOfCards(key);
+              cardPopup.classList.remove('active-card');
+              payRent(key);
+              if(isHavingEnoughMoney){
+                document.querySelector('.player-properties .pay-btn').classList.remove('active-btn');
+                document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+              }
+            }
+            
+            document.querySelector('.player-properties .pay-btn').classList.add('active-btn');
             showInfoPopupCard(cardsInfo[key].color, cardsInfo[key].name, cardsInfo[key].price,
               cardsInfo[key].mortage, cardsInfo[key].rent, cardsInfo[key].rentColorSet, cardsInfo[key].home1,
               cardsInfo[key].home2, cardsInfo[key].home3, cardsInfo[key].home4, cardsInfo[key].hotel, cardsInfo[key].houseCost);
@@ -1434,9 +1657,13 @@ function getOnCard() {
               verifyIfPlayerHaveSetOfCards(key);
             }
             document.querySelector('.stations-popup .buy button').onclick = () => {
-              buyCard(playerTurn, key, playerMoneyTurn, cardsInfo);
-              stationCardPopup.classList.remove('active');
-              document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+              if(playerTurn.money - cardsInfo[key].price > 0){
+                buyCard(playerTurn, key, playerMoneyTurn, cardsInfo);
+                stationCardPopup.classList.remove('active');
+                document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+              } else {
+                alert(`U dont have $${cardsInfo[key].price} to buy "${cardsInfo[key].name}" card.`)
+              }
             }
 
             document.querySelector('.stations-popup .auction button').onclick = () => {
@@ -1465,6 +1692,7 @@ function getOnCard() {
           if (cardsInfo[key].isBought) {
             document.querySelector('.stations-popup .buy-or-auction').style.display = 'none';
             document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+
             document.querySelector('.player-properties .end-turn').onclick = () => {
               document.querySelector('.player-properties .add-build img').classList.remove('toggle-build-active');
               document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
@@ -1545,11 +1773,15 @@ function getOnCard() {
               verifyIfPlayerHaveSetOfCards(key);
             }
             document.querySelector('.stations-150-popup .buy button').onclick = () => {
-              buyCard(playerTurn, key, playerMoneyTurn, cardsInfo);
-              document.querySelector('.player-properties .end-turn').classList.add('active-btn');
-              document.querySelector('.stations-150-popup').classList.remove('active');
-              const buyOrAuction = document.querySelector('.buy-or-auction');
-              buyOrAuction.style.display = 'flex !important';
+              if(playerTurn.money - cardsInfo[key].price > 0){
+                buyCard(playerTurn, key, playerMoneyTurn, cardsInfo);
+                document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+                document.querySelector('.stations-150-popup').classList.remove('active');
+                const buyOrAuction = document.querySelector('.buy-or-auction');
+                buyOrAuction.style.display = 'flex !important';
+              } else {
+                alert(`U dont have $${cardsInfo[key].price} to buy "${cardsInfo[key].name}" card.`)
+              }
             }
 
             document.querySelector('.stations-150-popup .auction button').onclick = () => {
@@ -1654,150 +1886,208 @@ function getOnCard() {
           document.querySelector('.auction-popup .player-3 .offered').innerHTML = `$${player3OfferedMoney}`;
 
           document.querySelector('.auction-popup .player-yone .plus10 button').onclick = () => {
-            yoneOfferedMoney += 10;
-            filter[0] = yoneOfferedMoney;
-            document.querySelector('.auction-popup .player-yone .offered').innerHTML = `$${yoneOfferedMoney}`;
-            counter = 9;
-            getBiggestOffert();
-
-            if (auctionLastClick) {
-              hideTheAuction(key);
+            if(yoneInfo.money - (yoneOfferedMoney + 10) >= 0){
+              yoneOfferedMoney += 10;
+              filter[0] = yoneOfferedMoney;
+              document.querySelector('.auction-popup .player-yone .offered').innerHTML = `$${yoneOfferedMoney}`;
+              counter = 9;
+              getBiggestOffert();
+  
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${yoneInfo.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
           document.querySelector('.auction-popup .player-yone .plus50 button').onclick = () => {
-            yoneOfferedMoney += 50;
-            filter[0] = yoneOfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-yone .offered').innerHTML = `$${yoneOfferedMoney}`;
+            if(yoneInfo.money - (yoneOfferedMoney + 50) >= 0){
+              yoneOfferedMoney += 50;
+              filter[0] = yoneOfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-yone .offered').innerHTML = `$${yoneOfferedMoney}`;
 
-            if (auctionLastClick) {
-              hideTheAuction(key);
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${yoneInfo.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
           document.querySelector('.auction-popup .player-yone .plus100 button').onclick = () => {
-            yoneOfferedMoney += 100;
-            filter[0] = yoneOfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-yone .offered').innerHTML = `$${yoneOfferedMoney}`;
-
-            if (auctionLastClick) {
-              hideTheAuction(key);
+            if(yoneInfo.money - (yoneOfferedMoney + 100) >= 0){
+              yoneOfferedMoney += 100;
+              filter[0] = yoneOfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-yone .offered').innerHTML = `$${yoneOfferedMoney}`;
+  
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${yoneInfo.name} doesnt have enough money for making a bigger offert.`);
             }
+          
           }
 
 
           document.querySelector('.auction-popup .player-1 .plus10 button').onclick = () => {
-            player1OfferedMoney += 10;
-            filter[1] = player1OfferedMoney;
-            document.querySelector('.auction-popup .player-1 .offered').innerHTML = `$${player1OfferedMoney}`;
-            counter = 9;
-            getBiggestOffert();
-
-            if (auctionLastClick) {
-              hideTheAuction(key);
+            if(player1Info.money - (player1OfferedMoney + 10) >= 0){
+              player1OfferedMoney += 10;
+              filter[1] = player1OfferedMoney;
+              document.querySelector('.auction-popup .player-1 .offered').innerHTML = `$${player1OfferedMoney}`;
+              counter = 9;
+              getBiggestOffert();
+  
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player1Info.name} doesnt have enough money for making a bigger offert.`);
             }
           }
 
           document.querySelector('.auction-popup .player-1 .plus50 button').onclick = () => {
-            player1OfferedMoney += 50;
-            filter[1] = player1OfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-1 .offered').innerHTML = `$${player1OfferedMoney}`;
+            if(player1Info.money - (player1OfferedMoney + 50) >= 0){
+              player1OfferedMoney += 50;
+              filter[1] = player1OfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-1 .offered').innerHTML = `$${player1OfferedMoney}`;
 
-            if (auctionLastClick) {
-              hideTheAuction(key);
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player1Info.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
           document.querySelector('.auction-popup .player-1 .plus100 button').onclick = () => {
-            player1OfferedMoney += 100;
-            filter[1] = player1OfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-1 .offered').innerHTML = `$${player1OfferedMoney}`;
+            if(player1Info.money - (player1OfferedMoney + 100) >= 0){
+              player1OfferedMoney += 100;
+              filter[1] = player1OfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-1 .offered').innerHTML = `$${player1OfferedMoney}`;
 
-            if (auctionLastClick) {
-              hideTheAuction(key);
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player1Info.name} doesnt have enough money for making a bigger offert.`);
             }
           }
 
 
           document.querySelector('.auction-popup .player-2 .plus10 button').onclick = () => {
-            player2OfferedMoney += 10;
-            filter[2] = player2OfferedMoney;
-            document.querySelector('.auction-popup .player-2 .offered').innerHTML = `$${player2OfferedMoney}`;
-            counter = 9;
-            getBiggestOffert();
+            if(player2Info.money - (player2OfferedMoney + 10) >= 0){
+              player2OfferedMoney += 10;
+              filter[2] = player2OfferedMoney;
+              document.querySelector('.auction-popup .player-2 .offered').innerHTML = `$${player2OfferedMoney}`;
+              counter = 9;
+              getBiggestOffert();
 
-            if (auctionLastClick) {
-              hideTheAuction(key);
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player2Info.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
           document.querySelector('.auction-popup .player-2 .plus50 button').onclick = () => {
-            player2OfferedMoney += 50;
-            filter[2] = player2OfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-2 .offered').innerHTML = `$${player2OfferedMoney}`;
+            if(player2Info.money - (player2OfferedMoney + 50) >= 0){
+              player2OfferedMoney += 50;
+              filter[2] = player2OfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-2 .offered').innerHTML = `$${player2OfferedMoney}`;
 
-            if (auctionLastClick) {
-              hideTheAuction(key);
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player2Info.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
           document.querySelector('.auction-popup .player-2 .plus100 button').onclick = () => {
-            player2OfferedMoney += 100;
-            filter[2] = player2OfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-2 .offered').innerHTML = `$${player2OfferedMoney}`;
-
-            if (auctionLastClick) {
-              hideTheAuction(key);
+            if(player2Info.money - (player2OfferedMoney + 100) >= 0){
+              player2OfferedMoney += 100;
+              filter[2] = player2OfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-2 .offered').innerHTML = `$${player2OfferedMoney}`;
+  
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player2Info.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
 
           document.querySelector('.auction-popup .player-3 .plus10 button').onclick = () => {
-            player3OfferedMoney += 10;
-            filter[3] = player3OfferedMoney;
-            document.querySelector('.auction-popup .player-3 .offered').innerHTML = `$${player3OfferedMoney}`;
-            counter = 9;
-            getBiggestOffert();
+            if(player3Info.money - (player3OfferedMoney + 10) >= 0){
+              player3OfferedMoney += 10;
+              filter[3] = player3OfferedMoney;
+              document.querySelector('.auction-popup .player-3 .offered').innerHTML = `$${player3OfferedMoney}`;
+              counter = 9;
+              getBiggestOffert();
 
-            if (auctionLastClick) {
-              hideTheAuction(key);
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player3Info.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
           document.querySelector('.auction-popup .player-3 .plus50 button').onclick = () => {
-            player3OfferedMoney += 50;
-            filter[3] = player3OfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-3 .offered').innerHTML = `$${player3OfferedMoney}`;
+            if(player3Info.money - (player3OfferedMoney + 50) >= 0){
+              player3OfferedMoney += 50;
+              filter[3] = player3OfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-3 .offered').innerHTML = `$${player3OfferedMoney}`;
 
-            if (auctionLastClick) {
-              hideTheAuction(key);
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player3Info.name} doesnt have enough money for making a bigger offert.`);
             }
+            
           }
 
           document.querySelector('.auction-popup .player-3 .plus100 button').onclick = () => {
-            player3OfferedMoney += 100;
-            filter[3] = player3OfferedMoney;
-            counter = 9;
-            getBiggestOffert();
-            document.querySelector('.auction-popup .player-3 .offered').innerHTML = `$${player3OfferedMoney}`;
-
-            if (auctionLastClick) {
-              hideTheAuction(key);
+            if(player3Info.money - (player3OfferedMoney + 100) >= 0){
+              player3OfferedMoney += 100;
+              filter[3] = player3OfferedMoney;
+              counter = 9;
+              getBiggestOffert();
+              document.querySelector('.auction-popup .player-3 .offered').innerHTML = `$${player3OfferedMoney}`;
+  
+              if (auctionLastClick) {
+                hideTheAuction(key);
+              }
+            } else {
+              alert(`Player ${player3Info.name} doesnt have enough money for making a bigger offert.`);
             }
+          
           }
 
           function hideTheAuction(key) {
@@ -1969,6 +2259,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
       if (boughtCard === name1 && boughtCard !== name2 && boughtCard !== name3 && counter1 > 0) {
         switch (counter1) {
           case 1: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home1 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home1}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home1;
             player.money += cardsInfo[boughtCard].home1;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -1977,6 +2274,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 2: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home2 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home2}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home2;
             player.money += cardsInfo[boughtCard].home2;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -1985,6 +2289,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 3: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home3 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home3}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home3;
             player.money += cardsInfo[boughtCard].home3;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -1993,6 +2304,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 4: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home4 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home4}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home4;
             player.money += cardsInfo[boughtCard].home4;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2001,6 +2319,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 5: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].hotel >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].hotel}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].hotel;
             player.money += cardsInfo[boughtCard].hotel;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2014,6 +2339,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
       if (boughtCard !== name1 && boughtCard === name2 && boughtCard !== name3 && counter2 > 0) {
         switch (counter2) {
           case 1: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home1 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home1}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home1;
             player.money += cardsInfo[boughtCard].home1;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2022,6 +2354,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 2: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home2 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home2}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home2;
             player.money += cardsInfo[boughtCard].home2;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2030,6 +2369,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 3: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home3 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home3}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home3;
             player.money += cardsInfo[boughtCard].home3;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2038,6 +2384,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 4: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home4 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home4}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home4;
             player.money += cardsInfo[boughtCard].home4;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2046,6 +2399,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 5: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].hotel >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].hotel}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].hotel;
             player.money += cardsInfo[boughtCard].hotel;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2059,6 +2419,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
       if (boughtCard !== name1 && boughtCard !== name2 && boughtCard === name3 && counter3 > 0) {
         switch (counter3) {
           case 1: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home1 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home1}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home1;
             player.money += cardsInfo[boughtCard].home1;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2067,6 +2434,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 2: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home2 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home2}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home2;
             player.money += cardsInfo[boughtCard].home2;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2075,6 +2449,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 3: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home3 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home3}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home3;
             player.money += cardsInfo[boughtCard].home3;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2083,6 +2464,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 4: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home4 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home4}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home4;
             player.money += cardsInfo[boughtCard].home4;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2091,6 +2479,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
             break;
           }
           case 5: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].hotel >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].hotel}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].hotel;
             player.money += cardsInfo[boughtCard].hotel;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2101,6 +2496,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
         }
         return;
       }
+      if(!(playerTurn.money - cardsInfo[boughtCard].rentColorSet >= 0)){
+        alert(`You have to pay $${cardsInfo[boughtCard].rentColorSet}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+        isHavingEnoughMoney = false;
+        return;
+      }
+
+      isHavingEnoughMoney = true;
       playerTurn.money -= cardsInfo[boughtCard].rentColorSet;
       player.money += cardsInfo[boughtCard].rentColorSet;
       playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2108,6 +2510,13 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
       console.log(playerTurn.name + ' payed');
       return;
     } else {
+      if(!(playerTurn.money - cardsInfo[boughtCard].rent >= 0)){
+        alert(`You have to pay $${cardsInfo[boughtCard].rent}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+        isHavingEnoughMoney = false;
+        return;
+      }
+
+      isHavingEnoughMoney = true;
       playerTurn.money -= cardsInfo[boughtCard].rent;
       player.money += cardsInfo[boughtCard].rent;
       playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2123,6 +2532,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
       if (boughtCard === name1 && boughtCard !== name2 && counter1 > 0) {
         switch (counter1) {
           case 1: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home1 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home1}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home1;
             player.money += cardsInfo[boughtCard].home1;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2131,6 +2547,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 2: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home2 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home2}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home2;
             player.money += cardsInfo[boughtCard].home2;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2139,6 +2562,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 3: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home3 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home3}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home3;
             player.money += cardsInfo[boughtCard].home3;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2147,6 +2577,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 4: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home4 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home4}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home4;
             player.money += cardsInfo[boughtCard].home4;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2155,6 +2592,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 5: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].hotel >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].hotel}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].hotel;
             player.money += cardsInfo[boughtCard].hotel;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2168,6 +2612,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
       if (boughtCard !== name1 && boughtCard === name2 && counter2 > 0) {
         switch (counter2) {
           case 1: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home1 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home1}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home1;
             player.money += cardsInfo[boughtCard].home1;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2176,6 +2627,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 2: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home2 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home2}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home2;
             player.money += cardsInfo[boughtCard].home2;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2184,6 +2642,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 3: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home3 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home3}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home3;
             player.money += cardsInfo[boughtCard].home3;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2192,6 +2657,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 4: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].home4 >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].home4}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].home4;
             player.money += cardsInfo[boughtCard].home4;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2200,6 +2672,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
             break;
           }
           case 5: {
+            if(!(playerTurn.money - cardsInfo[boughtCard].hotel >= 0)){
+              alert(`You have to pay $${cardsInfo[boughtCard].hotel}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+              isHavingEnoughMoney = false;
+              return;
+            }
+
+            isHavingEnoughMoney = true;
             playerTurn.money -= cardsInfo[boughtCard].hotel;
             player.money += cardsInfo[boughtCard].hotel;
             playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2210,6 +2689,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
         }
         return;
       }
+      if(!(playerTurn.money - cardsInfo[boughtCard].rentColorSet >= 0)){
+        alert(`You have to pay $${cardsInfo[boughtCard].rentColorSet}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+        isHavingEnoughMoney = false;
+        console.log(boughtCard);
+        return;
+      }
+      isHavingEnoughMoney = true;
       playerTurn.money -= cardsInfo[boughtCard].rentColorSet;
       player.money += cardsInfo[boughtCard].rentColorSet;
       playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2217,6 +2703,13 @@ function verifyColorSet2Cards(player, playerMoney, boughtCard, name1, name2, cou
       console.log(playerTurn.name + ' payed');
       return;
     } else {
+      if(!(playerTurn.money - cardsInfo[boughtCard].rent >= 0)){
+        alert(`You have to pay $${cardsInfo[boughtCard].rent}. You dont have enough money to pay! Advice: Sell one or more cards to a player to get money or mortgage one or more cards.`);
+        isHavingEnoughMoney = false;
+        console.log(boughtCard);
+        return;
+      }
+      isHavingEnoughMoney = true;
       playerTurn.money -= cardsInfo[boughtCard].rent;
       player.money += cardsInfo[boughtCard].rent;
       playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
@@ -2626,14 +3119,22 @@ document.querySelector('.deal-popup .decision .decline').addEventListener('click
   document.querySelector('.deal-popup .decision').classList.remove('active');
 });
 
+function exchangeCards(pushToPlayer, arrayOfCards){
+  console.log(pushToPlayer.cards);
+  if(arrayOfCards.length){
+    arrayOfCards.forEach(card => {
+      pushToPlayer.cards.push(card);
+    });
+    
+    
+  }
+  
+}
+
 document.querySelector('.deal-popup .decision .accept').addEventListener('click', () => {
   const selector1 = document.querySelector('.deal-popup #offer-current');
   const selector2 = document.querySelector('.deal-popup #offered-to');
 
-  document.querySelector('.deal-popup .right-side #range-money').value = 0;
-  document.querySelector('.deal-popup .left-side #range-money').value = 0;
-  document.querySelector('.deal-popup .right-side .money').innerHTML = `$0`;
-  document.querySelector('.deal-popup .left-side .money').innerHTML = `$0`;
   document.querySelector('.deal-popup .decision').classList.remove('active');
   document.querySelector('.deal-popup').classList.remove('active-deal');
   document.querySelector('.deal-popup .right-side').classList.add('hidden');
@@ -2664,8 +3165,10 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
     const money = moneyPlayer1 - moneyPlayer2;
     switch(tradeWith){
       case yoneInfo.name: {
+        exchangeCards(yoneInfo, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
         yoneInfo.money += money;
-        playerTurn -= money;
+        playerTurn.money -= money;
 
         document.querySelector('.player-yone .player__money').innerHTML = `$${yoneInfo.money}`;
 
@@ -2674,36 +3177,225 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
             document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
+          case player2Info.name:{
+            document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player3Info.name:{
+            document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
+        
+        break;
+      }
+      case player1Info.name: {
+        exchangeCards(player1Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+        player1Info.money += money;
+        playerTurn.money -= money;
+
+        document.querySelector('.player-1 .player__money').innerHTML = `$${player1Info.money}`;
+
+        switch(playerTurn.name){
+          case yoneInfo.name:{
+            document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player2Info.name:{
+            document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player3Info.name:{
+            document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
+        break;
+      }
+      case player2Info.name: {
+        exchangeCards(player2Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+        player2Info.money += money;
+        playerTurn.money -= money;
+
+        document.querySelector('.player-2 .player__money').innerHTML = `$${player2Info.money}`;
+
+        switch(playerTurn.name){
+          case yoneInfo.name:{
+            document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player1Info.name:{
+            document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player3Info.name:{
+            document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
+
+        break;
+      }
+      case player3Info.name: {
+        exchangeCards(player3Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+        player3Info.money += money;
+        playerTurn.money -= money;
+
+        document.querySelector('.player-3 .player__money').innerHTML = `$${player2Info.money}`;
+
+        switch(playerTurn.name){
+          case yoneInfo.name:{
+            document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player1Info.name:{
+            document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player2Info.name:{
+            document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
+
+        break;
+      }
+    }
+  } else if(moneyPlayer1 < moneyPlayer2){
+    const money = moneyPlayer2 - moneyPlayer1;
+    switch(tradeWith){
+      case yoneInfo.name: {
+        yoneInfo.money -= money;
+        playerTurn.money += money;
+        exchangeCards(yoneInfo, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+
+        document.querySelector('.player-yone .player__money').innerHTML = `$${yoneInfo.money}`;
+
+        switch(playerTurn.name){
+          case player1Info.name:{
+            document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player2Info.name:{
+            document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player3Info.name:{
+            document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
         }
         
         break;
       }
       case player1Info.name: {
         player1Info.money -= money;
-        playerTurn += money;
+        playerTurn.money += money;
+        exchangeCards(player1Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+
+        document.querySelector('.player-1 .player__money').innerHTML = `$${player1Info.money}`;
+
+        switch(playerTurn.name){
+          case yoneInfo.name:{
+            document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player2Info.name:{
+            document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player3Info.name:{
+            document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
         break;
       }
       case player2Info.name: {
         player2Info.money -= money;
-        playerTurn += money;
+        playerTurn.money += money;
+        exchangeCards(player2Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+
+        document.querySelector('.player-2 .player__money').innerHTML = `$${player2Info.money}`;
+
+        switch(playerTurn.name){
+          case yoneInfo.name:{
+            document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player1Info.name:{
+            document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player3Info.name:{
+            document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
+
         break;
       }
       case player3Info.name: {
         player3Info.money -= money;
-        playerTurn += money;
+        playerTurn.money += money;
+        exchangeCards(player3Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+
+        document.querySelector('.player-3 .player__money').innerHTML = `$${player2Info.money}`;
+
+        switch(playerTurn.name){
+          case yoneInfo.name:{
+            document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player1Info.name:{
+            document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+          case player2Info.name:{
+            document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+            break;
+          }
+        }
+
         break;
       }
     }
-
-  } else if(moneyPlayer1 < moneyPlayer2){
-
   } else {
-
+    switch(tradeWith){
+      case yoneInfo.name: {
+        exchangeCards(yoneInfo, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+        break;
+      }
+      case player1Info.name: {
+        exchangeCards(player1Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+        break;
+      }
+      case player2Info.name: {
+        exchangeCards(player2Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+        break;
+      }
+      case player3Info.name: {
+        exchangeCards(player3Info, selectedValues1);
+        exchangeCards(playerTurn, selectedValues2);
+        break;
+      }
+    }
   }
 
-  
-  console.log(moneyPlayer1);
-  console.log(moneyPlayer2);
+  document.querySelector('.deal-popup .right-side #range-money').value = 0;
+  document.querySelector('.deal-popup .left-side #range-money').value = 0;
+  document.querySelector('.deal-popup .right-side .money').innerHTML = `$0`;
+  document.querySelector('.deal-popup .left-side .money').innerHTML = `$0`;
 });
 
 document.querySelector('.deal-popup .close').addEventListener('click', () => {
@@ -2713,6 +3405,7 @@ document.querySelector('.deal-popup .close').addEventListener('click', () => {
   document.querySelector('.deal-popup .left-side #range-money').value = 0;
   document.querySelector('.deal-popup .right-side .money').innerHTML = `$0`;
   document.querySelector('.deal-popup .left-side .money').innerHTML = `$0`;
+  document.querySelector('.deal-popup .decision').classList.remove('active');
 });
 
 function getRandomNumber(min, max) {

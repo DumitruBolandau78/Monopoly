@@ -148,7 +148,7 @@ const cardsInfo = {
         top: 0,
         bottom: 100,
         right: 100 + (normalCardWidth * 8),
-        name: 'King </br> Landing </br> Station',
+        name: 'King  Landing  Station',
         rentOneCard: 4,
         rentTwoCard: 10,
         price: 150,
@@ -245,7 +245,7 @@ const cardsInfo = {
         top: 100 + (normalCardWidth * 2),
         bottom: 100 + (normalCardWidth * 3),
         right: 100,
-        name: 'The </br> Iron </br> Throne'
+        name: 'The  Iron  Throne'
     },
     orangeCard3: {
         el: document.querySelector('.casterly-rock'),
@@ -336,7 +336,7 @@ const cardsInfo = {
         top: 100 + (normalCardWidth * 7),
         bottom: 100 + (normalCardWidth * 8),
         right: 100,
-        name: 'Castle Black </br> Station',
+        name: 'Castle Black  Station',
         price: 150,
         mortage: 75,
         rentOneCard: 4,
@@ -423,7 +423,7 @@ const cardsInfo = {
         top: 100 + (normalCardWidth * 2),
         bottom: 100 + (normalCardWidth * 3),
         right: 800,
-        name: 'The </br> Iron </br> Throne'
+        name: 'The  Iron  Throne'
     },
     greenCard3: {
         el: document.querySelector('.blue-dragon'),
@@ -470,7 +470,7 @@ const cardsInfo = {
         top: 100 + (normalCardWidth * 5),
         bottom: 100 + (normalCardWidth * 6),
         right: 800,
-        name: 'Valar </br> Morghulis'
+        name: 'Valar  Morghulis'
     },
     blueCard1: {
         el: document.querySelector('.harrenhal'),
@@ -586,7 +586,7 @@ const cardsInfo = {
         top: 700,
         bottom: 800,
         right: 100 + (normalCardWidth * 3),
-        name: 'Valar </br> Morghulis'
+        name: 'Valar  Morghulis'
     },
     lightBlueCard3: {
         el: document.querySelector('.winterfell'),
@@ -653,7 +653,7 @@ const cardsInfo = {
         hotel: 450,
         houseCost: 50,
         color: 'rgb(110, 59, 0)',
-        isBought: true,
+        isBought: false,
         id: 'brown',
         removeHouse: 45
     },
@@ -663,7 +663,7 @@ const cardsInfo = {
         top: 700,
         bottom: 800,
         right: 100 + (normalCardWidth * 8),
-        name: 'The </br> Iron </br> Throne'
+        name: 'The  Iron  Throne'
     },
     brownCard2: {
         el: document.querySelector('.castle-black'),
