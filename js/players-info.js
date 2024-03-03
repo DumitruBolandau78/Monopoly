@@ -3,7 +3,7 @@ const yoneInfo = {
   left: 710,
   top: 710,
   money: 1500,
-  cards: ['brownCard2', 'orangeCard1'],
+  cards: ['brownCard2', 'orangeCard1', 'lightBlueCard3', 'lightBlueCard2', 'lightBlueCard1'],
   color: '#900',
   isHavingSetOfCards: false
 };

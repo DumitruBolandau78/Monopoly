@@ -473,6 +473,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['lightBlueCard1'].houseCost >= 0){
+                      if(cardsInfo['lightBlueCard1'].isMortgaged || cardsInfo['lightBlueCard2'].isMortgaged || cardsInfo['lightBlueCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterLightBlue1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['lightBlueCard1'].houseCost;
@@ -513,6 +517,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['lightBlueCard2'].houseCost >= 0){
+                      if(cardsInfo['lightBlueCard1'].isMortgaged || cardsInfo['lightBlueCard2'].isMortgaged || cardsInfo['lightBlueCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterLightBlue2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['lightBlueCard2'].houseCost;
@@ -553,6 +561,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['lightBlueCard3'].houseCost >= 0){
+                      if(cardsInfo['lightBlueCard1'].isMortgaged || cardsInfo['lightBlueCard2'].isMortgaged || cardsInfo['lightBlueCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterLightBlue3++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['lightBlueCard3'].houseCost;
@@ -592,6 +604,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['pinkCard1'].houseCost >= 0){
+                      if(cardsInfo['pinkCard1'].isMortgaged || cardsInfo['pinkCard2'].isMortgaged || cardsInfo['pinkCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterPink1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['pinkCard1'].houseCost;
@@ -632,6 +648,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['pinkCard2'].houseCost >= 0){
+                      if(cardsInfo['pinkCard1'].isMortgaged || cardsInfo['pinkCard2'].isMortgaged || cardsInfo['pinkCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterPink2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['pinkCard2'].houseCost;
@@ -672,6 +692,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['pinkCard3'].houseCost >= 0){
+                      if(cardsInfo['pinkCard1'].isMortgaged || cardsInfo['pinkCard2'].isMortgaged || cardsInfo['pinkCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterPink3++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['pinkCard3'].houseCost;
@@ -712,6 +736,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['orangeCard1'].houseCost >= 0){
+                      if(cardsInfo['orangeCard1'].isMortgaged || cardsInfo['orangeCard2'].isMortgaged || cardsInfo['orangeCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterOrange1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['orangeCard1'].houseCost;
@@ -752,6 +780,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['orangeCard2'].houseCost >= 0){
+                      if(cardsInfo['orangeCard1'].isMortgaged || cardsInfo['orangeCard2'].isMortgaged || cardsInfo['orangeCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterOrange2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['orangeCard2'].houseCost;
@@ -792,6 +824,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['orangeCard3'].houseCost >= 0){
+                      if(cardsInfo['orangeCard1'].isMortgaged || cardsInfo['orangeCard2'].isMortgaged || cardsInfo['orangeCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterOrange3++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['orangeCard3'].houseCost;
@@ -832,6 +868,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['redCard1'].houseCost >= 0){
+                      if(cardsInfo['redCard1'].isMortgaged || cardsInfo['redCard2'].isMortgaged || cardsInfo['redCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterRed1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['redCard1'].houseCost;
@@ -872,6 +912,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['redCard2'].houseCost >= 0){
+                      if(cardsInfo['redCard1'].isMortgaged || cardsInfo['redCard2'].isMortgaged || cardsInfo['redCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterRed2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['redCard2'].houseCost;
@@ -912,6 +956,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['redCard3'].houseCost >= 0){
+                      if(cardsInfo['redCard1'].isMortgaged || cardsInfo['redCard2'].isMortgaged || cardsInfo['redCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterRed3++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['redCard3'].houseCost;
@@ -951,6 +999,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['yellowCard1'].houseCost >= 0){
+                      if(cardsInfo['yellowCard1'].isMortgaged || cardsInfo['yellowCard1'].isMortgaged || cardsInfo['yellowCard1'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterYellow1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['yellowCard1'].houseCost;
@@ -990,6 +1042,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['yellowCard2'].houseCost >= 0){
+                      if(cardsInfo['yellowCard1'].isMortgaged || cardsInfo['yellowCard1'].isMortgaged || cardsInfo['yellowCard1'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterYellow2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['yellowCard2'].houseCost;
@@ -1029,6 +1085,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['yellowCard3'].houseCost >= 0){
+                      if(cardsInfo['yellowCard1'].isMortgaged || cardsInfo['yellowCard1'].isMortgaged || cardsInfo['yellowCard1'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterYellow3++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['yellowCard3'].houseCost;
@@ -1069,6 +1129,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['greenCard1'].houseCost >= 0){
+                      if(cardsInfo['greenCard1'].isMortgaged || cardsInfo['greenCard2'].isMortgaged || cardsInfo['greenCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterGreen1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['greenCard1'].houseCost;
@@ -1109,6 +1173,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['greenCard2'].houseCost >= 0){
+                      if(cardsInfo['greenCard1'].isMortgaged || cardsInfo['greenCard2'].isMortgaged || cardsInfo['greenCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterGreen2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['greenCard2'].houseCost;
@@ -1149,6 +1217,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['greenCard3'].houseCost >= 0){
+                      if(cardsInfo['greenCard1'].isMortgaged || cardsInfo['greenCard2'].isMortgaged || cardsInfo['greenCard3'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterGreen3++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['greenCard3'].houseCost;
@@ -1277,6 +1349,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['brownCard1'].houseCost >= 0){
+                      if(cardsInfo['brownCard1'].isMortgaged || cardsInfo['brownCard2'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterBrown1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['brownCard1'].houseCost;
@@ -1314,6 +1390,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['brownCard2'].houseCost >= 0){
+                      if(cardsInfo['brownCard1'].isMortgaged || cardsInfo['brownCard2'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterBrown2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['brownCard2'].houseCost;
@@ -1352,6 +1432,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['blueCard1'].houseCost >= 0){
+                      if(cardsInfo['blueCard1'].isMortgaged || cardsInfo['blueCard2'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterBlue1++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['blueCard1'].houseCost;
@@ -1390,6 +1474,10 @@ function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
                     return;
                   } else {
                     if(playerTurn.money - cardsInfo['blueCard2'].houseCost >= 0){
+                      if(cardsInfo['blueCard1'].isMortgaged || cardsInfo['blueCard2'].isMortgaged){
+                        alert('Sorry but one of the cards from that set is MORTGAGED.');
+                        return;
+                      }
                       counterBlue2++;
                       e.target.src = '../images/builds/house.webp'; e.target.setAttribute('class', 'house');
                       playerTurn.money -= cardsInfo['blueCard2'].houseCost;
