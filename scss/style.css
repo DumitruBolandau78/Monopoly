@@ -335,6 +335,88 @@ body {
   margin: 0;
 }
 
+.mortgage-popup {
+  display: none;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+}
+.mortgage-popup .close {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+.mortgage-popup .inner {
+  border: 1px solid #900;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.mortgage-popup h4 {
+  cursor: pointer;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+}
+.mortgage-popup .d-flex {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.mortgage-popup .d-flex label {
+  display: flex;
+  align-items: center;
+}
+.mortgage-popup .d-flex input {
+  margin: 3px;
+}
+.mortgage-popup #mortgage-cards {
+  width: 100%;
+  border: none;
+  outline: none;
+  border: 1px solid #900;
+}
+.mortgage-popup #mortgage-cards option {
+  font-size: 15px;
+  padding: 8px;
+}
+.mortgage-popup #mortgage-cards option:checked {
+  background: url("../images/dot.png");
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+.mortgage-popup.active {
+  background-color: transparent;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  border: none;
+}
+.mortgage-popup button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  color: #fff;
+  background-color: #900;
+  cursor: pointer;
+}
+.mortgage-popup option {
+  color: #fff;
+}
+
+.turn-player-name {
+  grid-column: 1/3;
+  text-align: center;
+}
+
 .players-icons-for-play {
   position: relative;
   display: flex;

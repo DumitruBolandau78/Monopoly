@@ -24,7 +24,7 @@
 .stations-150-popup__inner h2 {
   text-align: center;
 }
-.stations-150-popup__inner .price, .stations-150-popup__inner .mortage-value {
+.stations-150-popup__inner .price, .stations-150-popup__inner .mortgage-value {
   display: flex;
   justify-content: space-between;
   margin: 5px 0;

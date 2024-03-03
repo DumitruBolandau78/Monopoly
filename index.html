@@ -20,8 +20,8 @@
                 <div class="deal">
                     <img src="./images/deal.png" title="Make a deal" alt="deal icon">
                 </div>
-                <div class="mortage">
-                    <img src="./images/mortage.png" title="Mortgage a card" alt="mortage icon">
+                <div class="mortgage">
+                    <img src="./images/mortage.png" title="Mortgage a card" alt="Mortgage icon">
                 </div>
                 <!-- active-btns-build -->
                 <div class="add-build">
@@ -31,6 +31,7 @@
                 <div class="remove-build">
                     <img src="./images/builds/remove-house.png" alt="remove house icon">
                 </div>
+                <h2 class="turn-player-name">Player Turn:<br> Yone</h2>
             </div>
             <div class="roll-btn">
                 <button>Roll</button>
@@ -316,7 +317,7 @@
         <div class="buy-card-popup__inner">
             <div class="card-color">Titlu</div>
             <div class="purchase-price"><span>Purchase Price</span><span class="price">$60</span></div>
-            <div class="mortage-value"><span>Mortage Value</span><span class="price">$30</span></div>
+            <div class="mortgage-value"><span>Mortgage Value</span><span class="price">$30</span></div>
             <hr>
             <div class="about-prices">
                 <div class="rent-price"><span>Rent</span><span class="price"></span></div>
@@ -342,7 +343,7 @@
         <div class="stations-popup__inner">
             <h2 class="name">Lanister</h2>
             <div class="price"><span>Purchase Price</span><span>$200</span></div>
-            <div class="mortage-value"><span>Mortage Value</span><span>$100</span></div>
+            <div class="mortgage-value"><span>Mortgage Value</span><span>$100</span></div>
             <hr>
             <div class="rent"><span>Rent</span><span>$25</span></div>
             <div class="two-stations"><span>If 2 stations are owned</span><span>$50</span></div>
@@ -365,7 +366,7 @@
         <div class="stations-150-popup__inner">
             <h2 class="name">castle</h2>
             <div class="price"><span>Purchase Price</span><span>$200</span></div>
-            <div class="mortage-value"><span>Mortage Value</span><span>$100</span></div>
+            <div class="mortgage-value"><span>Mortgage Value</span><span>$100</span></div>
             <hr>
             <div class="first">If one Station is owned, rent is 4 times amount shown on dice.</div>
             <div class="second">If both Stations are owned, rent is 10 times amount shown on dice.</div>
@@ -388,7 +389,7 @@
                 <div class="families-stations">
                     <h4 class="name">Lanister</h4>
                     <div class="price"><span>Purchase Price</span><span class="value">$200</span></div>
-                    <div class="mortage-value"><span>Mortage Value</span><span class="value">$100</span></div>
+                    <div class="mortgage-value"><span>Mortgage Value</span><span class="value">$100</span></div>
                     <hr>
                     <div class="rent"><span>Rent</span><span class="value">$25</span></div>
                     <div class="two-stations"><span>If 2 stations are owned</span><span class="value">$50</span></div>
@@ -398,7 +399,7 @@
                 <div class="stations150">
                     <h4 class="name">castle</h4>
                     <div class="price"><span>Purchase Price</span><span class="value">$150</span></div>
-                    <div class="mortage-value"><span>Mortage Value</span><span class="value">$75</span></div>
+                    <div class="mortgage-value"><span>Mortgage Value</span><span class="value">$75</span></div>
                     <hr>
                     <div class="first">If one Station is owned, rent is 4 times amount shown on dice.</div>
                     <br>
@@ -407,7 +408,7 @@
                 <div class="normal-card-stations">
                     <h4 class="card-title">Titlu</h4>
                     <div class="purchase-price"><span>Purchase Price</span><span class="price">$60</span></div>
-                    <div class="mortage-value"><span>Mortage Value</span><span class="price">$30</span></div>
+                    <div class="mortgage-value"><span>Mortgage Value</span><span class="price">$30</span></div>
                     <hr>
                     <div class="about-prices">
                         <div class="rent-price"><span>Rent</span><span class="price">0</span></div>
@@ -534,6 +535,27 @@
                 <button class="accept">Accept</button>
                 <button class="decline">Decline</button>
             </div>
+        </div>
+    </div>
+    <div class="mortgage-popup">
+        <div class="inner">
+            <div>
+                <h2 class="player-name"></h2>
+            </div>
+            <div name="mortgageForm" class="d-flex mortgage-form">
+                <label class="first-label">
+                    <input value="mortgaged" type="radio" checked name="mortgage" id="mortgage"> 
+                    Mortgage
+                </label>
+                <label class="second-label">
+                    <input value="mortgaged" type="radio" name="mortgage" id="unmortgage"> 
+                    Unmortgage 
+                </label>
+            </div>
+            <select name="mortgage-cards" id="mortgage-cards" multiple></select>
+            <div class="mortgage-cards-btn"><button>Mortgage Selected</button></div>
+            <small>For selecting and unselecting cards use CTRL + left click</small>
+            <h4 class="close">X</h4>
         </div>
     </div>
     <script type="module" src="./js/index.js"></script>

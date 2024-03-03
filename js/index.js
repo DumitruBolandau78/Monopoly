@@ -57,6 +57,7 @@ function playersTurn() {
     playerMoneyTurn = player1Money;
     playerIconTurn = player1Icon;
     document.querySelector('.whose-turn h1').innerHTML = `Car`;
+    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
     return;
   }
 
@@ -65,6 +66,7 @@ function playersTurn() {
     playerMoneyTurn = player2Money;
     playerIconTurn = player2Icon;
     document.querySelector('.whose-turn h1').innerHTML = `Duck`;
+    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
     return;
   }
 
@@ -73,6 +75,7 @@ function playersTurn() {
     playerMoneyTurn = player3Money;
     playerIconTurn = player3Icon;
     document.querySelector('.whose-turn h1').innerHTML = `T-rex`;
+    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
     return;
   }
 
@@ -81,6 +84,7 @@ function playersTurn() {
     playerMoneyTurn = yoneMoney;
     playerIconTurn = playerYoneIcon;
     document.querySelector('.whose-turn h1').innerHTML = `Yone`;
+    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
   }
 }
 
@@ -1509,7 +1513,7 @@ function getOnCard() {
               verifyIfPlayerHaveSetOfCards(key);
             }
             showInfoPopupCard(cardsInfo[key].color, cardsInfo[key].name, cardsInfo[key].price,
-              cardsInfo[key].mortage, cardsInfo[key].rent, cardsInfo[key].rentColorSet, cardsInfo[key].home1,
+              cardsInfo[key].mortgage, cardsInfo[key].rent, cardsInfo[key].rentColorSet, cardsInfo[key].home1,
               cardsInfo[key].home2, cardsInfo[key].home3, cardsInfo[key].home4, cardsInfo[key].hotel, cardsInfo[key].houseCost);
 
             cardPopup.querySelector('.buy-card-popup .buy button').onclick = () => {
@@ -1538,7 +1542,7 @@ function getOnCard() {
             function setInfoNormalCard() {
               document.querySelector('.normal-card-stations .card-title').innerHTML = `${cardsInfo[key].name}`;
               document.querySelector('.normal-card-stations .purchase-price .price').innerHTML = `$${cardsInfo[key].price}`;
-              document.querySelector('.normal-card-stations .mortage-value .price').innerHTML = `$${cardsInfo[key].mortage}`;
+              document.querySelector('.normal-card-stations .mortgage-value .price').innerHTML = `$${cardsInfo[key].mortgage}`;
               document.querySelector('.normal-card-stations .rent-price .price').innerHTML = `$${cardsInfo[key].rent}`;
               document.querySelector('.normal-card-stations .rent-price-full-color .price').innerHTML = `$${cardsInfo[key].rentColorSet}`;
               document.querySelector('.normal-card-stations .rent-with-1-house .price').innerHTML = `$${cardsInfo[key].home1}`;
@@ -1586,7 +1590,7 @@ function getOnCard() {
             
             document.querySelector('.player-properties .pay-btn').classList.add('active-btn');
             showInfoPopupCard(cardsInfo[key].color, cardsInfo[key].name, cardsInfo[key].price,
-              cardsInfo[key].mortage, cardsInfo[key].rent, cardsInfo[key].rentColorSet, cardsInfo[key].home1,
+              cardsInfo[key].mortgage, cardsInfo[key].rent, cardsInfo[key].rentColorSet, cardsInfo[key].home1,
               cardsInfo[key].home2, cardsInfo[key].home3, cardsInfo[key].home4, cardsInfo[key].hotel, cardsInfo[key].houseCost);
           }
 
@@ -1633,7 +1637,7 @@ function getOnCard() {
           stationCardPopup.classList.add('active');
           stationCardPopup.querySelector('.name').innerHTML = cardsInfo[key].name;
           stationCardPopup.querySelector('.price span:last-of-type').innerHTML = `$${cardsInfo[key].price}`;
-          stationCardPopup.querySelector('.mortage-value span:last-of-type').innerHTML = `$${cardsInfo[key].mortage}`;
+          stationCardPopup.querySelector('.mortgage-value span:last-of-type').innerHTML = `$${cardsInfo[key].mortgage}`;
           popupRoll.classList.remove('active');
           rollBtnOpen.removeEventListener("click", rollPopupToggle);
 
@@ -1682,7 +1686,7 @@ function getOnCard() {
             function setInfoFamiliesCard() {
               document.querySelector('.auction-popup .families-stations .name').innerHTML = `${cardsInfo[key].name}`;
               document.querySelector('.auction-popup .families-stations .price .value').innerHTML = `$${cardsInfo[key].price}`;
-              document.querySelector('.auction-popup .families-stations .mortage-value .value').innerHTML = `$${cardsInfo[key].mortage}`;
+              document.querySelector('.auction-popup .families-stations .mortgage-value .value').innerHTML = `$${cardsInfo[key].mortgage}`;
               document.querySelector('.auction-popup .families-stations .rent .value').innerHTML = `$${cardsInfo[key].rent}`;
               document.querySelector('.auction-popup .families-stations .two-stations .value').innerHTML = `$${cardsInfo[key].stations2}`;
               document.querySelector('.auction-popup .families-stations .three-stations .value').innerHTML = `$${cardsInfo[key].stations3}`;
@@ -1750,7 +1754,7 @@ function getOnCard() {
           document.querySelector('.stations-150-popup').classList.add('active');
           document.querySelector('.stations-150-popup .name').innerHTML = `${cardsInfo[key].name}`;
           document.querySelector('.stations-150-popup .price span:last-of-type').innerHTML = `$${cardsInfo[key].price}`;
-          document.querySelector('.stations-150-popup .mortage-value span:last-of-type').innerHTML = `$${cardsInfo[key].mortage}`;
+          document.querySelector('.stations-150-popup .mortgage-value span:last-of-type').innerHTML = `$${cardsInfo[key].mortgage}`;
           rollBtnOpen.removeEventListener("click", rollPopupToggle);
           popupRoll.classList.remove('active');
 
@@ -1799,7 +1803,7 @@ function getOnCard() {
             function setInfo150StationCards() {
               document.querySelector('.auction-popup .stations150 .name').innerHTML = `${cardsInfo[key].name}`;
               document.querySelector('.auction-popup .stations150 .price .value').innerHTML = `$${cardsInfo[key].price}`;
-              document.querySelector('.auction-popup .stations150 .mortage-value .value').innerHTML = `$${cardsInfo[key].mortage}`;
+              document.querySelector('.auction-popup .stations150 .mortgage-value .value').innerHTML = `$${cardsInfo[key].mortgage}`;
             }
           }
 
@@ -2810,11 +2814,11 @@ function buyCard(player, key, playerMoney, cardInfo) {
   cardInfo[key].el.style.fontWeight = `bold`;
 }
 
-function showInfoPopupCard(bgcolor, title, price, mortage,
+function showInfoPopupCard(bgcolor, title, price, mortgage,
   rent, fullRent, house1, house2, house3, house4, hotel1, housePrice) {
   const popupCardColor = cardPopup.querySelector('.card-color');
   const popupCardPurchasePrice = cardPopup.querySelector('.purchase-price .price');
-  const popupCardMortage = cardPopup.querySelector('.mortage-value .price');
+  const popupCardmortgage = cardPopup.querySelector('.mortgage-value .price');
   const popupCardRent = cardPopup.querySelector('.rent-price .price');
   const popupCardRentFull = cardPopup.querySelector('.rent-price-full-color .price');
   const popupCardRent1house = cardPopup.querySelector('.rent-with-1-house .price');
@@ -2828,7 +2832,7 @@ function showInfoPopupCard(bgcolor, title, price, mortage,
   popupCardColor.style.backgroundColor = `${bgcolor}`;
   popupCardColor.innerHTML = `${title}`;
   popupCardPurchasePrice.innerHTML = `$${price}`;
-  popupCardMortage.innerHTML = `$${mortage}`;
+  popupCardmortgage.innerHTML = `$${mortgage}`;
   popupCardRent.innerHTML = `$${rent}`;
   popupCardRentFull.innerHTML = `$${fullRent}`;
   popupCardRent1house.innerHTML = `$${house1}`;
@@ -3119,16 +3123,27 @@ document.querySelector('.deal-popup .decision .decline').addEventListener('click
   document.querySelector('.deal-popup .decision').classList.remove('active');
 });
 
-function exchangeCards(pushToPlayer, arrayOfCards){
-  console.log(pushToPlayer.cards);
+function exchangeCards(pushToPlayer, arrayOfCards, popToPlayer){
   if(arrayOfCards.length){
     arrayOfCards.forEach(card => {
+      popToPlayer.cards.shift();
       pushToPlayer.cards.push(card);
-    });
-    
-    
+    });  
   }
-  
+
+  if(pushToPlayer.cards.length){
+    pushToPlayer.cards.forEach(card => {
+      cardsInfo[card].el.style.color = pushToPlayer.color;
+      cardsInfo[card].el.style.fontWeight = 'bold';
+    });
+  }
+
+  if(pushToPlayer.cards.length){
+    popToPlayer.cards.forEach(card => {
+      cardsInfo[card].el.style.color = popToPlayer.color;
+      cardsInfo[card].el.style.fontWeight = 'bold';
+    });
+  }
 }
 
 document.querySelector('.deal-popup .decision .accept').addEventListener('click', () => {
@@ -3165,8 +3180,6 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
     const money = moneyPlayer1 - moneyPlayer2;
     switch(tradeWith){
       case yoneInfo.name: {
-        exchangeCards(yoneInfo, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
         yoneInfo.money += money;
         playerTurn.money -= money;
 
@@ -3174,14 +3187,26 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
 
         switch(playerTurn.name){
           case player1Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(yoneInfo, selectedValues1, player1Info);
+            exchangeCards(playerTurn, selectedValues2, player1Info);
             document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player2Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(yoneInfo, selectedValues1, player2Info);
+            exchangeCards(playerTurn, selectedValues2, player2Info);
             document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player3Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(yoneInfo, selectedValues1, player3Info);
+            exchangeCards(playerTurn, selectedValues2, player3Info);
             document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3190,8 +3215,6 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
         break;
       }
       case player1Info.name: {
-        exchangeCards(player1Info, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
         player1Info.money += money;
         playerTurn.money -= money;
 
@@ -3199,14 +3222,26 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
 
         switch(playerTurn.name){
           case yoneInfo.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player1Info, selectedValues1, yoneInfo);
+            exchangeCards(playerTurn, selectedValues2, yoneInfo);
             document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player2Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player1Info, selectedValues1, player2Info);
+            exchangeCards(playerTurn, selectedValues2, player2Info);
             document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player3Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player1Info, selectedValues1, player3Info);
+            exchangeCards(playerTurn, selectedValues2, player3Info);
             document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3223,14 +3258,26 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
 
         switch(playerTurn.name){
           case yoneInfo.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);
+            exchangeCards(player2Info, selectedValues1, yoneInfo);
+            exchangeCards(playerTurn, selectedValues2, yoneInfo);
             document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player1Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player2Info, selectedValues1, player1Info);
+            exchangeCards(playerTurn, selectedValues2, player1Info);
             document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player3Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player2Info, selectedValues1, player3Info);
+            exchangeCards(playerTurn, selectedValues2, player3Info);
             document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3239,8 +3286,6 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
         break;
       }
       case player3Info.name: {
-        exchangeCards(player3Info, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
         player3Info.money += money;
         playerTurn.money -= money;
 
@@ -3248,14 +3293,26 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
 
         switch(playerTurn.name){
           case yoneInfo.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player3Info, selectedValues1, yoneInfo);
+            exchangeCards(playerTurn, selectedValues2, yoneInfo);
             document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player1Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player3Info, selectedValues1, player1Info);
+            exchangeCards(playerTurn, selectedValues2, player1Info);
             document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player2Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player3Info, selectedValues1, player2Info);
+            exchangeCards(playerTurn, selectedValues2, player2Info);
             document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3270,21 +3327,31 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
       case yoneInfo.name: {
         yoneInfo.money -= money;
         playerTurn.money += money;
-        exchangeCards(yoneInfo, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
 
         document.querySelector('.player-yone .player__money').innerHTML = `$${yoneInfo.money}`;
 
         switch(playerTurn.name){
           case player1Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(yoneInfo, selectedValues1, player1Info);
+            exchangeCards(playerTurn, selectedValues2, player1Info);
             document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player2Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(yoneInfo, selectedValues1, player2Info);
+            exchangeCards(playerTurn, selectedValues2, player2Info);
             document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player3Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(yoneInfo, selectedValues1, player3Info);
+            exchangeCards(playerTurn, selectedValues2, player3Info);
             document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3295,21 +3362,31 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
       case player1Info.name: {
         player1Info.money -= money;
         playerTurn.money += money;
-        exchangeCards(player1Info, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
 
         document.querySelector('.player-1 .player__money').innerHTML = `$${player1Info.money}`;
 
         switch(playerTurn.name){
           case yoneInfo.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player1Info, selectedValues1, yoneInfo);
+            exchangeCards(playerTurn, selectedValues2, yoneInfo);
             document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player2Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player1Info, selectedValues1, player2Info);
+            exchangeCards(playerTurn, selectedValues2, player2Info);
             document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player3Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player1Info, selectedValues1, player3Info);
+            exchangeCards(playerTurn, selectedValues2, player3Info);
             document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3319,21 +3396,31 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
       case player2Info.name: {
         player2Info.money -= money;
         playerTurn.money += money;
-        exchangeCards(player2Info, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
 
         document.querySelector('.player-2 .player__money').innerHTML = `$${player2Info.money}`;
 
         switch(playerTurn.name){
           case yoneInfo.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player2Info, selectedValues1, yoneInfo);
+            exchangeCards(playerTurn, selectedValues2, yoneInfo);
             document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player1Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player2Info, selectedValues1, player1Info);
+            exchangeCards(playerTurn, selectedValues2, player1Info);
             document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player3Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player2Info, selectedValues1, player3Info);
+            exchangeCards(playerTurn, selectedValues2, player3Info);
             document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3344,21 +3431,31 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
       case player3Info.name: {
         player3Info.money -= money;
         playerTurn.money += money;
-        exchangeCards(player3Info, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
 
         document.querySelector('.player-3 .player__money').innerHTML = `$${player2Info.money}`;
 
         switch(playerTurn.name){
           case yoneInfo.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player3Info, selectedValues1, yoneInfo);
+            exchangeCards(playerTurn, selectedValues2, yoneInfo);
             document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player1Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player3Info, selectedValues1, player1Info);
+            exchangeCards(playerTurn, selectedValues2, player1Info);
             document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
           case player2Info.name:{
+            selectedValues1 = changeNameOfArrayCards(selectedValues1);
+            selectedValues2 = changeNameOfArrayCards(selectedValues2);  
+            exchangeCards(player3Info, selectedValues1, player2Info);
+            exchangeCards(playerTurn, selectedValues2, player2Info);
             document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
             break;
           }
@@ -3370,23 +3467,31 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
   } else {
     switch(tradeWith){
       case yoneInfo.name: {
-        exchangeCards(yoneInfo, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
+        selectedValues1 = changeNameOfArrayCards(selectedValues1);
+        selectedValues2 = changeNameOfArrayCards(selectedValues2);
+        exchangeCards(yoneInfo, selectedValues1, playerTurn);
+        exchangeCards(playerTurn, selectedValues2, yoneInfo);
         break;
       }
       case player1Info.name: {
-        exchangeCards(player1Info, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
+        selectedValues1 = changeNameOfArrayCards(selectedValues1);
+        selectedValues2 = changeNameOfArrayCards(selectedValues2);
+        exchangeCards(player1Info, selectedValues1, playerTurn);
+        exchangeCards(playerTurn, selectedValues2, player1Info);
         break;
       }
       case player2Info.name: {
+        selectedValues1 = changeNameOfArrayCards(selectedValues1);
+        selectedValues2 = changeNameOfArrayCards(selectedValues2);
         exchangeCards(player2Info, selectedValues1);
         exchangeCards(playerTurn, selectedValues2);
         break;
       }
       case player3Info.name: {
-        exchangeCards(player3Info, selectedValues1);
-        exchangeCards(playerTurn, selectedValues2);
+        selectedValues1 = changeNameOfArrayCards(selectedValues1);
+        selectedValues2 = changeNameOfArrayCards(selectedValues2);
+        exchangeCards(player3Info, selectedValues1, playerTurn);
+        exchangeCards(playerTurn, selectedValues2, player3Info);
         break;
       }
     }
@@ -3398,6 +3503,18 @@ document.querySelector('.deal-popup .decision .accept').addEventListener('click'
   document.querySelector('.deal-popup .left-side .money').innerHTML = `$0`;
 });
 
+function changeNameOfArrayCards(arr){
+  let newArray = [];
+  arr.forEach(card => {
+    for (const key in cardsInfo) {
+      if(cardsInfo[key].name !== undefined && cardsInfo[key].name === card){
+        newArray.push(key);
+      }
+    }
+  });
+  return newArray;
+}
+
 document.querySelector('.deal-popup .close').addEventListener('click', () => {
   document.querySelector('.deal-popup').classList.remove('active-deal');
   document.querySelector('.deal-popup .right-side').classList.add('hidden');
@@ -3406,6 +3523,143 @@ document.querySelector('.deal-popup .close').addEventListener('click', () => {
   document.querySelector('.deal-popup .right-side .money').innerHTML = `$0`;
   document.querySelector('.deal-popup .left-side .money').innerHTML = `$0`;
   document.querySelector('.deal-popup .decision').classList.remove('active');
+});
+
+document.querySelector('.player-properties .mortgage img').addEventListener('click', () => {
+  document.querySelector('.mortgage-popup').classList.add('active');
+  document.querySelector('.mortgage-popup .player-name').innerHTML = playerTurn.name;
+
+  const radio1 = document.querySelectorAll('.mortgage-popup label input')[0];
+  const radio2 = document.querySelectorAll('.mortgage-popup label input')[1];
+  radio1.checked = true;
+
+  const cardsForMortgage = {
+    cards: []
+  }
+
+  const cardsForUnmortgage = {
+    cards: []
+  }
+
+  if(radio1.checked){
+    playerTurn.cards.forEach(card => {
+      if(!cardsInfo[card].isMortgaged){
+        cardsForMortgage.cards.push(card);
+      }
+    });
+    ownedCards(cardsForMortgage, document.querySelector('.mortgage-popup #mortgage-cards'));
+    cardsForMortgage.cards = [];
+  }
+
+  if(radio2.checked){
+    playerTurn.cards.forEach(card => {
+      if(cardsInfo[card].isMortgaged){
+        cardsForUnmortgage.cards.push(card);
+      }
+    });
+    ownedCards(cardsForUnmortgage, document.querySelector('.mortgage-popup #mortgage-cards'));
+    cardsForUnmortgage.cards = [];
+  }
+
+  radio1.onclick = () => {
+    playerTurn.cards.forEach(card => {
+      if(!cardsInfo[card].isMortgaged){
+        cardsForMortgage.cards.push(card);
+      }
+    });
+    ownedCards(cardsForMortgage, document.querySelector('.mortgage-popup #mortgage-cards'));
+    cardsForMortgage.cards = [];
+  }
+  
+  radio2.onclick = () => {
+    playerTurn.cards.forEach(card => {
+      if(cardsInfo[card].isMortgaged){
+        cardsForUnmortgage.cards.push(card);
+      }
+    });
+    ownedCards(cardsForUnmortgage, document.querySelector('.mortgage-popup #mortgage-cards'));
+    cardsForUnmortgage.cards = [];
+  }
+});
+
+document.querySelector('.mortgage-popup .mortgage-cards-btn').addEventListener('click', () => {
+  document.querySelector('.mortgage-popup').classList.remove('active');
+  const selectedNode = document.querySelector('.mortgage-popup #mortgage-cards');
+  let selectedCards = [];
+
+  for (let i = 0; i < selectedNode.options.length; i++) {
+    let option = selectedNode.options[i];
+
+    if (option.selected) {
+      selectedCards.push(option.value);
+    }
+  }
+
+  selectedCards = changeNameOfArrayCards(selectedCards);
+  selectedCards.forEach(card => {
+    if(!cardsInfo[card].isMortgaged){
+      cardsInfo[card].isMortgaged = true;
+      playerTurn.money += cardsInfo[card].mortgage;
+      console.log(playerTurn.money);
+      switch(playerTurn.name){
+        case yoneInfo.name : {
+          document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+        case player1Info.name : {
+          document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+        case player2Info.name : {
+          document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+        case player3Info.name : {
+          document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+      }
+      cardsInfo[card].el.querySelector('.card-name').innerHTML = `Mortgaged <br> ${cardsInfo[card].name}`;
+    } else {
+      cardsInfo[card].isMortgaged = false;
+      playerTurn.money -= cardsInfo[card].unmortgage;
+
+      switch(playerTurn.name){
+        case yoneInfo.name : {
+          document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+        case player1Info.name : {
+          document.querySelector('.player-1 .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+        case player2Info.name : {
+          document.querySelector('.player-2 .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+        case player3Info.name : {
+          document.querySelector('.player-3 .player__money').innerHTML = `$${playerTurn.money}`;
+          break; 
+        }
+      }
+
+      cardsInfo[card].el.querySelector('.card-name').innerHTML = `${cardsInfo[card].name}`;
+    }
+  });
+
+
+  console.log(selectedCards);
+
+  if(document.querySelector(".mortgage-popup #mortgage").checked){
+    alert('Selected cards were mortgaged.');
+  } else {
+    alert('Selected cards were unmortgaged.');
+  }
+  
+});
+
+document.querySelector('.mortgage-popup .close').addEventListener('click', () => {
+  document.querySelector('.mortgage-popup').classList.remove('active');
 });
 
 function getRandomNumber(min, max) {

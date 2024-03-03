@@ -15,8 +15,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 1),
         name: 'Sunspear',
         price: 220,
-        mortage: 110,
-        unmortage: 120,
+        mortgage: 120,
+        unmortgage: 140,
         rent: 18,
         rentColorSet: 36,
         home1: 90,
@@ -27,7 +27,8 @@ const cardsInfo = {
         houseCost: 150,
         color: '#900', //red
         isBought: false,
-        removeHouse: 135
+        removeHouse: 135,
+        isMortgaged: false
     },
     topValar: {
         el: document.querySelector('.random-card.valar'),
@@ -45,8 +46,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 3),
         name: 'Riverrun',
         price: 220,
-        mortage: 110,
-        unmortage: 120,
+        mortgage: 120,
+        unmortgage: 140,
         rent: 18,
         rentColorSet: 36,
         home1: 90,
@@ -57,7 +58,8 @@ const cardsInfo = {
         houseCost: 150,
         color: '#900', //red
         isBought: false,
-        removeHouse: 135
+        removeHouse: 135,
+        isMortgaged: false
     },
     redCard3: {
         el: document.querySelector('.oldtown'),
@@ -67,8 +69,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 4),
         name: 'Oldtown',
         price: 240,
-        mortage: 120,
-        unmortage: 140,
+        mortgage: 120,
+        unmortgage: 140,
         rent: 20,
         rentColorSet: 40,
         home1: 100,
@@ -79,7 +81,8 @@ const cardsInfo = {
         houseCost: 150,
         color: '#900', //red
         isBought: false,
-        removeHouse: 135        
+        removeHouse: 135,
+        isMortgaged: false
     },
     targaryen: {
         el: document.querySelector('.targaryen-family'),
@@ -89,14 +92,15 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 5),
         name: 'Targaryen Family',
         price: 200,
-        mortage: 100,
-        unmortage: 110,
+        mortgage: 100,
+        unmortgage: 110,
         rent: 25,
         stations2: 50,
         stations3: 100,
         stations4: 200,
         isBought: false,
-        color: 'black'
+        color: 'black',
+        isMortgaged: false
     },
     yellowCard1: {
         el: document.querySelector('.dreadfort'),
@@ -106,8 +110,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 6),
         name: 'Dreadfort',
         price: 260,
-        mortage: 130,
-        unmortage: 145,
+        mortgage: 140,
+        unmortgage: 160,
         rent: 22,
         rentColorSet: 44,
         home1: 110,
@@ -118,7 +122,8 @@ const cardsInfo = {
         houseCost: 150,
         color: 'yellow',
         isBought: false,
-        removeHouse: 135        
+        removeHouse: 135,
+        isMortgaged: false
     },
     yellowCard2: {
         el: document.querySelector('.the-twins'),
@@ -128,8 +133,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 7),
         name: 'The Twins',
         price: 260,
-        mortage: 130,
-        unmortage: 145,
+        mortgage: 140,
+        unmortgage: 160,
         rent: 22,
         rentColorSet: 44,
         home1: 110,
@@ -140,7 +145,8 @@ const cardsInfo = {
         houseCost: 150,
         color: 'yellow',
         isBought: false,
-        removeHouse: 135        
+        removeHouse: 135,
+        isMortgaged: false  
     },
     card150Top: {
         el: document.querySelector('.king-landing-station'),
@@ -152,10 +158,11 @@ const cardsInfo = {
         rentOneCard: 4,
         rentTwoCard: 10,
         price: 150,
-        mortage: 75,
-        unmortage: 85,
+        mortgage: 75,
+        unmortgage: 85,
         isBought: false,
-        color: 'black'
+        color: 'black',
+        isMortgaged: false
     },
     yellowCard3: {
         el: document.querySelector('.dragonstone'),
@@ -165,8 +172,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 9),
         name: 'Dragonstone',
         price: 280,
-        mortage: 140,
-        unmortage: 160,
+        mortgage: 140,
+        unmortgage: 160,
         rent: 24,
         rentColorSet: 48,
         home1: 120,
@@ -177,7 +184,8 @@ const cardsInfo = {
         houseCost: 150,
         color: 'yellow',
         isBought: false,
-        removeHouse: 135        
+        removeHouse: 135,
+        isMortgaged: false
     },
 
 
@@ -203,8 +211,8 @@ const cardsInfo = {
         right: 100,
         name: 'Dragon Home',
         price: 200,
-        mortage: 100,
-        unmortage: 110,
+        mortgage: 90,
+        unmortgage: 110,
         rent: 16,
         rentColorSet: 32,
         home1: 80,
@@ -215,7 +223,8 @@ const cardsInfo = {
         houseCost: 100,
         color: 'orangered',
         isBought: false,
-        removeHouse: 85        
+        removeHouse: 85,
+        isMortgaged: false
     },
     orangeCard2: {
         el: document.querySelector('.lannisport'),
@@ -225,8 +234,8 @@ const cardsInfo = {
         right: 100,
         name: 'Lannisport',
         price: 180,
-        mortage: 90,
-        unmortage: 110,
+        mortgage: 90,
+        unmortgage: 110,
         rent: 14,
         rentColorSet: 28,
         home1: 70,
@@ -237,7 +246,8 @@ const cardsInfo = {
         houseCost: 100,
         color: 'orangered',
         isBought: false,
-        removeHouse: 85
+        removeHouse: 85,
+        isMortgaged: false
     },
     leftIron: {
         el: document.querySelector('.random-card.iron-throne'),
@@ -255,8 +265,8 @@ const cardsInfo = {
         right: 100,
         name: 'Casterly Rock',
         price: 180,
-        mortage: 90,
-        unmortage: 110,
+        mortgage: 90,
+        unmortgage: 110,
         rent: 14,
         rentColorSet: 28,
         home1: 70,
@@ -267,7 +277,8 @@ const cardsInfo = {
         houseCost: 100,
         color: 'orangered',
         isBought: false,
-        removeHouse: 85
+        removeHouse: 85,
+        isMortgaged: false
     },
     stark: {
         el: document.querySelector('.stark-family'),
@@ -277,14 +288,15 @@ const cardsInfo = {
         right: 100,
         name: 'Stark Family',
         price: 200,
-        mortage: 100,
-        unmortage: 110,
+        mortgage: 100,
+        unmortgage: 110,
         rent: 25,
         stations2: 50,
         stations3: 100,
         stations4: 200,
         isBought: false,
-        color: 'black'
+        color: 'black',
+        isMortgaged: false
     },
     pinkCard1: {
         el: document.querySelector('.storm-end'),
@@ -294,8 +306,8 @@ const cardsInfo = {
         right: 100,
         name: 'Storm End',
         price: 160,
-        mortage: 80,
-        unmortage: 90,
+        mortgage: 70,
+        unmortgage: 80,
         rent: 12,
         rentColorSet: 24,
         home1: 60,
@@ -306,7 +318,8 @@ const cardsInfo = {
         houseCost: 100,
         color: 'palevioletred',
         isBought: false,
-        removeHouse: 85
+        removeHouse: 85,
+        isMortgaged: false
     },
     pinkCard2: {
         el: document.querySelector('.the-red-keep'),
@@ -316,8 +329,8 @@ const cardsInfo = {
         right: 100,
         name: 'The Red Keep',
         price: 140,
-        mortage: 70,
-        unmortage: 80,
+        mortgage: 70,
+        unmortgage: 80,
         rent: 10,
         rentColorSet: 20,
         home1: 50,
@@ -328,7 +341,8 @@ const cardsInfo = {
         houseCost: 100,
         color: 'palevioletred',
         isBought: false,
-        removeHouse: 85
+        removeHouse: 85,
+        isMortgaged: false
     },
     card150Left: {
         el: document.querySelector('.castle-black-station'),
@@ -338,12 +352,13 @@ const cardsInfo = {
         right: 100,
         name: 'Castle Black  Station',
         price: 150,
-        mortage: 75,
+        mortgage: 75,
         rentOneCard: 4,
         rentTwoCard: 10,
-        unmortage: 85,
+        unmortgage: 85,
         isBought: false,
-        color: 'black'
+        color: 'black',
+        isMortgaged: false
     },
     pinkCard3: {
         el: document.querySelector('.dragonstone-soul'),
@@ -353,8 +368,8 @@ const cardsInfo = {
         right: 100,
         name: 'Dragonstone Soul',
         price: 140,
-        mortage: 70,
-        unmortage: 80,
+        mortgage: 70,
+        unmortgage: 80,
         rent: 10,
         rentColorSet: 20,
         home1: 50,
@@ -365,7 +380,8 @@ const cardsInfo = {
         houseCost: 100,
         color: 'palevioletred',
         isBought: false,
-        removeHouse: 85
+        removeHouse: 85,
+        isMortgaged: false
     },
 
 
@@ -381,8 +397,8 @@ const cardsInfo = {
         right: 800,
         name: 'The Arbor',
         price: 300,
-        mortage: 150,
-        unmortage: 165,
+        mortgage: 160,
+        unmortgage: 180,
         rent: 26,
         rentColorSet: 52,
         home1: 130,
@@ -393,7 +409,8 @@ const cardsInfo = {
         houseCost: 200,
         color: 'green',
         isBought: false,
-        removeHouse: 175
+        removeHouse: 175,
+        isMortgaged: false
     },
     greenCard2: {
         el: document.querySelector('.yronwood'),
@@ -403,8 +420,8 @@ const cardsInfo = {
         right: 800,
         name: 'Yronwood',
         price: 300,
-        mortage: 150,
-        unmortage: 165,
+        mortgage: 160,
+        unmortgage: 180,
         rent: 26,
         rentColorSet: 52,
         home1: 130,
@@ -415,7 +432,8 @@ const cardsInfo = {
         houseCost: 200,
         color: 'green',
         isBought: false,
-        removeHouse: 175
+        removeHouse: 175,
+        isMortgaged: false
     },
     rightIron: {
         el: document.querySelector('.random-card.iron-throne'),
@@ -433,8 +451,8 @@ const cardsInfo = {
         right: 800,
         name: 'Blue Dragon',
         price: 320,
-        mortage: 160,
-        unmortage: 180,
+        mortgage: 160,
+        unmortgage: 180,
         rent: 28,
         rentColorSet: 56,
         home1: 150,
@@ -445,7 +463,8 @@ const cardsInfo = {
         houseCost: 200,
         color: 'green',
         isBought: false,
-        removeHouse: 175
+        removeHouse: 175,
+        isMortgaged: false
     },
     baratheon: {
         el: document.querySelector('.baratheon-family'),
@@ -455,14 +474,15 @@ const cardsInfo = {
         right: 800,
         name: 'Baratheon Family',
         price: 200,
-        mortage: 100,
-        unmortage: 110,
+        mortgage: 100,
+        unmortgage: 110,
         rent: 25,
         stations2: 50,
         stations3: 100,
         stations4: 200,
         isBought: false,
-        color: 'black'
+        color: 'black',
+        isMortgaged: false
     },
     rightValar: {
         el: document.querySelector('.random-card.valar'),
@@ -480,8 +500,8 @@ const cardsInfo = {
         right: 800,
         name: 'Harrenhal',
         price: 350,
-        mortage: 175,
-        unmortage: 190,
+        mortgage: 200,
+        unmortgage: 220,
         rent: 35,
         rentColorSet: 70,
         home1: 175,
@@ -492,7 +512,8 @@ const cardsInfo = {
         houseCost: 200,
         color: 'rgb(11, 11, 182)',
         isBought: false,
-        removeHouse: 175
+        removeHouse: 175,
+        isMortgaged: false
     },
     pay100: {
         el: document.querySelector('.pay-100'),
@@ -509,8 +530,8 @@ const cardsInfo = {
         right: 800,
         name: 'Casterly Rock',
         price: 400,
-        mortage: 200,
-        unmortage: 220,
+        mortgage: 200,
+        unmortgage: 220,
         rent: 50,
         rentColorSet: 100,
         home1: 200,
@@ -521,7 +542,8 @@ const cardsInfo = {
         houseCost: 200,
         color: 'rgb(11, 11, 182)',
         isBought: false,
-        removeHouse: 175
+        removeHouse: 175,
+        isMortgaged: false
     },
 
 
@@ -544,8 +566,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 1),
         name: 'The Dreadfort',
         price: 120,
-        mortage: 60,
-        unmortage: 70,
+        mortgage: 60,
+        unmortgage: 70,
         rent: 8,
         rentColorSet: 16,
         home1: 40,
@@ -556,7 +578,8 @@ const cardsInfo = {
         houseCost: 50,
         color: 'rgb(13, 164, 214)',
         isBought: false,
-        removeHouse: 45
+        removeHouse: 45,
+        isMortgaged: false
     },
     lightBlueCard2: {
         el: document.querySelector('.greywater-watch'),
@@ -566,8 +589,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 2),
         name: 'Greywater Watch',
         price: 100,
-        mortage: 60,
-        unmortage: 70,
+        mortgage: 60,
+        unmortgage: 70,
         rent: 6,
         rentColorSet: 12,
         home1: 30,
@@ -578,7 +601,8 @@ const cardsInfo = {
         houseCost: 50,
         color: 'rgb(13, 164, 214)',
         isBought: false,
-        removeHouse: 45
+        removeHouse: 45,
+        isMortgaged: false
     },
     bottomValar: {
         el: document.querySelector('.random-card.valar'),
@@ -596,8 +620,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 4),
         name: 'Winterfell',
         price: 100,
-        mortage: 60,
-        unmortage: 70,
+        mortgage: 60,
+        unmortgage: 70,
         rent: 6,
         rentColorSet: 12,
         home1: 30,
@@ -608,7 +632,8 @@ const cardsInfo = {
         houseCost: 50,
         color: 'rgb(13, 164, 214)',
         isBought: false,
-        removeHouse: 45
+        removeHouse: 45,
+        isMortgaged: false
     },
     lannister: {
         el: document.querySelector('.lannister-family'),
@@ -618,14 +643,15 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 5),
         name: 'Lannister Family',
         price: 200,
-        mortage: 100,
-        unmortage: 110,
+        mortgage: 100,
+        unmortgage: 110,
         rent: 25,
         stations2: 50,
         stations3: 100,
         stations4: 200,
         isBought: false,
-        color: 'black'
+        color: 'black',
+        isMortgaged: false
     },
     pay200: {
         el: document.querySelector('.pay-200'),
@@ -642,8 +668,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 7),
         name: 'The Wall',
         price: 60,
-        mortage: 30,
-        unmortage: 35,
+        mortgage: 30,
+        unmortgage: 35,
         rent: 4,
         rentColorSet: 8,
         home1: 20,
@@ -655,7 +681,8 @@ const cardsInfo = {
         color: 'rgb(110, 59, 0)',
         isBought: false,
         id: 'brown',
-        removeHouse: 45
+        removeHouse: 45,
+        isMortgaged: false
     },
     bottomIron: {
         el: document.querySelector('.random-card.iron-throne'),
@@ -673,8 +700,8 @@ const cardsInfo = {
         right: 100 + (normalCardWidth * 9),
         name: 'Castle Black',
         price: 60,
-        mortage: 30,
-        unmortage: 35,
+        mortgage: 30,
+        unmortgage: 35,
         rent: 2,
         rentColorSet: 4,
         home1: 10,
@@ -686,7 +713,8 @@ const cardsInfo = {
         color: 'rgb(110, 59, 0)',
         isBought: true,
         id: 'brown',
-        removeHouse: 45
+        removeHouse: 45,
+        isMortgaged: false
     },
     go: {
         el: document.querySelector('.go'),

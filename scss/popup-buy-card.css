@@ -27,7 +27,7 @@
   color: white;
   margin-bottom: 10px;
 }
-.buy-card-popup__inner .purchase-price, .buy-card-popup__inner .mortage-value {
+.buy-card-popup__inner .purchase-price, .buy-card-popup__inner .mortgage-value {
   display: flex;
   justify-content: space-between;
 }
