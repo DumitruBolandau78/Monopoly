@@ -3623,7 +3623,7 @@ document.querySelector('.mortgage-popup .mortgage-cards-btn').addEventListener('
     } else {
       cardsInfo[card].isMortgaged = false;
       playerTurn.money -= cardsInfo[card].unmortgage;
-
+      console.log(2);
       switch(playerTurn.name){
         case yoneInfo.name : {
           document.querySelector('.player-yone .player__money').innerHTML = `$${playerTurn.money}`;
