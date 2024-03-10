@@ -9,6 +9,7 @@
     padding: 20px;
     display: none;
     height: max-content;
+    z-index: 9999;
 
     &.active-card {
         display: block !important;

@@ -783,3 +783,53 @@ body {
         }
     }
 }
+
+.jail-popup {
+    display: none;
+
+    &.active-jail-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 400px;
+        width: 100%;
+        border-bottom: 2px solid #900;
+        border-right: 2px solid #900;
+        border-left: 2px solid yellow;
+        border-top: 2px solid yellow;
+        background-color: #fff;
+        padding: 30px;
+    }
+
+    .devil-bones {
+        display: flex;
+        margin: 40px 0;
+        gap: 30px;
+    }
+
+    .jail-name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .jail-info {
+        font-size: 17px;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    button {
+        background-color: #900;
+        color: #fff;
+        border: none;
+        font-size: 15px;
+        padding: 8px 20px;
+        cursor: pointer;
+    }
+}
