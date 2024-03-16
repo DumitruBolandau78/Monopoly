@@ -52,40 +52,132 @@ let auctionCompareCounter = 0;
 let auctionLastClick = false;
 
 function playersTurn() {
+  if(yoneInfo.isBankrupt){
+    document.querySelector('.players-icons-for-play .player-yone').style.visibility = 'hidden';
+  }
+  if(player1Info.isBankrupt){
+    document.querySelector('.players-icons-for-play .player-1').style.visibility = 'hidden';
+  }
+  if(player2Info.isBankrupt){
+    document.querySelector('.players-icons-for-play .player-2').style.visibility = 'hidden';
+  }
+  if(player3Info.isBankrupt){
+    document.querySelector('.players-icons-for-play .player-3').style.visibility = 'hidden';
+  }
+  
   if (playerTurn == yoneInfo) {
-    playerTurn = player1Info;
-    playerMoneyTurn = player1Money;
-    playerIconTurn = player1Icon;
-    document.querySelector('.whose-turn h1').innerHTML = `Car`;
-    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
+    if(!player1Info.isBankrupt){
+      playerTurn = player1Info;
+      playerMoneyTurn = player1Money;
+      playerIconTurn = player1Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `Car`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!player2Info.isBankrupt){
+      playerTurn = player2Info;
+      playerMoneyTurn = player2Money;
+      playerIconTurn = player2Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `Duck`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!player3Info.isBankrupt){
+      playerTurn = player3Info;
+      playerMoneyTurn = player3Money;
+      playerIconTurn = player3Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `T-rex`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    }
     return;
   }
 
   if (playerTurn == player1Info) {
-    playerTurn = player2Info;
-    playerMoneyTurn = player2Money;
-    playerIconTurn = player2Icon;
-    document.querySelector('.whose-turn h1').innerHTML = `Duck`;
-    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
+    if(!player2Info.isBankrupt){
+      playerTurn = player2Info;
+      playerMoneyTurn = player2Money;
+      playerIconTurn = player2Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `Duck`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!player3Info.isBankrupt){
+      playerTurn = player3Info;
+      playerMoneyTurn = player3Money;
+      playerIconTurn = player3Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `T-rex`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!yoneInfo.isBankrupt){
+      playerTurn = yoneInfo;
+      playerMoneyTurn = yoneMoney;
+      playerIconTurn = playerYoneIcon;
+      document.querySelector('.whose-turn h1').innerHTML = `Yone`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    }
     return;
   }
 
   if (playerTurn == player2Info) {
-    playerTurn = player3Info;
-    playerMoneyTurn = player3Money;
-    playerIconTurn = player3Icon;
-    document.querySelector('.whose-turn h1').innerHTML = `T-rex`;
-    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
-    return;
+    if(!player3Info.isBankrupt){
+      playerTurn = player3Info;
+      playerMoneyTurn = player3Money;
+      playerIconTurn = player3Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `T-rex`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!yoneInfo.isBankrupt){
+      playerTurn = yoneInfo;
+      playerMoneyTurn = yoneMoney;
+      playerIconTurn = playerYoneIcon;
+      document.querySelector('.whose-turn h1').innerHTML = `Yone`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!player1Info.isBankrupt){
+      playerTurn = player1Info;
+      playerMoneyTurn = player1Money;
+      playerIconTurn = player1Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `Car`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    }
   }
 
   if (playerTurn == player3Info) {
-    playerTurn = yoneInfo;
-    playerMoneyTurn = yoneMoney;
-    playerIconTurn = playerYoneIcon;
-    document.querySelector('.whose-turn h1').innerHTML = `Yone`;
-    document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> ${playerTurn.name}`;
-  }
+    if(!yoneInfo.isBankrupt){
+      playerTurn = yoneInfo;
+      playerMoneyTurn = yoneMoney;
+      playerIconTurn = playerYoneIcon;
+      document.querySelector('.whose-turn h1').innerHTML = `Yone`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!player1Info.isBankrupt){
+      playerTurn = player1Info;
+      playerMoneyTurn = player1Money;
+      playerIconTurn = player1Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `Car`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    } else if(!player2Info.isBankrupt){
+      playerTurn = player2Info;
+      playerMoneyTurn = player2Money;
+      playerIconTurn = player2Icon;
+      document.querySelector('.whose-turn h1').innerHTML = `Duck`;
+      document.querySelector('.turn-player-name').innerHTML = `Player Turn:<br> <span>${playerTurn.name}</span>`;
+      document.querySelector('.turn-player-name span').style.color = `${playerTurn.color}`;
+      return;
+    }
+  } 
 }
 
 rollDiesBtn.addEventListener("click", rollDiceEvent);
@@ -148,7 +240,7 @@ function moveDice() {
       popupRoll.classList.remove('active');
     });
     getOnCard();
-  }, 30 * 500);
+  }, 4 * 500);
   ///(firstRandomNr + secondRandomNr)
 }
 
@@ -1579,6 +1671,8 @@ function getOnCard() {
           key !== 'freeParking') {
 
           if (!cardsInfo[key].isBought) {
+            console.log(playerTurn.name + ' left ' + playerTurn.left);
+            console.log(playerTurn.name + ' top ' + playerTurn.top);
             document.querySelector('.player-properties .end-turn').onclick = () => {
               document.querySelector('.player-properties .add-build img').classList.remove('toggle-build-active');
               document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
@@ -1587,6 +1681,10 @@ function getOnCard() {
               rollDiesBtn.addEventListener("click", rollDiceEvent);
               rollPopupToggle();
               playersTurn();
+              if(playerTurn.isInJail){
+                jail();
+                return;
+              }
               rollDiesBtn.innerHTML = "Roll";
               dice1.innerHTML = '';
               dice2.innerHTML = '';
@@ -1642,6 +1740,8 @@ function getOnCard() {
           }
 
           if (cardsInfo[key].isBought) {
+            console.log(playerTurn.name + ' left ' + playerTurn.left);
+            console.log(playerTurn.name + ' top ' + playerTurn.top);
             document.querySelector('.player-properties .end-turn').onclick = () => {
               document.querySelector('.buy-card-popup').classList.remove('active-card');
               document.querySelector('.player-properties .add-build img').classList.remove('toggle-build-active');
@@ -1650,6 +1750,10 @@ function getOnCard() {
 
               document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
               playersTurn();
+              if(playerTurn.isInJail){
+                jail();
+                return;
+              }
               rollDiesBtn.addEventListener("click", rollDiceEvent);
               rollPopupToggle();
               rollDiesBtn.innerHTML = "Roll";
@@ -1689,6 +1793,23 @@ function getOnCard() {
           rollBtnOpen.removeEventListener("click", rollPopupToggle);
         }
 
+        function verifyIfGetBankrupt(){
+          let sumMoney = 0;
+
+          playerTurn.cards.forEach(card => {
+            if(!cardsInfo[card].isMortgaged){
+              sumMoney += cardsInfo[card].mortgage;
+            }
+          });
+
+          sumMoney += playerTurn.money;
+
+          if(payMoney > sumMoney){
+            playerTurn.isBankrupt = true;
+            alert(`Player ${playerTurn.name} doesnt have enough money to pay. He is declared BANKRUPT.`);
+          }
+        }
+
         if (key === 'pay200') {
           document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
           document.querySelector('.player-properties .pay-btn').classList.add('active-btn');
@@ -1709,6 +1830,10 @@ function getOnCard() {
           document.querySelector('.player-properties .end-turn').onclick = () => {
             document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
             playersTurn();
+            if(playerTurn.isInJail){
+              jail();
+              return;
+            }
             rollDiesBtn.addEventListener("click", rollDiceEvent);
             rollPopupToggle();
             rollDiesBtn.innerHTML = "Roll";
@@ -1742,6 +1867,10 @@ function getOnCard() {
           document.querySelector('.player-properties .end-turn').onclick = () => {
             document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
             playersTurn();
+            if(playerTurn.isInJail){
+              jail();
+              return;
+            }
             rollDiesBtn.addEventListener("click", rollDiceEvent);
             rollPopupToggle();
             rollDiesBtn.innerHTML = "Roll";
@@ -1792,72 +1921,169 @@ function getOnCard() {
               break;
             }
           }
-
-          document.querySelector('.player-properties .end-turn').onclick = () => {
-            document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
-            deleteAddHousesIcon();
-            document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
-            playersTurn();
-            rollDiesBtn.addEventListener("click", rollDiceEvent);
-            rollPopupToggle();
-            rollDiesBtn.innerHTML = "Roll";
-            dice1.innerHTML = '';
-            dice2.innerHTML = '';
-            rollDiesBtn.addEventListener('click', () => {
-              popupRoll.classList.add('active');
-            });
-
-            verifyIfPlayerHaveSetOfCards(key);
-          }
         }
 
 
         if(key === 'justVisiting'){
-          if(playerTurn.isInJail){
-            if(playerTurn.counterJail === 3){
-              addEndTurn();
+          jail();
+        }
+
+        function jail() {
+          defaultJailValues();
+          if (playerTurn.isInJail) {
+            if (playerTurn.counterJail === 3) {
               playerTurn.counterJail--;
+              addEndTurn();
             } else {
               document.querySelector('.jail-popup').classList.add('active-jail-menu');
-              document.querySelector('.jail-popup .player-name').innerHTML = `Player ${playerTurn.name} `
               document.querySelector('.jail-popup .jail-info span').innerHTML = `${playerTurn.counterJail}`;
+              document.querySelector('.jail-popup .roll').classList.add('active-btn-roll');
+              document.querySelector('.jail-popup .move').classList.add('hidden');
+              document.querySelector('.jail-popup .end-turn-jail').classList.add('end-turn-active');
+              document.querySelector('.jail-popup .pay').classList.add('active-btn-pay');
+
+              let isPay = false;
+              let isRoll = true;
+
+              if(playerTurn.counterJail === 0){
+                document.querySelector('.jail-popup .end-turn-jail').classList.remove('end-turn-active');
+                document.querySelector('.jail-popup .pay').classList.remove('active-btn-pay');
+              }
+
+              document.querySelector('.jail-popup .pay').onclick = () => {
+                if(playerTurn.money - 50 >= 0){
+                  isPay = true;
+                  playerTurn.isInJail = false;
+                  playerTurn.counterJail = 0;
+                  document.querySelector('.jail-popup .roll').innerHTML = 'Roll';
+                  playerTurn.money -= 50;
+                  playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                  document.querySelector('.jail-popup .end-turn-jail').classList.remove('end-turn-active');
+                  document.querySelector('.jail-popup .pay').classList.remove('active-btn-pay');
+                } else {
+                  alert('You dont have $50 to pay.');
+                }
+              }
+
+              document.querySelector('.jail-popup .end-turn-jail').onclick = () => {
+                defaultJailValues();
+                playerTurn.counterJail--;
+                document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
+                playersTurn();
+                if(playerTurn.isInJail){
+                  jail();
+                  return;
+                }
+                document.querySelector('.jail-popup').classList.remove('active-jail-menu');
+                rollDiesBtn.addEventListener("click", rollDiceEvent);
+                rollPopupToggle();
+                rollDiesBtn.innerHTML = "Roll";
+                dice1.innerHTML = '';
+                dice2.innerHTML = '';
+                rollDiesBtn.addEventListener('click', () => {
+                  popupRoll.classList.add('active');
+                });
+    
+                verifyIfPlayerHaveSetOfCards(key);
+              }
+
+              document.querySelector('.jail-popup .options .roll').onclick = () => {
+                console.log(isRoll);
+                if(isRoll){
+                  isRoll = false;
+                  document.querySelector('.jail-popup .dice1').classList.add("active-dice");
+                  document.querySelector('.jail-popup .dice2').classList.add("active-dice");
+                  document.querySelector('.jail-popup .dice1').innerHTML = "";
+                  document.querySelector('.jail-popup .dice2').innerHTML = "";
+  
+                  setTimeout(() => {
+                    document.querySelector('.jail-popup .dice1').classList.remove("active-dice");
+                    document.querySelector('.jail-popup .dice2').classList.remove("active-dice");
+  
+                    firstRandomNr = getRandomNumber(1, 6);
+                    changeDiceImage(document.querySelector('.jail-popup .dice1'));
+                    secondRandomNr = getRandomNumber(1, 6);
+                    changeDiceImage(document.querySelector('.jail-popup .dice2'));
+  
+                    if (isPay) {
+                      document.querySelector('.jail-popup .move').classList.remove('hidden');
+                      document.querySelector('.jail-popup .options .move').onclick = () => {
+                        moveDice();
+                        playerTurn.isInJail = false;
+                        playerTurn.counterJail = 0;
+                        document.querySelector('.jail-popup').classList.remove('active-jail-menu');
+                      };
+                    }
+  
+                    if (firstRandomNr === secondRandomNr) {
+                      playerTurn.counterJail = 0;
+                      playerTurn.isInJail = false;
+                      document.querySelector('.jail-popup .options .roll').classList.remove('active-btn-roll');
+                      document.querySelector('.jail-popup .options .move').classList.remove('hidden');
+                      document.querySelector('.jail-popup .options .end-turn-jail').classList.remove('end-turn-active');
+                      document.querySelector('.jail-popup .pay').classList.remove('active-btn-pay');
+                      document.querySelector('.jail-popup .options .move').onclick = () => {
+                        moveDice();
+                        document.querySelector('.jail-popup').classList.remove('active-jail-menu');
+                      };
+                      return;
+                    } else {
+                      document.querySelector('.jail-popup .pay').classList.remove('active-btn-pay');
+                      document.querySelector('.jail-popup .options .roll').classList.remove('active-btn-roll');
+                    }
+  
+                    if (playerTurn.counterJail === 0) {
+                      document.querySelector('.jail-popup .options .roll').classList.remove('active-btn-roll');
+                      document.querySelector('.jail-popup .options .move').classList.remove('hidden');
+                      document.querySelector('.jail-popup .options .move').onclick = () => {
+                        if (!(playerTurn.money - 50 >= 0)) {
+                          return;
+                        }
+                        playerTurn.isInJail = false;
+                        playerTurn.counterJail = 0;
+                        playerTurn.money -= 50;
+                        playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                        moveDice();
+                        document.querySelector('.jail-popup').classList.remove('active-jail-menu');
+                      };
+                    }
+                  }, 700);
+                }
+              };
             }
           }
 
-          document.querySelector('.jail-popup .options .roll').onclick = () => {
-            document.querySelector('.jail-popup .dice1').classList.add("active-dice");
-            document.querySelector('.jail-popup .dice2').classList.add("active-dice");
-            document.querySelector('.jail-popup .dice1').innerHTML = "";
-            document.querySelector('.jail-popup .dice2').innerHTML = "";
-
-            setTimeout(() => {
-              document.querySelector('.jail-popup .dice1').classList.remove("active-dice");
-              document.querySelector('.jail-popup .dice2').classList.remove("active-dice");
-
-              firstRandomNr = getRandomNumber(1, 6);
-              changeDiceImage(document.querySelector('.jail-popup .dice1'));
-              secondRandomNr = getRandomNumber(1, 6);
-              changeDiceImage(document.querySelector('.jail-popup .dice2'));
-
-              if(firstRandomNr === secondRandomNr){
-                document.querySelector('.jail-popup .options .roll').innerHTML = 'Move';
-                document.querySelector('.jail-popup .options .roll').onclick = moveDice();
-              }
-            }, 700);
-          };
-
-          if(!playerTurn.isInJail){
+          if (!playerTurn.isInJail) {
             addEndTurn();
           }
+          console.log(playerTurn.name + ' ' + playerTurn.counterJail);
+        }
+
+        function defaultJailValues(){
+          document.querySelector('.jail-popup .dice1').innerHTML = '';
+          document.querySelector('.jail-popup .dice2').innerHTML = '';
+          document.querySelector('.jail-popup .player-name').innerHTML = playerTurn.name;
+          document.querySelector('.jail-popup .player-name').style.color = playerTurn.color;
+          document.querySelector('.jail-popup .options .roll').classList.add('active-btn-roll');
+          document.querySelector('.jail-popup .options .end-turn-jail').classList.add('end-turn-active');
+          document.querySelector('.jail-popup .pay').classList.add('active-btn-pay');
+          document.querySelector('.jail-popup .options .move').classList.add('hidden');
+          document.querySelector('.jail-popup .options .roll').innerHTML = `Roll a double`;
         }
 
         function addEndTurn() {
+          document.querySelector('.jail-popup').classList.remove('active-jail-menu');
           document.querySelector('.player-properties .end-turn').classList.add('active-btn');
           document.querySelector('.player-properties .end-turn').onclick = () => {
             document.querySelector('.player-properties .remove-build img').classList.remove('toggle-build-active');
             deleteAddHousesIcon();
             document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
             playersTurn();
+            if(playerTurn.isInJail){
+              jail();
+              return;
+            }
+            document.querySelector('.jail-popup').classList.remove('active-jail-menu');
             rollDiesBtn.addEventListener("click", rollDiceEvent);
             rollPopupToggle();
             rollDiesBtn.innerHTML = "Roll";
@@ -1879,15 +2105,19 @@ function getOnCard() {
             deleteAddHousesIcon();
             document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
             playersTurn();
+            if(playerTurn.isInJail){
+              jail();
+              return;
+            }
             rollDiesBtn.addEventListener("click", rollDiceEvent);
             rollPopupToggle();
             rollDiesBtn.innerHTML = "Roll";
-            dice1.innerHTML = '';
-            dice2.innerHTML = '';
+            document.querySelector('.dice1').innerHTML = '';
+            document.querySelector('.dice2').innerHTML = '';
             rollDiesBtn.addEventListener('click', () => {
               popupRoll.classList.add('active');
             });
-        
+            
             verifyIfPlayerHaveSetOfCards(key);
           }
 
@@ -1911,6 +2141,10 @@ function getOnCard() {
               deleteAddHousesIcon();
               document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
               playersTurn();
+              if(playerTurn.isInJail){
+                jail();
+                return;
+              }
               rollDiesBtn.addEventListener("click", rollDiceEvent);
               rollPopupToggle();
               rollDiesBtn.innerHTML = "Roll";
@@ -1986,6 +2220,10 @@ function getOnCard() {
               stationCardPopup.classList.remove('active');
               document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
               playersTurn();
+              if(playerTurn.isInJail){
+                jail();
+                return;
+              }
               rollDiesBtn.addEventListener("click", rollDiceEvent);
               rollPopupToggle();
               rollDiesBtn.innerHTML = "Roll";
@@ -2007,6 +2245,10 @@ function getOnCard() {
             deleteAddHousesIcon();
             document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
             playersTurn();
+            if(playerTurn.isInJail){
+              jail();
+              return;
+            }
             rollDiesBtn.addEventListener("click", rollDiceEvent);
             rollPopupToggle();
             rollDiesBtn.innerHTML = "Roll";
@@ -2018,17 +2260,411 @@ function getOnCard() {
 
             verifyIfPlayerHaveSetOfCards(key);
           }
-
+          //getRandomNumber(0, randomMissions.length - 1)
+          let randomNr = getRandomNumber(0, randomMissions.length - 1);
           document.querySelector('.random-card-popup__inner .name').innerHTML = `<h1>${cardsInfo[key].name}</h1>`;
-          document.querySelector('.random-card-popup__inner .mission').innerHTML = `<h4>${randomMissions[getRandomNumber(0, randomMissions.length - 1)]}</h4>`;
+          document.querySelector('.random-card-popup__inner .mission').innerHTML = `<h4>${randomMissions[randomNr]}</h4>`;
           document.querySelector('.random-card-popup').classList.add('active');
           rollBtnOpen.removeEventListener("click", rollPopupToggle);
           popupRoll.classList.remove('active');
 
           document.querySelector('.random-card-popup button').onclick = () => {
+            switch(randomMissions[randomNr]){
+              case 'You inherit $100': {
+                playerTurn.money += 100;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'You have won second prize in a beauty contest. Collect $10':{
+                playerTurn.money += 10;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'You are assessed for street repair. $40 per house. $115 per hotel': {
+                let payMoney = 0;
+                playerTurn.cards.forEach(card => {
+                  if(cardsInfo[card].el.querySelector('.card-color') !== null){
+                    if(cardsInfo[card].el.querySelector('.card-color').children !== null){
+                      const childrenArr = Array.from(cardsInfo[card].el.querySelector('.card-color').children);
+                      
+                      childrenArr.forEach(img => {
+                        if(img.classList.contains('house')){
+                          payMoney += 40;
+                        }
+                        if(img.classList.contains('hotel')){
+                          payMoney += 115;
+                        }
+                      });
+                    }
+                  }
+                });
+                if(playerTurn.money - payMoney >= 0){
+                  playerTurn.money -= payMoney;
+                  playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                } else {
+                  alert(`You dont have $${payMoney} to pay.`);
+                  return;
+                }
+                break;
+              }
+              case 'Make general repairs on all your property. For each house pay $25. For each hotel pay $100': {
+                let payMoney = 0;
+                playerTurn.cards.forEach(card => {
+                  if(cardsInfo[card].el.querySelector('.card-color') !== null){
+                    if(cardsInfo[card].el.querySelector('.card-color').children !== null){
+                      const childrenArr = Array.from(cardsInfo[card].el.querySelector('.card-color').children);
+                      
+                      childrenArr.forEach(img => {
+                        if(img.classList.contains('house')){
+                          payMoney += 25;
+                        }
+                        if(img.classList.contains('hotel')){
+                          payMoney += 100;
+                        }
+                      });
+                    }
+                  }
+                });
+                if(playerTurn.money - payMoney >= 0){
+                  playerTurn.money -= payMoney;
+                  playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                } else {
+                  alert(`You dont have $${payMoney} to pay.`);
+                  return;
+                }
+                break;
+              }
+              case 'Receive $25 consultancy fee': {
+                playerTurn.money += 25;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'Pay school fees of $50': {
+                if(playerTurn.money - 50 >= 0){
+                  playerTurn.money -= 50;
+                  playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                } else {
+                  alert(`You dont have $50 to pay.`);
+                  return;
+                }
+                break;
+              }
+              case 'Pay hospital fees of $100': {
+                if(playerTurn.money - 100 >= 0){
+                  playerTurn.money -= 100;
+                  playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                } else {
+                  alert(`You dont have $50 to pay.`);
+                  return;
+                }
+                break;
+              }
+              case 'Life insurance matures. Collect $100': {
+                playerTurn.money += 100;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;  
+              }
+              case 'It is your birthday. Collect $10 from every player': {
+                let collectMoney = 0;
+                
+                verifyPlayers(yoneInfo, player1Info, player2Info, player3Info);
+                verifyPlayers(player1Info, yoneInfo, player2Info, player3Info);
+                verifyPlayers(player2Info, player1Info, yoneInfo, player3Info);
+                verifyPlayers(player3Info, player1Info, player2Info, yoneInfo);
+
+                function verifyPlayers(currentPlayer, player1, player2, player3){
+                  switch(playerTurn){
+                    case currentPlayer: {
+                      if(!player1.isBankrupt){
+                        collectMoney += 10;
+                      }
+                      if(!player2.isBankrupt){
+                        collectMoney += 10;
+                      }
+                      if(!player3.isBankrupt){
+                        collectMoney += 10;
+                      }
+                      break;
+                    }
+                  }
+                }
+
+                playerTurn.money += collectMoney;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'Income tax refund. Collect $20': {
+                playerTurn.money += 20;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'Holiday fund matures. Receive $100': {
+                playerTurn.money += 100;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'From sale of stock you get $50': {
+                playerTurn.money += 50;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'The fee of doctor. Pay $50': {
+                if(playerTurn.money - 50 >= 0){
+                  playerTurn.money -= 50;
+                  playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                } else {
+                  alert(`You dont have $50 to pay.`);
+                  return;
+                }
+                break;
+              }
+              case 'Bank error in your favor. Collect $200': {
+                playerTurn.money += 200;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'Advance to Go (Collect $200)': {
+                if(playerTurn == yoneInfo){
+                  playerTurn.left = 710;
+                  playerTurn.top = 710;
+                  document.querySelector('.players-icons-for-play .player-yone').style.left = `710px`;
+                  document.querySelector('.players-icons-for-play .player-yone').style.top = `710px`;
+                }
+                if(playerTurn == player1Info){
+                  playerTurn.left = 750;
+                  playerTurn.top = 710;
+                  document.querySelector('.players-icons-for-play .player-1').style.left = `750px`;
+                  document.querySelector('.players-icons-for-play .player-1').style.top = `710px`;
+                }
+                if(playerTurn == player2Info){
+                  playerTurn.left = 750;
+                  playerTurn.top = 750;
+                  document.querySelector('.players-icons-for-play .player-2').style.left = `750px`;
+                  document.querySelector('.players-icons-for-play .player-2').style.top = `750px`;
+                }
+                if(playerTurn == player3Info){
+                  playerTurn.left = 710;
+                  playerTurn.top = 750;
+                  document.querySelector('.players-icons-for-play .player-3').style.left = `710px`;
+                  document.querySelector('.players-icons-for-play .player-3').style.top = `750px`;
+                }
+
+                playerTurn.money += 200;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'Collect $10 from the bank': {
+                playerTurn.money += 10;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'Pay $50 to each player': {
+                const players = [yoneInfo, player1Info, player2Info, player3Info];
+                let counter = 0;
+                players.forEach(player => {
+                  if(!player['isBankrupt']){
+                    counter++;
+                  }
+                });
+
+                if(playerTurn.money - ((counter - 1) * 50) >= 0){
+                  playerTurn.money -= ((counter - 1) * 50);
+                  playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+
+                  addMoney(yoneInfo, player1Info, player1Money, player2Info, player2Money, player3Info, player3Money);
+                  addMoney(player1Info, yoneInfo, yoneMoney, player2Info, player2Money, player3Info, player3Money);
+                  addMoney(player2Info, player1Info, player1Money, yoneInfo, yoneMoney, player3Info, player3Money);
+                  addMoney(player3Info, player1Info, player1Money, player2Info, player2Money, yoneInfo, yoneMoney);
+                } else {
+                  alert(`You dont have $${((counter - 1) * 50)} to pay.`);
+                  return;
+                }
+
+                function addMoney(currentPlayer, player1, player1HTML, player2, player2HTML,  player3, player3HTML){
+                  switch(playerTurn){
+                    case currentPlayer: {
+                      if(!player1.isBankrupt){
+                        player1.money += 50;
+                        player1HTML.innerHTML = `$${player1.money}`;
+                      }
+                      if(!player2.isBankrupt){
+                        player2.money += 50;
+                        player2HTML.innerHTML = `$${player2.money}`;
+                      }
+                      if(!player3.isBankrupt){
+                        player3.money += 50;
+                        player3HTML.innerHTML = `$${player3.money}`;
+                      }
+                    }
+                  }
+                }
+                break;
+              }
+              case 'Your building loan matures. Collect $150': {
+                playerTurn.money += 150;
+                playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+                break;
+              }
+              case 'Go to Jail.': {
+                alert(`Ups. Player ${playerTurn.name} is going in the jail.`);
+
+                document.querySelector('.player-properties .end-turn').classList.add('active-btn');
+                playerTurn.isInJail = true;
+                playerTurn.counterJail = 2;
+
+                switch (playerTurn.name) {
+                  case yoneInfo.name: {
+                    yoneInfo.left = 17;
+                    yoneInfo.top = 710;
+                    document.querySelector('.players-icons-for-play .player-yone').style.left = `17px`;
+                    document.querySelector('.players-icons-for-play .player-yone').style.top = `710px`;
+                    break;
+                  }
+                  case player1Info.name: {
+                    player1Info.left = 44;
+                    player1Info.top = 710;
+                    document.querySelector('.players-icons-for-play .player-1').style.left = `44px`;
+                    document.querySelector('.players-icons-for-play .player-1').style.top = `710px`;
+                    break;
+                  }
+                  case player2Info.name: {
+                    player2Info.left = 44;
+                    player2Info.top = 750;
+                    document.querySelector('.players-icons-for-play .player-2').style.left = `44px`;
+                    document.querySelector('.players-icons-for-play .player-2').style.top = `750px`;
+                    break;
+                  }
+                  case player3Info.name: {
+                    player3Info.left = 17;
+                    player3Info.top = 750;
+                    document.querySelector('.players-icons-for-play .player-3').style.left = `17px`;
+                    document.querySelector('.players-icons-for-play .player-3').style.top = `750px`;
+                    break;
+                  }
+                }
+                break;
+              }
+              case 'Advance to Stark Family. If the card is bought you wont pay taxes else if it isnt bought you wont be able to buy it.': {
+                switch(playerTurn){
+                  case yoneInfo: {
+                    goToCard(17, 366);
+                    break;
+                  }
+                  case player1Info: {
+                    goToCard(44, 366);
+                    break;
+                  }
+                  case player2Info: {
+                    goToCard(44, 398);
+                    break;
+                  }
+                  case player3Info: {
+                    goToCard(17, 398);
+                    break;
+                  }
+                }
+                break;
+              }
+              case 'Advance to Dragon Home. If the card is bought you wont pay taxes else if it isnt bought you wont be able to buy it.': {
+                switch(playerTurn){
+                  case yoneInfo: {
+                    goToCard(17, 102);
+                    break;
+                  }
+                  case player1Info: {
+                    goToCard(44, 102);
+                    break;
+                  }
+                  case player2Info: {
+                    goToCard(44, 134);
+                    break;
+                  }
+                  case player3Info: {
+                    goToCard(17, 134);
+                    break;
+                  }
+                }
+                break;
+              }
+              case "King's Landing Station. If the card is bought you wont pay taxes else if it isnt bought you wont be able to buy it.": {
+                switch(playerTurn){
+                  case yoneInfo: {
+                    goToCard(571, 17);
+                    break;
+                  }
+                  case player1Info: {
+                    goToCard(598, 17);
+                    break;
+                  }
+                  case player2Info: {
+                    goToCard(598, 49);
+                    break;
+                  }
+                  case player3Info: {
+                    goToCard(571, 49);
+                    break;
+                  }
+                }
+                break;
+              }
+              case 'Advance to The Arbor. If the card is bought you wont pay taxes else if it isnt bought you wont be able to buy it.': {
+                switch(playerTurn){
+                  case yoneInfo: {
+                    goToCard(723, 102);
+                    break;
+                  }
+                  case player1Info: {
+                    goToCard(750, 102);
+                    break;
+                  }
+                  case player2Info: {
+                    goToCard(750, 127);
+                    break;
+                  }
+                  case player3Info: {
+                    goToCard(723, 127);
+                    break;
+                  }
+                }
+                break;
+              }
+            }
             document.querySelector('.player-properties .end-turn').classList.add('active-btn');
             document.querySelector('.random-card-popup').classList.remove('active');
           };
+        }
+
+        function goToCard(coord1, coord2){
+          switch (playerTurn.name) {
+            case yoneInfo.name: {
+              yoneInfo.left = coord1;
+              yoneInfo.top = coord2;
+              document.querySelector('.players-icons-for-play .player-yone').style.left = `${coord1}px`;
+              document.querySelector('.players-icons-for-play .player-yone').style.top = `${coord2}px`;
+              break;
+            }
+            case player1Info.name: {
+              player1Info.left = coord1;
+              player1Info.top = coord2;
+              document.querySelector('.players-icons-for-play .player-1').style.left = `${coord1}px`;
+              document.querySelector('.players-icons-for-play .player-1').style.top = `${coord2}px`;
+              break;
+            }
+            case player2Info.name: {
+              player2Info.left = coord1;
+              player2Info.top = coord2;
+              document.querySelector('.players-icons-for-play .player-2').style.left = `${coord1}px`;
+              document.querySelector('.players-icons-for-play .player-2').style.top = `${coord2}px`;
+              break;
+            }
+            case player3Info.name: {
+              player3Info.left = coord1;
+              player3Info.top = coord2;
+              document.querySelector('.players-icons-for-play .player-3').style.left = `${coord1}px`;
+              document.querySelector('.players-icons-for-play .player-3').style.top = `${coord2}px`;
+              break;
+            }
+          }
         }
 
         if (key === 'card150Top' || key === 'card150Left') {
@@ -2046,6 +2682,10 @@ function getOnCard() {
               deleteAddHousesIcon();
               document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
               playersTurn();
+              if(playerTurn.isInJail){
+                jail();
+                return;
+              }
               rollDiesBtn.addEventListener("click", rollDiceEvent);
               rollPopupToggle();
               rollDiesBtn.innerHTML = "Roll";
@@ -2121,6 +2761,10 @@ function getOnCard() {
               document.querySelector('.stations-150-popup').classList.remove('active');
               document.querySelector('.player-properties .end-turn').classList.remove('active-btn');
               playersTurn();
+              if(playerTurn.isInJail){
+                jail();
+                return;
+              }
               rollDiesBtn.addEventListener("click", rollDiceEvent);
               rollPopupToggle();
               rollDiesBtn.innerHTML = "Roll";
@@ -3478,10 +4122,8 @@ document.querySelector('.deal-popup .decision .decline').addEventListener('click
 
 function exchangeCards(pushToPlayer, arrayOfCards, popToPlayer){
   if(arrayOfCards.length){
-    arrayOfCards.forEach(card => {
-      popToPlayer.cards.shift();
-      pushToPlayer.cards.push(card);
-    });  
+    pushToPlayer.cards = pushToPlayer.cards.concat(arrayOfCards);
+    popToPlayer.cards = popToPlayer.cards.filter(value => !arrayOfCards.includes(value));
   }
 
   if(pushToPlayer.cards.length){

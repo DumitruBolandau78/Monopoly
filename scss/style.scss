@@ -811,6 +811,27 @@ body {
         gap: 30px;
     }
 
+    .hidden {
+        display: none;
+    }
+
+    .options {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .end-turn-jail, .pay, .roll {
+        display: none;
+    }
+    .end-turn-active, .active-btn-pay, .active-btn-roll {
+        display: flex;
+    }
+
+    .player-name {
+        margin: 7px 0;
+    }
+
     .jail-name {
         font-size: 20px;
         font-weight: bold;

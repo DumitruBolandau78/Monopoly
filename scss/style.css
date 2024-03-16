@@ -716,6 +716,23 @@ body {
   margin: 40px 0;
   gap: 30px;
 }
+.jail-popup .hidden {
+  display: none;
+}
+.jail-popup .options {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.jail-popup .end-turn-jail, .jail-popup .pay, .jail-popup .roll {
+  display: none;
+}
+.jail-popup .end-turn-active, .jail-popup .active-btn-pay, .jail-popup .active-btn-roll {
+  display: flex;
+}
+.jail-popup .player-name {
+  margin: 7px 0;
+}
 .jail-popup .jail-name {
   font-size: 20px;
   font-weight: bold;

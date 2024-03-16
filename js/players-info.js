@@ -2,12 +2,13 @@ const yoneInfo = {
   name: 'Yone',
   left: 710,
   top: 710,
-  money: 100,
-  cards: ['brownCard2', 'orangeCard1', 'lightBlueCard1', 'stark'],
+  money: 1000,
+  cards: ['lightBlueCard1'],
   color: '#900',
   isHavingSetOfCards: false,
   isInJail: false,
-  counterJail: 0
+  counterJail: 0,
+  isBankrupt: false
 };
 
 const player1Info = {
@@ -15,11 +16,12 @@ const player1Info = {
   left: 750,
   top: 710,
   money: 1000,
-  cards: ['orangeCard2'],
+  cards: ['orangeCard2', 'brownCard1', 'brownCard2'],
   color: 'blue',
   isHavingSetOfCards: false,
   isInJail: false,
-  counterJail: 0
+  counterJail: 0,
+  isBankrupt: true
 };
 
 const player2Info = {
@@ -31,7 +33,8 @@ const player2Info = {
   color: 'green',
   isHavingSetOfCards: false,
   isInJail: false,
-  counterJail: 0
+  counterJail: 0,
+  isBankrupt: true
 };
 
 const player3Info = {
@@ -43,7 +46,8 @@ const player3Info = {
   color: 'rgb(138, 3, 138)',
   isHavingSetOfCards: false,
   isInJail: false,
-  counterJail: 0
+  counterJail: 0,
+  isBankrupt: false
 };
 
 export {

@@ -561,15 +561,21 @@
     <!-- active-jail-menu -->
     <div class="jail-popup">
         <div class="jail-name">You are in the JAIL</div>
+        <h2 class="player-name"></h2>
         <div class="jail-info">You have to be 3 turns in the jail after you will be free. Remained to be in jail <span>3</span> times. Also to be free you can pay $50 to the police or get a double from rolling the "DEVIL'S BONES".</div>
         <div class="devil-bones">
             <div class="dice dice1"></div>
             <div class="dice dice2"></div>
         </div>
         <div class="options">
-            <button class="end-turn-jail">End Turn</button>
-            <button class="roll">Roll a double</button>
-            <button class="pay">Pay $50</button>
+            <!-- active-btn-roll -->
+            <button class="end-turn-jail end-turn-active">End Turn</button> 
+            <!-- hidden -->
+            <button class="move hidden">Move</button>
+            <!-- active-btn-roll -->
+            <button class="roll active-btn-roll">Roll a double</button>
+            <!-- active-btn-pay -->
+            <button class="pay active-btn-pay">Pay $50</button>
         </div>
     </div>
     <script type="module" src="./js/index.js"></script>
