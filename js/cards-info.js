@@ -711,7 +711,7 @@ const cardsInfo = {
         hotel: 250,
         houseCost: 50,
         color: 'rgb(110, 59, 0)',
-        isBought: true,
+        isBought: false,
         id: 'brown',
         removeHouse: 45,
         isMortgaged: false

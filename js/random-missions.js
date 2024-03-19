@@ -14,7 +14,7 @@ const randomMissions = [
     'From sale of stock you get $50',
     'Holiday fund matures. Receive $100',
     'Income tax refund. Collect $20',
-    'It is your birthday. Collect $10 from every player',
+    'It is your birthday. Collect $10 for each player',
     'Life insurance matures. Collect $100',
     'Pay hospital fees of $100',
     'Pay school fees of $50',
