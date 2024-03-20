@@ -28,7 +28,8 @@ const cardsInfo = {
         color: '#900', //red
         isBought: false,
         removeHouse: 135,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     topValar: {
         el: document.querySelector('.random-card.valar'),
@@ -59,7 +60,8 @@ const cardsInfo = {
         color: '#900', //red
         isBought: false,
         removeHouse: 135,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     redCard3: {
         el: document.querySelector('.oldtown'),
@@ -82,7 +84,8 @@ const cardsInfo = {
         color: '#900', //red
         isBought: false,
         removeHouse: 135,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     targaryen: {
         el: document.querySelector('.targaryen-family'),
@@ -100,7 +103,8 @@ const cardsInfo = {
         stations4: 200,
         isBought: false,
         color: 'black',
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'family-card'
     },
     yellowCard1: {
         el: document.querySelector('.dreadfort'),
@@ -123,7 +127,8 @@ const cardsInfo = {
         color: 'yellow',
         isBought: false,
         removeHouse: 135,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     yellowCard2: {
         el: document.querySelector('.the-twins'),
@@ -146,7 +151,8 @@ const cardsInfo = {
         color: 'yellow',
         isBought: false,
         removeHouse: 135,
-        isMortgaged: false  
+        isMortgaged: false,
+        type: 'normal-card' 
     },
     card150Top: {
         el: document.querySelector('.king-landing-station'),
@@ -162,7 +168,8 @@ const cardsInfo = {
         unmortgage: 85,
         isBought: false,
         color: 'black',
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'special-station'
     },
     yellowCard3: {
         el: document.querySelector('.dragonstone'),
@@ -185,7 +192,8 @@ const cardsInfo = {
         color: 'yellow',
         isBought: false,
         removeHouse: 135,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
 
 
@@ -224,7 +232,8 @@ const cardsInfo = {
         color: 'orangered',
         isBought: false,
         removeHouse: 85,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     orangeCard2: {
         el: document.querySelector('.lannisport'),
@@ -247,7 +256,8 @@ const cardsInfo = {
         color: 'orangered',
         isBought: false,
         removeHouse: 85,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     leftIron: {
         el: document.querySelector('.random-card.iron-throne'),
@@ -278,7 +288,8 @@ const cardsInfo = {
         color: 'orangered',
         isBought: false,
         removeHouse: 85,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     stark: {
         el: document.querySelector('.stark-family'),
@@ -296,7 +307,8 @@ const cardsInfo = {
         stations4: 200,
         isBought: false,
         color: 'black',
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'family-card'
     },
     pinkCard1: {
         el: document.querySelector('.storm-end'),
@@ -319,7 +331,8 @@ const cardsInfo = {
         color: 'palevioletred',
         isBought: false,
         removeHouse: 85,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     pinkCard2: {
         el: document.querySelector('.the-red-keep'),
@@ -342,7 +355,8 @@ const cardsInfo = {
         color: 'palevioletred',
         isBought: false,
         removeHouse: 85,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     card150Left: {
         el: document.querySelector('.castle-black-station'),
@@ -358,7 +372,8 @@ const cardsInfo = {
         unmortgage: 85,
         isBought: false,
         color: 'black',
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'special-station'
     },
     pinkCard3: {
         el: document.querySelector('.dragonstone-soul'),
@@ -381,7 +396,8 @@ const cardsInfo = {
         color: 'palevioletred',
         isBought: false,
         removeHouse: 85,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
 
 
@@ -410,7 +426,8 @@ const cardsInfo = {
         color: 'green',
         isBought: false,
         removeHouse: 175,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     greenCard2: {
         el: document.querySelector('.yronwood'),
@@ -433,7 +450,8 @@ const cardsInfo = {
         color: 'green',
         isBought: false,
         removeHouse: 175,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     rightIron: {
         el: document.querySelector('.random-card.iron-throne'),
@@ -464,7 +482,8 @@ const cardsInfo = {
         color: 'green',
         isBought: false,
         removeHouse: 175,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     baratheon: {
         el: document.querySelector('.baratheon-family'),
@@ -482,7 +501,8 @@ const cardsInfo = {
         stations4: 200,
         isBought: false,
         color: 'black',
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'family-card'
     },
     rightValar: {
         el: document.querySelector('.random-card.valar'),
@@ -513,7 +533,8 @@ const cardsInfo = {
         color: 'rgb(11, 11, 182)',
         isBought: false,
         removeHouse: 175,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     pay100: {
         el: document.querySelector('.pay-100'),
@@ -543,7 +564,8 @@ const cardsInfo = {
         color: 'rgb(11, 11, 182)',
         isBought: false,
         removeHouse: 175,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
 
 
@@ -579,7 +601,8 @@ const cardsInfo = {
         color: 'rgb(13, 164, 214)',
         isBought: false,
         removeHouse: 45,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     lightBlueCard2: {
         el: document.querySelector('.greywater-watch'),
@@ -602,7 +625,8 @@ const cardsInfo = {
         color: 'rgb(13, 164, 214)',
         isBought: false,
         removeHouse: 45,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     bottomValar: {
         el: document.querySelector('.random-card.valar'),
@@ -633,7 +657,8 @@ const cardsInfo = {
         color: 'rgb(13, 164, 214)',
         isBought: false,
         removeHouse: 45,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     lannister: {
         el: document.querySelector('.lannister-family'),
@@ -651,7 +676,8 @@ const cardsInfo = {
         stations4: 200,
         isBought: false,
         color: 'black',
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'family-card'
     },
     pay200: {
         el: document.querySelector('.pay-200'),
@@ -682,7 +708,8 @@ const cardsInfo = {
         isBought: false,
         id: 'brown',
         removeHouse: 45,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     bottomIron: {
         el: document.querySelector('.random-card.iron-throne'),
@@ -714,7 +741,8 @@ const cardsInfo = {
         isBought: false,
         id: 'brown',
         removeHouse: 45,
-        isMortgaged: false
+        isMortgaged: false,
+        type: 'normal-card'
     },
     go: {
         el: document.querySelector('.go'),

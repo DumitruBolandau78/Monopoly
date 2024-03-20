@@ -282,7 +282,7 @@ function moveDice() {
       popupRoll.classList.remove('active');
     });
     getOnCard();
-  }, 4 * 500);
+  }, (firstRandomNr + secondRandomNr) * 500);
   ///(firstRandomNr + secondRandomNr)
 }
 
@@ -5040,3 +5040,180 @@ function getRandomNumber(min, max) {
   randomNumber = Math.floor(Math.random() * max) + min;
   return randomNumber;
 }
+
+let isPlay = false;
+document.querySelector('.music-icon svg').addEventListener('click', () => {
+  if(isPlay){
+    isPlay = false;
+    document.querySelector('.music-icon audio').pause();
+  } else {
+    isPlay = true;
+    document.querySelector('.music-icon audio').play();
+  }
+});
+
+document.querySelector('.player-properties .d-grid .info svg').addEventListener('click', () => {
+  document.querySelector('.info-game-popup').classList.add('active-info-popup');
+  let html = '';
+  document.querySelector('.info-game-popup .cards').innerHTML = '';
+  for (const key in cardsInfo) {
+    if (cardsInfo[key].type !== undefined) {
+      if (cardsInfo[key].type === 'normal-card') {
+        html = `<div class="normal-card">
+                  <div class="inner-card">
+                      <div class="card-title ${key}">${cardsInfo[key].name}</div>
+                      <div class="card-price">
+                          <span>Purchase Price</span>
+                          <span class="value">$${cardsInfo[key].price}</span>
+                      </div>
+                      <div class="card-value">
+                          <span>Mortgage Value</span>
+                          <span class="value">$${cardsInfo[key].mortgage}</span>
+                      </div>
+                      <div class="card-value">
+                          <span>Unmortgage Value</span>
+                          <span class="value">$${cardsInfo[key].unmortgage}</span>
+                      </div>
+                      <br>
+                      <div class="rent">
+                          <span>Rent</span>
+                          <span class="value">$${cardsInfo[key].rent}</span>
+                      </div>
+                      <div class="rent-color">
+                          <span>Rent with colour set</span>
+                          <span class="value">$${cardsInfo[key].rentColorSet}</span>
+                      </div>
+                      <div class="house-1">
+                          <span>Rent with 1 house</span>
+                          <span class="value">$${cardsInfo[key].home1}</span>
+                      </div>
+                      <div class="house-2">
+                          <span>Rent with 2 houses</span>
+                          <span class="value">$${cardsInfo[key].home2}</span>
+                      </div>
+                      <div class="house-3">
+                          <span>Rent with 3 houses</span>
+                          <span class="value">$${cardsInfo[key].home3}</span>
+                      </div>
+                      <div class="house-4">
+                          <span>Rent with 4 houses</span>
+                          <span class="value">$${cardsInfo[key].home4}</span>
+                      </div>
+                      <div class="hotel">
+                          <span>Rent with 1 hotel</span>
+                          <span class="value">$${cardsInfo[key].hotel}</span>
+                      </div>
+                      <br>
+                      <div class="houses-cost">
+                          <span>Houses cost</span>
+                          <span class="value">$${cardsInfo[key].houseCost}</span>
+                      </div>
+                      <div class="bought">
+                          <span>Is bought</span>
+                          <span class="value">${cardsInfo[key].isBought}</span>
+                      </div>
+                      <div class="mortgaged">
+                          <span>Is mortgaged</span>
+                          <span class="value">${cardsInfo[key].isMortgaged}</span>
+                      </div>
+                  </div>
+                </div>`;
+      } else if (cardsInfo[key].type === 'family-card') {
+        html = `<div class="family-card">
+                    <div class="inner-card">
+                        <div class="card-title ${key}">
+                          ${cardsInfo[key].name}
+                        </div>
+                        <div class="card-price">
+                            <span>Purchase Price</span>
+                            <span class="value">$${cardsInfo[key].price}</span>
+                        </div>
+                        <div class="card-value">
+                            <span>Mortgage Value</span>
+                            <span class="value">$${cardsInfo[key].mortgage}</span>
+                        </div>
+                        <br>
+                        <div class="rent-1">
+                            <span>Rent</span>
+                            <span class="value">$${cardsInfo[key].rent}</span>
+                        </div>
+                        <div class="rent-2">
+                            <span>If 2 stations are owned</span>
+                            <span class="value">$${cardsInfo[key].stations2}</span>
+                        </div>
+                        <div class="rent-3">
+                            <span>If 3 stations are owned</span>
+                            <span class="value">$${cardsInfo[key].stations3}</span>
+                        </div>
+                        <div class="rent-4">
+                            <span>If 4 stations are owned</span>
+                            <span class="value">$${cardsInfo[key].stations4}</span>
+                        </div>
+                        <br>
+                        <div class="bought">
+                            <span>Is bought</span>
+                            <span class="value">${cardsInfo[key].isBought}</span>
+                        </div>
+                        <div class="mortgaged">
+                            <span>Is mortgaged</span>
+                            <span class="value">${cardsInfo[key].isMortgaged}</span>
+                        </div>
+                      </div>
+                  </div>`;
+      } else if(cardsInfo[key].type === 'special-station'){
+        html = `<div class="special-station">
+                  <div class="inner-card">
+                      <div class="card-title ${key}">
+                        ${cardsInfo[key].name}
+                      </div>
+                      <div class="card-price">
+                          <span>Purchase Price</span>
+                          <span class="value">$${cardsInfo[key].price}</span>
+                      </div>
+                      <div class="card-value">
+                          <span>Mortgage Value</span>
+                          <span class="value">$${cardsInfo[key].mortgage}</span>
+                      </div>
+                      <br>
+                      <div class="rent-1">
+                          <span>If one Station is owned, rent is 4 times amount shown on dice.</span>
+                      </div>
+                      <div class="rent-2">
+                          <span>If both Stations are owned, rent is 10 times amount shown on dice.</span>
+                      </div>
+                      <br>
+                      <div class="bought">
+                          <span>Is bought</span>
+                          <span class="value">${cardsInfo[key].isBought}</span>
+                      </div>
+                      <div class="mortgaged">
+                          <span>Is mortgaged</span>
+                          <span class="value">${cardsInfo[key].isMortgaged}</span>
+                      </div>
+                  </div>
+              </div>`;
+      } else {
+        return;
+      }
+
+      document.querySelector('.info-game-popup .cards').innerHTML += html;
+
+      if (document.querySelector(`.normal-card .${key}`) !== null) {
+        document.querySelector(`.normal-card .${key}`).style.backgroundColor = cardsInfo[key].color;
+        document.querySelector(`.normal-card .${key}`).style.color = '#fff';
+      }
+      if (document.querySelector(`.family-card .${key}`) !== null) {
+        document.querySelector(`.family-card .${key}`).style.backgroundColor = cardsInfo[key].color;
+        document.querySelector(`.family-card .${key}`).style.color = '#fff';
+      }
+      if (document.querySelector(`.special-station .${key}`) !== null) {
+        document.querySelector(`.special-station .${key}`).style.backgroundColor = cardsInfo[key].color;
+        document.querySelector(`.special-station .${key}`).style.color = '#fff';
+      }
+    }
+  }
+});
+
+document.querySelector('.info-game-popup .close').addEventListener('click', () => {
+  document.querySelector('.info-game-popup').classList.remove('active-info-popup');
+});

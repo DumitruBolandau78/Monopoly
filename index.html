@@ -17,10 +17,19 @@
     <div class="game">
         <div class="player-properties">
             <div class="d-grid">
-                <div class="deal">
+                <div class="background-music">
+                    <div class="music-icon" style="display: grid; place-items: center;">
+                        <audio controls loop autoplay style="display: none;" src="./audio/music-background.mp3"></audio>
+                        <svg style="cursor: pointer; background-color: #fff; border-radius: 50px; padding: 10px;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="85" height="85" x="0" y="0" viewBox="0 0 512.937 512.937" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M147.764 9.52c-3.761 13.6-13.926 36.957-40.654 49.257-1.698.782-1.698 3.194 0 3.976 26.729 12.3 36.893 35.657 40.654 49.257.596 2.154 3.633 2.154 4.228 0 3.761-13.6 13.926-36.957 40.654-49.257 1.698-.782 1.698-3.194 0-3.976-26.729-12.3-36.893-35.657-40.654-49.257-.595-2.154-3.632-2.154-4.228 0z" style="" fill="#6ce79a" data-original="#6ce79a"></path><path d="M192.649 62.752c-9.66 4.44-17.15 10.32-22.95 16.67-20.4-10.62-31.07-27.38-36.59-40.86 8.25-10.27 12.5-21.26 14.66-29.04.59-2.16 3.63-2.16 4.22 0 3.76 13.6 13.93 36.96 40.66 49.26 1.7.78 1.7 3.19 0 3.97z" style="" fill="#00d8a2" data-original="#00d8a2"></path><path d="M364.737 369.231c-3.713 13.144-13.539 35.231-38.874 47.008-1.739.808-1.739 3.269 0 4.077 25.336 11.778 35.161 33.864 38.874 47.009.613 2.168 3.711 2.168 4.323 0 3.713-13.144 13.539-35.231 38.874-47.009 1.739-.808 1.739-3.269 0-4.077-25.336-11.778-35.161-33.864-38.874-47.008-.612-2.169-3.711-2.169-4.323 0z" style="" fill="#6ce79a" data-original="#6ce79a"></path><path d="M407.939 420.314c-8.51 3.96-15.27 9.08-20.63 14.63-19.31-10.73-29.6-26.96-35.02-40.14 6.79-9.13 10.48-18.61 12.45-25.57.61-2.17 3.71-2.17 4.32 0 3.71 13.14 13.54 35.23 38.88 47.01 1.73.8 1.73 3.26 0 4.07z" style="" fill="#00d8a2" data-original="#00d8a2"></path><path d="M268.398 441.212c-2.747 8.711-9.286 21.883-24.561 29.391a2.022 2.022 0 0 0 0 3.642c15.274 7.508 21.814 20.68 24.561 29.391.587 1.861 3.249 1.861 3.836 0 2.747-8.711 9.286-21.883 24.561-29.391a2.022 2.022 0 0 0 0-3.642c-15.274-7.508-21.814-20.68-24.561-29.391-.587-1.861-3.249-1.861-3.836 0z" style="" fill="#6ce79a" data-original="#6ce79a"></path><path d="M296.799 474.248c-5.44 2.68-9.78 6.07-13.21 9.72a1.92 1.92 0 0 0-.57-.42c-13.29-6.53-19.96-17.34-23.27-25.78 4.53-5.75 7.15-11.81 8.65-16.56.59-1.86 3.25-1.86 3.84 0 2.74 8.72 9.28 21.89 24.56 29.4 1.52.75 1.52 2.89 0 3.64z" style="" fill="#00d8a2" data-original="#00d8a2"></path><path d="m205.889 158.638-95.374 13.963a16.56 16.56 0 0 0-14.161 16.385v187.158c-8.935-4.855-19.237-7.513-30.182-7.247-31.393.762-57.231 26.058-58.612 57.43-1.513 34.342 25.776 62.681 59.735 62.887 33.535.203 60.541-27.618 60.541-61.153V233.155a8.164 8.164 0 0 1 6.981-8.078l64.43-9.432c9.182-1.344 15.988-9.22 15.988-18.499v-30.431c0-4.979-4.419-8.798-9.346-8.077z" style="" fill="#ffe270" data-original="#ffe270"></path><path d="m118.902 227.489 13.836-1.816a8.15 8.15 0 0 0-4.901 7.48v194.909c0 33.532-27.011 61.358-60.543 61.152a59.995 59.995 0 0 1-7.625-.526c29.58-3.972 52.258-29.91 52.258-60.626V235.557c0-4.044 2.972-7.49 6.975-8.068zM215.236 166.717v30.426c0 9.275-6.81 17.158-15.992 18.499l-33.109 4.848c6.005-3.147 12.425-10.342 12.425-17.46v-33.82c0-2.744-1.792-4.537-3.824-6.013l31.152-4.558c4.932-.723 9.348 3.095 9.348 8.078z" style="" fill="#ffd250" data-original="#ffd250"></path><path d="M257.906 90.139v187.936c-8.934-4.855-19.236-7.513-30.18-7.247-31.392.761-57.23 26.054-58.614 57.425-1.515 34.344 25.773 62.685 59.733 62.892 33.535.204 60.543-27.617 60.543-61.153V134.308a8.164 8.164 0 0 1 6.981-8.078l168.24-24.63c4.927-.721 9.346 3.098 9.346 8.078v128.103c-8.933-4.854-19.233-7.512-30.175-7.248-31.391.758-57.231 26.048-58.619 57.418-1.519 34.345 25.769 62.69 59.731 62.899 33.536.206 60.545-27.616 60.545-61.153V58.749c0-10.101-8.964-17.848-18.959-16.385l-214.411 31.39a16.559 16.559 0 0 0-14.161 16.385z" style="" fill="#dd98ea" data-original="#dd98ea"></path><path d="M505.433 58.749V289.7c0 33.532-27.001 61.358-60.543 61.152a59.132 59.132 0 0 1-7.686-.537c29.57-3.993 52.217-29.911 52.217-60.615V58.749c0-6.995-4.292-12.856-10.245-15.311l7.305-1.073c9.997-1.465 18.952 6.284 18.952 16.384z" style="" fill="#d181e5" data-original="#d181e5"></path><path d="M147.764 9.52c-3.761 13.6-13.926 36.957-40.654 49.257-1.698.782-1.698 3.194 0 3.976 26.729 12.3 36.893 35.657 40.654 49.257.596 2.154 3.633 2.154 4.228 0 3.761-13.6 13.926-36.957 40.654-49.257 1.698-.782 1.698-3.194 0-3.976-26.729-12.3-36.893-35.657-40.654-49.257-.595-2.154-3.632-2.154-4.228 0zM364.737 369.231c-3.713 13.144-13.539 35.231-38.874 47.008-1.739.808-1.739 3.269 0 4.077 25.336 11.778 35.161 33.864 38.874 47.009.613 2.168 3.711 2.168 4.323 0 3.713-13.144 13.539-35.231 38.874-47.009 1.739-.808 1.739-3.269 0-4.077-25.336-11.778-35.161-33.864-38.874-47.008-.612-2.169-3.711-2.169-4.323 0zM268.398 441.212c-2.747 8.711-9.286 21.883-24.561 29.391a2.022 2.022 0 0 0 0 3.642c15.274 7.508 21.814 20.68 24.561 29.391.587 1.861 3.249 1.861 3.836 0 2.747-8.711 9.286-21.883 24.561-29.391a2.022 2.022 0 0 0 0-3.642c-15.274-7.508-21.814-20.68-24.561-29.391-.587-1.861-3.249-1.861-3.836 0z" style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"></path><path d="M403.035 54.58 272.067 73.754a16.56 16.56 0 0 0-14.161 16.385v187.936c-8.934-4.855-19.236-7.513-30.18-7.247-31.392.761-57.23 26.054-58.614 57.425-1.515 34.344 25.773 62.685 59.733 62.892 33.535.204 60.543-27.617 60.543-61.153V134.308a8.164 8.164 0 0 1 6.981-8.078l168.24-24.63c4.927-.721 9.346 3.098 9.346 8.078v128.103c-8.933-4.854-19.233-7.512-30.175-7.248-31.391.758-57.231 26.048-58.619 57.418-1.519 34.345 25.769 62.69 59.731 62.899 33.536.206 60.545-27.616 60.545-61.153V58.749c0-10.101-8.964-17.848-18.959-16.385l-48.545 7.107" style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"></path><path d="M17.338 396.181c-5.754 8.749-9.29 19.069-9.778 30.146-1.513 34.342 25.776 62.681 59.735 62.887 33.535.203 60.541-27.618 60.541-61.153V233.155a8.164 8.164 0 0 1 6.981-8.078l64.43-9.432c9.182-1.344 15.988-9.22 15.988-18.499v-30.431c0-4.979-4.419-8.799-9.346-8.078L110.515 172.6a16.56 16.56 0 0 0-14.161 16.385v187.158c-8.935-4.855-19.237-7.513-30.182-7.247a59.44 59.44 0 0 0-22.612 5.06" style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"></path></g></svg>
+                    </div>
+                </div>
+                <div class="info" style="display: grid; place-items: center; cursor: pointer;">
+                    <svg style="cursor: pointer; background-color: #fff; border-radius: 50px; padding: 10px;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="85" height="85" x="0" y="0" viewBox="0 0 40.124 40.124" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M19.938 12.141c1.856 0 2.971.99 2.971 2.66 0 3.033-5.414 3.869-5.414 7.55 0 .99.648 2.072 1.979 2.072 2.042 0 1.795-1.516 2.538-2.6.989-1.453 5.6-3 5.6-7.023 0-4.361-3.897-6.188-7.858-6.188-3.773 0-7.24 2.692-7.24 5.725 0 1.237.929 1.887 2.012 1.887 2.999.001 1.453-4.083 5.412-4.083zM22.135 28.973c0-1.393-1.145-2.537-2.537-2.537s-2.537 1.146-2.537 2.537c0 1.393 1.145 2.537 2.537 2.537s2.537-1.144 2.537-2.537z" fill="#000000" opacity="1" data-original="#000000" class=""></path><path d="M40.124 20.062C40.124 9 31.124 0 20.062 0S0 9 0 20.062s9 20.062 20.062 20.062 20.062-8.999 20.062-20.062zM2 20.062C2 10.103 10.103 2 20.062 2c9.959 0 18.062 8.103 18.062 18.062 0 9.959-8.103 18.062-18.062 18.062C10.103 38.124 2 30.021 2 20.062z" fill="#000000" opacity="1" data-original="#000000" class=""></path></g></svg>
+                </div>
+                <div class="deal" style="display: grid; place-items: center; cursor: pointer;">
                     <img src="./images/deal.png" title="Make a deal" alt="deal icon">
                 </div>
-                <div class="mortgage">
+                <div class="mortgage" style="display: grid; place-items: center; cursor: pointer;">
                     <img src="./images/mortage.png" title="Mortgage a card" alt="Mortgage icon">
                 </div>
                 <!-- active-btns-build -->
@@ -31,7 +40,7 @@
                 <div class="remove-build">
                     <img src="./images/builds/remove-house.png" alt="remove house icon">
                 </div>
-                <h2 class="turn-player-name">Player Turn:<br> Yone</h2>
+                <h2 class="turn-player-name">Player Turn:<br> <span style="color: #900;">Yone</span></h2>
             </div>
             <div class="roll-btn">
                 <button>Roll</button>
@@ -588,6 +597,48 @@
                 <button class="btn end-the-game">Play Again</button>
             </div>
         </div>
+    </div>
+    <!-- active-info-popup -->
+    <div class="info-game-popup ">
+        <div class="inner">
+            <div class="rules">
+                <h2 class="title">How to Play</h2>
+                <ul>
+                    <h3>Starting the Game</h3>
+                    <li>Each player starts with a set amount of money ($1500) and receives two dice.</li>
+                    <h3>Turns</h3>
+                    <li>On your turn, roll both dice and move your token clockwise around the board the number of spaces indicated by the dice total.</li>
+                    <li>Depending on the space you land on, you may take different actions</li>
+                    <li>Property: If the space is unowned, you have the option to buy it. If you choose not to buy it or cannot afford it, the property goes up for auction.</li>
+                    <li>Valar Morghulis or The Iron Throne: Draw a card and follow the instructions.</li>
+                    <li>Jail: If you land on the "Go to Jail" space, draw a card or roll doubles on your next turn to get out of jail.</li>
+                    <li>Income Tax or Luxury Tax: Pay the specified amount to the bank.</li>
+                    <li>Free Parking: No action is taken.</li>
+                    <h3>Property Ownership</h3>
+                    <li>If you choose to buy a property, pay the listed purchase price to the bank and receive the property's deed.</li>
+                    <li>If you land on a property owned by another player, pay them the specified rent amount.</li>
+                    <li>If you own all the properties of a color group, you can collect higher rent from opponents who land on those properties.</li>
+                    <h3>Building Houses and Hotels</h3>
+                    <li>Once you own all properties in a color group, you can purchase houses and hotels to increase the rent.</li>
+                    <li>The cost of houses and hotels is listed on the property deeds.</li>
+                    <li>You must build houses evenly across all properties in a color group before purchasing hotels.</li>
+                    <h3>Trading and Auctions</h3>
+                    <li>Players can trade properties, money, and other assets with each other.</li>
+                    <li>If a player declines to buy an unowned property they land on, it goes up for auction, and players can bid to purchase it.</li>
+                    <h3>Bankruptcy and Game End</h3>
+                    <li>If a player cannot afford to pay rent, taxes, or other debts, they are declared bankrupt.</li>
+                    <li>The game continues until only one player remains solvent. That player is the winner.</li>
+                </ul>
+            </div>
+            <div class="cards-box">
+                <h2 class="title">Info about Cards</h2>
+                <div class="cards">
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <div class="close">X</div>
     </div>
     <script type="module" src="./js/index.js"></script>
 </body>

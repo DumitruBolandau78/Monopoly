@@ -93,7 +93,9 @@ body {
   display: none;
 }
 .game .player-properties .add-build.active-btns-build, .game .player-properties .remove-build.active-btns-build {
-  display: block;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 }
 .game .player-properties .add-build img, .game .player-properties .remove-build img {
   filter: grayscale(1);
@@ -793,4 +795,85 @@ body {
 }
 .popup-winner .inner .title span {
   text-transform: uppercase;
+}
+
+.info-game-popup {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1000000000000000000000000000000000;
+  background-color: #c1e4ec;
+  background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+}
+.info-game-popup.active-info-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.info-game-popup .close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  cursor: pointer;
+}
+.info-game-popup .inner {
+  max-width: 1200px;
+  width: 100%;
+}
+.info-game-popup .rules li {
+  font-size: 18px;
+  margin: 8px 0 8px 40px;
+}
+.info-game-popup .rules .title {
+  text-align: center;
+  font-size: 30px;
+}
+.info-game-popup .rules h3 {
+  font-size: 22px;
+}
+.info-game-popup .cards-box {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+.info-game-popup .cards-box .title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.info-game-popup .cards-box .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.info-game-popup .cards-box .cards .normal-card, .info-game-popup .cards-box .cards .family-card, .info-game-popup .cards-box .cards .special-station {
+  width: 100%;
+  border: 1px solid #000;
+}
+.info-game-popup .cards-box .cards .normal-card .card-title, .info-game-popup .cards-box .cards .family-card .card-title, .info-game-popup .cards-box .cards .special-station .card-title {
+  font-size: 25px;
+  padding: 30px;
+  border: 1px solid;
+  color: white;
+  text-align: center;
+}
+.info-game-popup .cards-box .cards .normal-card .card-price, .info-game-popup .cards-box .cards .normal-card .card-value, .info-game-popup .cards-box .cards .normal-card .rent, .info-game-popup .cards-box .cards .normal-card .rent-color, .info-game-popup .cards-box .cards .normal-card .house-1, .info-game-popup .cards-box .cards .normal-card .house-2, .info-game-popup .cards-box .cards .normal-card .house-3, .info-game-popup .cards-box .cards .normal-card .house-4, .info-game-popup .cards-box .cards .normal-card .hotel, .info-game-popup .cards-box .cards .normal-card .bought, .info-game-popup .cards-box .cards .normal-card .houses-cost, .info-game-popup .cards-box .cards .normal-card .mortgaged, .info-game-popup .cards-box .cards .normal-card .rent-1, .info-game-popup .cards-box .cards .normal-card .rent-2, .info-game-popup .cards-box .cards .normal-card .rent-3, .info-game-popup .cards-box .cards .normal-card .rent-4, .info-game-popup .cards-box .cards .family-card .card-price, .info-game-popup .cards-box .cards .family-card .card-value, .info-game-popup .cards-box .cards .family-card .rent, .info-game-popup .cards-box .cards .family-card .rent-color, .info-game-popup .cards-box .cards .family-card .house-1, .info-game-popup .cards-box .cards .family-card .house-2, .info-game-popup .cards-box .cards .family-card .house-3, .info-game-popup .cards-box .cards .family-card .house-4, .info-game-popup .cards-box .cards .family-card .hotel, .info-game-popup .cards-box .cards .family-card .bought, .info-game-popup .cards-box .cards .family-card .houses-cost, .info-game-popup .cards-box .cards .family-card .mortgaged, .info-game-popup .cards-box .cards .family-card .rent-1, .info-game-popup .cards-box .cards .family-card .rent-2, .info-game-popup .cards-box .cards .family-card .rent-3, .info-game-popup .cards-box .cards .family-card .rent-4, .info-game-popup .cards-box .cards .special-station .card-price, .info-game-popup .cards-box .cards .special-station .card-value, .info-game-popup .cards-box .cards .special-station .rent, .info-game-popup .cards-box .cards .special-station .rent-color, .info-game-popup .cards-box .cards .special-station .house-1, .info-game-popup .cards-box .cards .special-station .house-2, .info-game-popup .cards-box .cards .special-station .house-3, .info-game-popup .cards-box .cards .special-station .house-4, .info-game-popup .cards-box .cards .special-station .hotel, .info-game-popup .cards-box .cards .special-station .bought, .info-game-popup .cards-box .cards .special-station .houses-cost, .info-game-popup .cards-box .cards .special-station .mortgaged, .info-game-popup .cards-box .cards .special-station .rent-1, .info-game-popup .cards-box .cards .special-station .rent-2, .info-game-popup .cards-box .cards .special-station .rent-3, .info-game-popup .cards-box .cards .special-station .rent-4 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 7px 20px;
+}
+.info-game-popup .cards-box .cards .normal-card br, .info-game-popup .cards-box .cards .family-card br, .info-game-popup .cards-box .cards .special-station br {
+  display: block;
+  content: "";
+  height: 1px;
+  margin: 0 8px;
+  background-color: #303030;
 }/*# sourceMappingURL=style.css.map */
