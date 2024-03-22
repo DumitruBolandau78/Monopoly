@@ -19,7 +19,7 @@
 
 .popup-roll {
   display: none;
-  z-index: 100000000000000000;
+  z-index: 99999;
 }
 
 .dies {

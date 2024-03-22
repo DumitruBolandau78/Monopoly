@@ -544,12 +544,12 @@ const cardsInfo = {
         right: 800
     },
     blueCard2: {
-        el: document.querySelector('.casterly-rock'),
+        el: document.querySelector('.new-era'),
         left: 700,
         top: 100 + (normalCardWidth * 8),
         bottom: 100 + (normalCardWidth * 9),
         right: 800,
-        name: 'Casterly Rock',
+        name: 'New Era',
         price: 400,
         mortgage: 200,
         unmortgage: 220,
