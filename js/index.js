@@ -282,9 +282,11 @@ function moveDice() {
       popupRoll.classList.remove('active');
     });
     getOnCard();
-  }, 4 * 500);
+  }, (a == 3? a = 1 : a = 3) * 500);
   ///(firstRandomNr + secondRandomNr)
 }
+
+let a = 3;
 
 function stepOnRightCards() {
   if (playerTurn.top > cardsInfo['goJail'].top && playerTurn.top < cardsInfo['goJail'].bottom &&
@@ -454,6 +456,31 @@ document.querySelector('.player-properties .remove-build').onclick = () => {
   deleteAddHousesIcon();
   housesToggle = true;
 };
+
+function showPlayerHouses(){
+  for (const key in cardsInfo) {
+    if(cardsInfo[key].el !== undefined){
+      if(cardsInfo[key].el.querySelector('.card-color') !== null){
+        if(cardsInfo[key].el.querySelector('.card-color').innerHTML !== null){
+          Array.from(cardsInfo[key].el.querySelectorAll('.card-color img')).forEach(img => {
+            img.style.display = 'none !important';
+          });
+        }
+      }
+    }
+  }
+
+  playerTurn.cards.forEach(card => {
+    if(cardsInfo[card].el !== undefined){
+      if(cardsInfo[card].el.querySelector('.card-color').innerHTML !== null){
+        Array.from(cardsInfo[card].el.querySelectorAll('.card-color img')).forEach(img => {
+          img.style.display = 'block !important';
+        });
+      }
+    }
+  });
+  console.log('showPlayerHouses');
+}
 
 function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
   if (name3 !== undefined) {
@@ -1692,11 +1719,13 @@ function deleteAddHousesIcon() {
 
   addHousesIcons.forEach(img => {
     if (img.src === 'http://127.0.0.1:5500/images/builds/add-house-plus.webp') {
-      img.classList.add('disable');
-      img.classList.remove('enable');
+        img.classList.add('disable');
+        img.classList.remove('enable');
     }
   });
 }
+
+
 
 function getOnCard() {
   setTimeout(() => {
@@ -1792,6 +1821,7 @@ function getOnCard() {
           }
 
           if (cardsInfo[key].isBought) {
+            boughtCard = key;
             document.querySelector('.player-properties .end-turn').onclick = () => {
               document.querySelector('.buy-card-popup').classList.remove('active-card');
               document.querySelector('.player-properties .add-build img').classList.remove('toggle-build-active');
@@ -2314,6 +2344,7 @@ function getOnCard() {
             }
           }
           if (cardsInfo[key].isBought) {
+            boughtCard = key;
             document.querySelector('.stations-popup .buy-or-auction').style.display = 'none';
             document.querySelector('.player-properties .end-turn').classList.add('active-btn');
 
@@ -3024,6 +3055,7 @@ function getOnCard() {
           }
 
           if (cardsInfo[key].isBought) {
+            boughtCard = key;
             document.querySelector('.player-properties .end-turn').classList.add('active-btn');
             document.querySelector('.stations-150-popup .buy-or-auction').style.display = 'none';
 
@@ -4060,6 +4092,8 @@ function verifyColorSet3Cards(player, playerMoney, boughtCard, name1, name2, nam
   }
 }
 
+let boughtCard;
+
 function isBankruptFunc(totalSum){
   let payMoney = 0;
   playerTurn.cards.forEach(card => {
@@ -4091,17 +4125,50 @@ function isBankruptFunc(totalSum){
   sumMoney += payMoney;
 
   if(sumMoney < totalSum){
-    playerTurn.money = 0;
-    playerMoneyTurn.innerHTML = `$0`;
     playerTurn.isBankrupt = true;
     alert(`Player ${playerTurn.name} doesnt have enough money to pay. He is declared BANKRUPT. All his cards are transfered to the BANK.`);
 
     playerTurn.cards.forEach(card => {
-      cardsInfo[card].isMortgaged = false;
-      cardsInfo[card].isBought = false;
-      cardsInfo[card].el.style.color = '#000';
-      cardsInfo[card].el.querySelector('.card-name').innerHTML = cardsInfo[card].name;
+      if(yoneInfo.cards.includes(boughtCard)){
+        yoneInfo.cards.push(card);
+        cardsInfo[card].el.style.color = yoneInfo.color;
+        cardsInfo[card].el.style.fontWeight = 'bold';
+
+        yoneInfo.money += playerTurn.money;
+        yoneMoney.innerHTML = `$${yoneInfo.money}`;
+      }
+      
+      if(player1Info.cards.includes(boughtCard)){
+        player1Info.cards.push(card);
+        cardsInfo[card].el.style.color = player1Info.color;
+        cardsInfo[card].el.style.fontWeight = 'bold';
+        
+        player1Info.money += playerTurn.money;
+        player1Money.innerHTML = `$${player1Info.money}`;
+      }
+
+      if(player2Info.cards.includes(boughtCard)){
+        player2Info.cards.push(card);
+        cardsInfo[card].el.style.color = player2Info.color;
+        cardsInfo[card].el.style.fontWeight = 'bold';
+        
+        player2Info.money += playerTurn.money;
+        player2Money.innerHTML = `$${player2Info.money}`;
+      }
+
+      if(player3Info.cards.includes(boughtCard)){
+        player3Info.cards.push(card);
+        cardsInfo[card].el.style.color = player3Info.color;
+        cardsInfo[card].el.style.fontWeight = 'bold';
+        
+        player3Info.money += playerTurn.money;
+        player3Money.innerHTML = `$${player3Info.money}`;
+      }
     });
+
+    playerTurn.money = 0;
+    playerMoneyTurn.innerHTML = `$${playerTurn.money}`;
+
     document.querySelector('.player-properties .pay-btn').classList.remove('active-btn');
     document.querySelector('.player-properties .end-turn').classList.add('active-btn');
     addEndTurn();
