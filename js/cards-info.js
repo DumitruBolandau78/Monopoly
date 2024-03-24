@@ -599,7 +599,7 @@ const cardsInfo = {
         hotel: 600,
         houseCost: 50,
         color: 'rgb(13, 164, 214)',
-        isBought: true,
+        isBought: false,
         removeHouse: 45,
         isMortgaged: false,
         type: 'normal-card'
@@ -623,7 +623,7 @@ const cardsInfo = {
         hotel: 550,
         houseCost: 50,
         color: 'rgb(13, 164, 214)',
-        isBought: true,
+        isBought: false,
         removeHouse: 45,
         isMortgaged: false,
         type: 'normal-card'
@@ -655,7 +655,7 @@ const cardsInfo = {
         hotel: 550,
         houseCost: 50,
         color: 'rgb(13, 164, 214)',
-        isBought: true,
+        isBought: false,
         removeHouse: 45,
         isMortgaged: false,
         type: 'normal-card'
@@ -705,7 +705,7 @@ const cardsInfo = {
         hotel: 450,
         houseCost: 50,
         color: 'rgb(110, 59, 0)',
-        isBought: true,
+        isBought: false,
         id: 'brown',
         removeHouse: 45,
         isMortgaged: false,
