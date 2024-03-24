@@ -282,8 +282,9 @@ function moveDice() {
       popupRoll.classList.remove('active');
     });
     getOnCard();
-  }, (a == 3? a = 1 : a = 3) * 500);
+  }, (firstRandomNr + secondRandomNr) * 500);
   ///(firstRandomNr + secondRandomNr)
+  // (a == 3? a = 1 : a = 3)
 }
 
 let a = 3;
