@@ -458,31 +458,6 @@ document.querySelector('.player-properties .remove-build').onclick = () => {
   housesToggle = true;
 };
 
-function showPlayerHouses(){
-  for (const key in cardsInfo) {
-    if(cardsInfo[key].el !== undefined){
-      if(cardsInfo[key].el.querySelector('.card-color') !== null){
-        if(cardsInfo[key].el.querySelector('.card-color').innerHTML !== null){
-          Array.from(cardsInfo[key].el.querySelectorAll('.card-color img')).forEach(img => {
-            img.style.display = 'none !important';
-          });
-        }
-      }
-    }
-  }
-
-  playerTurn.cards.forEach(card => {
-    if(cardsInfo[card].el !== undefined){
-      if(cardsInfo[card].el.querySelector('.card-color').innerHTML !== null){
-        Array.from(cardsInfo[card].el.querySelectorAll('.card-color img')).forEach(img => {
-          img.style.display = 'block !important';
-        });
-      }
-    }
-  });
-  console.log('showPlayerHouses');
-}
-
 function verifyIfPlayerHaveSetOfCardsBody(name1, name2, name3) {
   if (name3 !== undefined) {
     if (playerTurn.cards.includes(name1) && playerTurn.cards.includes(name2) && playerTurn.cards.includes(name3)) {
@@ -4990,6 +4965,7 @@ document.querySelector('.deal-popup .close').addEventListener('click', () => {
 document.querySelector('.player-properties .mortgage img').addEventListener('click', () => {
   document.querySelector('.mortgage-popup').classList.add('active');
   document.querySelector('.mortgage-popup .player-name').innerHTML = playerTurn.name;
+  document.querySelector('.mortgage-popup .mortgage-cards-btn button').innerHTML = 'Mortgage Selected';
 
   const radio1 = document.querySelectorAll('.mortgage-popup label input')[0];
   const radio2 = document.querySelectorAll('.mortgage-popup label input')[1];
@@ -5031,6 +5007,7 @@ document.querySelector('.player-properties .mortgage img').addEventListener('cli
     });
     ownedCards(cardsForMortgage, document.querySelector('.mortgage-popup #mortgage-cards'));
     cardsForMortgage.cards = [];
+    document.querySelector('.mortgage-popup .mortgage-cards-btn button').innerHTML = 'Mortgage Selected';
   }
   
   radio2.onclick = () => {
@@ -5041,6 +5018,7 @@ document.querySelector('.player-properties .mortgage img').addEventListener('cli
     });
     ownedCards(cardsForUnmortgage, document.querySelector('.mortgage-popup #mortgage-cards'));
     cardsForUnmortgage.cards = [];
+    document.querySelector('.mortgage-popup .mortgage-cards-btn button').innerHTML = 'Unmortgage Selected';
   }
 });
 
